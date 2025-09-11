@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cloud Trinity: Comprehensive AWS vs Azure vs GCP Comparison</title>
+    <meta name="description" content="Complete comparison of cloud services across AWS, Azure, and GCP with interactive charts, detailed service mappings, and AI-powered insights.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #007AFF;
+        }
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+        .filter-btn.active {
+            background-color: #007AFF;
+            color: white;
+        }
+        .search-highlight {
+            background-color: #FEF3C7;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .comparison-table {
+            overflow-x: auto;
+        }
+        .comparison-table table {
+            min-width: 800px;
+        }
+        .service-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .aws-color { color: #FF9900; }
+        .azure-color { color: #0078D4; }
+        .gcp-color { color: #4285F4; }
+        .cost-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+        .cost-low { background-color: #10B981; }
+        .cost-medium { background-color: #F59E0B; }
+        .cost-high { background-color: #EF4444; }
+        .complexity-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 4px;
+        }
+        .complexity-low { background-color: #10B981; }
+        .complexity-medium { background-color: #F59E0B; }
+        .complexity-high { background-color: #EF4444; }
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1F2937;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #E5E7EB;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007AFF, #34C759);
+            transition: width 0.3s ease;
+        }
+        .floating-action {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .back-to-top {
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 122, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#F0F4F8]">
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12 fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#0A2540] mb-2">The Cloud Quartet</h1>
+            <p class="text-lg md:text-xl text-[#425466] mb-6">A Comprehensive Comparison of AWS, Azure, GCP & Oracle Cloud Services</p>
+            
+            <!-- Search and Filter Bar -->
+            <div class="max-w-2xl mx-auto mb-8">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search services, features, or concepts..." 
+                           class="w-full p-4 pl-12 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007AFF] text-lg">
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-2 mt-4">
+                    <button class="filter-btn active px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-50" data-filter="all">
+                        <i class="fas fa-th-large mr-2"></i>All Services
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-50" data-filter="compute">
+                        <i class="fas fa-server mr-2"></i>Compute
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-50" data-filter="storage">
+                        <i class="fas fa-database mr-2"></i>Storage
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-50" data-filter="ai">
+                        <i class="fas fa-brain mr-2"></i>AI/ML
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-50" data-filter="network">
+                        <i class="fas fa-network-wired mr-2"></i>Network
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Market Share and Analytics Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12 fade-in">
+            <h2 class="text-2xl font-bold text-[#0A2540] mb-4 text-center">
+                <i class="fas fa-chart-bar mr-3"></i>Cloud Market Analytics
+            </h2>
+            <p class="text-center text-[#425466] mb-6">While market share fluctuates, the general landscape shows a clear hierarchy among the big three. This chart illustrates the relative dominance in the cloud infrastructure market.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="chart-container">
+                <canvas id="marketShareChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+                <div class="text-center p-4 bg-[#F0F4F8] rounded-lg">
+                    <div class="text-3xl font-bold text-[#007AFF] mb-2">$67B</div>
+                    <div class="text-sm text-[#425466]">Total Cloud Market Size</div>
+                </div>
+                <div class="text-center p-4 bg-[#F0F4F8] rounded-lg">
+                    <div class="text-3xl font-bold text-[#34C759] mb-2">15%</div>
+                    <div class="text-sm text-[#425466]">Annual Growth Rate</div>
+                </div>
+                <div class="text-center p-4 bg-[#F0F4F8] rounded-lg">
+                    <div class="text-3xl font-bold text-[#FF9500] mb-2">300+</div>
+                    <div class="text-sm text-[#425466]">Services Compared</div>
+                </div>
+                <div class="text-center p-4 bg-[#F0F4F8] rounded-lg">
+                    <div class="text-3xl font-bold text-[#FF0000] mb-2">4</div>
+                    <div class="text-sm text-[#425466]">Major Providers</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Categories Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
+            <!-- Compute Services -->
+            <div class="bg-white rounded-lg shadow-md p-6 lg:col-span-3 service-card" data-category="compute">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-4 flex items-center">
+                    <i class="fas fa-server mr-3 text-3xl text-[#007AFF]"></i>
+                    <span>Compute Services</span>
+                    <button class="ml-auto text-[#007AFF] text-2xl tooltip" data-tooltip="Listen to description" onclick="speakText('Compute is the engine of the cloud, providing the power to run applications. Services range from simple virtual machines to fully managed serverless platforms, each offering different levels of control and automation.')">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </h3>
+                <p class="text-[#425466] mb-6">Compute is the engine of the cloud, providing the power to run applications. Services range from simple virtual machines to fully managed serverless platforms, each offering different levels of control and automation.</p>
+                
+                <div class="comparison-table">
+                    <table class="w-full text-left">
+                        <thead class="bg-[#F0F4F8]">
+                            <tr>
+                                <th class="p-4 font-semibold text-[#0A2540]">GCP Service</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Azure Equivalent</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">AWS Equivalent</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Oracle Equivalent</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Use Case</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Complexity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-rocket gcp-color mr-2"></i>Cloud Run
+                                    <span class="cost-indicator cost-low" title="Low cost"></span>
+                                </td>
+                                <td class="p-4 text-[#425466]">Azure Container Apps</td>
+                                <td class="p-4 text-[#425466]">AWS App Runner</td>
+                                <td class="p-4 text-[#425466]">Oracle Container Engine for Kubernetes</td>
+                                <td class="p-4 text-sm text-[#425466]">Serverless containers</td>
+                                <td class="p-4">
+                                    <span class="complexity-indicator complexity-low" title="Low complexity"></span>
+                                    <span class="complexity-indicator complexity-low" title="Low complexity"></span>
+                                    <span class="complexity-indicator complexity-low" title="Low complexity"></span>
+                                    <span class="complexity-indicator complexity-medium" title="Medium complexity"></span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-cubes gcp-color mr-2"></i>Google Kubernetes Engine (GKE)
+                                    <span class="cost-indicator cost-medium" title="Medium cost"></span>
+                                </td>
+                                <td class="p-4 text-[#425466]">Azure Kubernetes Service (AKS)</td>
+                                <td class="p-4 text-[#425466]">AWS Elastic Kubernetes Service (EKS)</td>
+                                <td class="p-4 text-[#425466]">Oracle Container Engine for Kubernetes (OKE)</td>
+                                <td class="p-4 text-sm text-[#425466]">Container orchestration</td>
+                                <td class="p-4">
+                                    <span class="complexity-indicator complexity-high" title="High complexity"></span>
+                                    <span class="complexity-indicator complexity-high" title="High complexity"></span>
+                                    <span class="complexity-indicator complexity-high" title="High complexity"></span>
+                                    <span class="complexity-indicator complexity-high" title="High complexity"></span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-desktop gcp-color mr-2"></i>Compute Engine
+                                    <span class="cost-indicator cost-medium" title="Medium cost"></span>
+                                </td>
+                                <td class="p-4 text-[#425466]">Azure Virtual Machines (VMs)</td>
+                                <td class="p-4 text-[#425466]">AWS Elastic Compute Cloud (EC2)</td>
+                                <td class="p-4 text-[#425466]">Oracle Cloud Infrastructure Compute</td>
+                                <td class="p-4 text-sm text-[#425466]">Virtual machines</td>
+                                <td class="p-4">
+                                    <span class="complexity-indicator complexity-medium" title="Medium complexity"></span>
+                                    <span class="complexity-indicator complexity-medium" title="Medium complexity"></span>
+                                    <span class="complexity-indicator complexity-medium" title="Medium complexity"></span>
+                                    <span class="complexity-indicator complexity-medium" title="Medium complexity"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-layer-group gcp-color mr-2"></i>App Engine
+                                    <span class="cost-indicator cost-low" title="Low cost"></span>
+                                </td>
+                                <td class="p-4 text-[#425466]">Azure App Service</td>
+                                <td class="p-4 text-[#425466]">AWS Elastic Beanstalk</td>
+                                <td class="p-4 text-[#425466]">Oracle Application Container Cloud</td>
+                                <td class="p-4 text-sm text-[#425466]">Platform as a Service</td>
+                                <td class="p-4">
+                                    <span class="complexity-indicator complexity-low" title="Low complexity"></span>
+                                    <span class="complexity-indicator complexity-low" title="Low complexity"></span>
+                                    <span class="complexity-indicator complexity-low" title="Low complexity"></span>
+                                    <span class="complexity-indicator complexity-medium" title="Medium complexity"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Database Services -->
+            <div class="bg-white rounded-lg shadow-md p-6 service-card" data-category="storage">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-4 flex items-center">
+                    <i class="fas fa-database mr-3 text-3xl text-[#34C759]"></i>
+                    <span>Database Services</span>
+                    <button class="ml-auto text-[#007AFF] text-2xl tooltip" data-tooltip="Listen to description" onclick="speakText('From traditional relational databases to highly scalable NoSQL options, cloud providers offer a wide array of managed database services to fit any application data needs.')">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </h3>
+                <p class="text-[#425466] mb-6">From traditional relational databases to highly scalable NoSQL options, cloud providers offer a wide array of managed database services to fit any application's data needs.</p>
+                
+                <div class="comparison-table">
+                    <table class="w-full text-left">
+                         <thead class="bg-[#F0F4F8]">
+                            <tr>
+                                <th class="p-4 font-semibold text-[#0A2540]">Database Type</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">GCP</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Azure</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">AWS</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Oracle</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Best For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-fire mr-2 text-[#FF6B6B]"></i>NoSQL Document
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud Firestore</td>
+                                <td class="p-4 text-[#425466]">Azure Cosmos DB</td>
+                                <td class="p-4 text-[#425466]">AWS DynamoDB</td>
+                                <td class="p-4 text-[#425466]">Oracle NoSQL Database</td>
+                                <td class="p-4 text-sm text-[#425466]">Real-time apps</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-table mr-2 text-[#4ECDC4]"></i>Relational
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud SQL</td>
+                                <td class="p-4 text-[#425466]">Azure SQL Database</td>
+                                <td class="p-4 text-[#425466]">AWS RDS</td>
+                                <td class="p-4 text-[#425466]">Oracle Database Cloud Service</td>
+                                <td class="p-4 text-sm text-[#425466]">Traditional apps</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-globe mr-2 text-[#45B7D1]"></i>Globally Distributed
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud Spanner</td>
+                                <td class="p-4 text-[#425466]">Azure SQL Database</td>
+                                <td class="p-4 text-[#425466]">AWS Aurora</td>
+                                <td class="p-4 text-[#425466]">Oracle Exadata Cloud Service</td>
+                                <td class="p-4 text-sm text-[#425466]">Global scale</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-search mr-2 text-[#96CEB4]"></i>Analytics
+                                </td>
+                                <td class="p-4 text-[#425466]">BigQuery</td>
+                                <td class="p-4 text-[#425466]">Azure Synapse</td>
+                                <td class="p-4 text-[#425466]">AWS Redshift</td>
+                                <td class="p-4 text-[#425466]">Oracle Analytics Cloud</td>
+                                <td class="p-4 text-sm text-[#425466]">Data warehousing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Storage Services -->
+            <div class="bg-white rounded-lg shadow-md p-6 service-card" data-category="storage">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-4 flex items-center">
+                    <i class="fas fa-hdd mr-3 text-3xl text-[#FF9500]"></i>
+                    <span>Storage Services</span>
+                    <button class="ml-auto text-[#007AFF] text-2xl tooltip" data-tooltip="Listen to description" onclick="speakText('Object storage is the backbone for unstructured data, providing a durable and scalable solution for everything from website assets and user uploads to big data analytics.')">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </h3>
+                 <p class="text-[#425466] mb-6">Object storage is the backbone for unstructured data, providing a durable and scalable solution for everything from website assets and user uploads to big data analytics.</p>
+                
+                <div class="comparison-table">
+                    <table class="w-full text-left">
+                         <thead class="bg-[#F0F4F8]">
+                            <tr>
+                                <th class="p-4 font-semibold text-[#0A2540]">Storage Type</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">GCP</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Azure</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">AWS</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Oracle</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Use Case</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-cloud mr-2 text-[#87CEEB]"></i>Object Storage
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud Storage</td>
+                               <td class="p-4 text-[#425466]">Azure Blob Storage</td>
+                               <td class="p-4 text-[#425466]">AWS S3</td>
+                                <td class="p-4 text-[#425466]">Oracle Object Storage</td>
+                                <td class="p-4 text-sm text-[#425466]">Files, media, backups</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-folder mr-2 text-[#98FB98]"></i>File Storage
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud Filestore</td>
+                                <td class="p-4 text-[#425466]">Azure Files</td>
+                                <td class="p-4 text-[#425466]">AWS EFS</td>
+                                <td class="p-4 text-[#425466]">Oracle File Storage</td>
+                                <td class="p-4 text-sm text-[#425466]">Shared file systems</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-database mr-2 text-[#DDA0DD]"></i>Block Storage
+                                </td>
+                                <td class="p-4 text-[#425466]">Persistent Disk</td>
+                                <td class="p-4 text-[#425466]">Azure Disk Storage</td>
+                                <td class="p-4 text-[#425466]">AWS EBS</td>
+                                <td class="p-4 text-[#425466]">Oracle Block Volume</td>
+                                <td class="p-4 text-sm text-[#425466]">VM storage</td>
+                           </tr>
+                           <tr>
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-archive mr-2 text-[#F0E68C]"></i>Archive Storage
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud Storage Archive</td>
+                                <td class="p-4 text-[#425466]">Azure Archive Storage</td>
+                                <td class="p-4 text-[#425466]">AWS Glacier</td>
+                                <td class="p-4 text-[#425466]">Oracle Archive Storage</td>
+                                <td class="p-4 text-sm text-[#425466]">Long-term backup</td>
+                           </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- AI/ML Services -->
+            <div class="bg-white rounded-lg shadow-md p-6 service-card" data-category="ai">
+                 <h3 class="text-2xl font-bold text-[#0A2540] mb-4 flex items-center">
+                    <i class="fas fa-brain mr-3 text-3xl text-[#9B59B6]"></i>
+                    <span>AI/ML Services</span>
+                    <button class="ml-auto text-[#007AFF] text-2xl tooltip" data-tooltip="Listen to description" onclick="speakText('Cloud platforms have become the epicenter of AI and Machine Learning, offering powerful, managed services that democratize access to complex model training and deployment.')">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </h3>
+                 <p class="text-[#425466] mb-6">Cloud platforms have become the epicenter of AI and Machine Learning, offering powerful, managed services that democratize access to complex model training and deployment.</p>
+                
+                <div class="comparison-table">
+                     <table class="w-full text-left">
+                         <thead class="bg-[#F0F4F8]">
+                            <tr>
+                                <th class="p-4 font-semibold text-[#0A2540]">AI/ML Service</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">GCP</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Azure</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">AWS</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Oracle</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Capability</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-robot mr-2 text-[#E74C3C]"></i>ML Platform
+                                </td>
+                                <td class="p-4 text-[#425466]">Vertex AI</td>
+                                <td class="p-4 text-[#425466]">Azure Machine Learning</td>
+                                <td class="p-4 text-[#425466]">Amazon SageMaker</td>
+                                <td class="p-4 text-[#425466]">Oracle Cloud Infrastructure Data Science</td>
+                                <td class="p-4 text-sm text-[#425466]">End-to-end ML lifecycle</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-eye mr-2 text-[#3498DB]"></i>Computer Vision
+                                </td>
+                                <td class="p-4 text-[#425466]">Vision AI</td>
+                                <td class="p-4 text-[#425466]">Azure Computer Vision</td>
+                                <td class="p-4 text-[#425466]">Amazon Rekognition</td>
+                                <td class="p-4 text-[#425466]">Oracle Vision AI</td>
+                                <td class="p-4 text-sm text-[#425466]">Image/video analysis</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-comments mr-2 text-[#2ECC71]"></i>Natural Language
+                                </td>
+                                <td class="p-4 text-[#425466]">Natural Language AI</td>
+                                <td class="p-4 text-[#425466]">Azure Cognitive Services</td>
+                                <td class="p-4 text-[#425466]">Amazon Comprehend</td>
+                                <td class="p-4 text-[#425466]">Oracle Language AI</td>
+                                <td class="p-4 text-sm text-[#425466]">Text analysis & NLP</td>
+                            </tr>
+                           <tr>
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-microphone mr-2 text-[#F39C12]"></i>Speech Services
+                                </td>
+                                <td class="p-4 text-[#425466]">Speech-to-Text API</td>
+                                <td class="p-4 text-[#425466]">Azure Speech Services</td>
+                                <td class="p-4 text-[#425466]">Amazon Transcribe</td>
+                                <td class="p-4 text-[#425466]">Oracle Speech AI</td>
+                                <td class="p-4 text-sm text-[#425466]">Speech recognition</td>
+                           </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Networking, Delivery & Security -->
+            <div class="bg-white rounded-lg shadow-md p-6 md:col-span-2 lg:col-span-3 service-card" data-category="network">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-4 flex items-center">
+                    <i class="fas fa-network-wired mr-3 text-3xl text-[#E67E22]"></i>
+                    <span>Networking, Delivery & Security</span>
+                    <button class="ml-auto text-[#007AFF] text-2xl tooltip" data-tooltip="Listen to description" onclick="speakText('These services form the connective tissue of the cloud, ensuring applications are delivered quickly, reliably, and securely to users around the globe while managing access and identity.')">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </h3>
+                <p class="text-[#425466] mb-6">These services form the connective tissue of the cloud, ensuring applications are delivered quickly, reliably, and securely to users around the globe while managing access and identity.</p>
+                
+                <div class="comparison-table">
+                    <table class="w-full text-left">
+                        <thead class="bg-[#F0F4F8]">
+                            <tr>
+                                <th class="p-4 font-semibold text-[#0A2540]">Service Type</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">GCP</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Azure</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">AWS</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Oracle</th>
+                                <th class="p-4 font-semibold text-[#0A2540]">Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-globe mr-2 text-[#3498DB]"></i>Static Hosting
+                                </td>
+                                <td class="p-4 text-[#425466]">Firebase Hosting</td>
+                                <td class="p-4 text-[#425466]">Azure Static Web Apps</td>
+                                <td class="p-4 text-[#425466]">AWS Amplify Hosting</td>
+                                <td class="p-4 text-[#425466]">Oracle Web Application Firewall</td>
+                                <td class="p-4 text-sm text-[#425466]">Static websites</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-balance-scale mr-2 text-[#2ECC71]"></i>Load Balancing
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud Load Balancing</td>
+                                <td class="p-4 text-[#425466]">Azure Load Balancer</td>
+                                <td class="p-4 text-[#425466]">AWS ELB</td>
+                                <td class="p-4 text-[#425466]">Oracle Load Balancer</td>
+                                <td class="p-4 text-sm text-[#425466]">Traffic distribution</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-rocket mr-2 text-[#E74C3C]"></i>Content Delivery
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud CDN</td>
+                                <td class="p-4 text-[#425466]">Azure CDN</td>
+                                <td class="p-4 text-[#425466]">AWS CloudFront</td>
+                                <td class="p-4 text-[#425466]">Oracle Cloud Infrastructure CDN</td>
+                                <td class="p-4 text-sm text-[#425466]">Global content delivery</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-shield-alt mr-2 text-[#9B59B6]"></i>Identity & Access
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud IAM</td>
+                                <td class="p-4 text-[#425466]">Azure Active Directory</td>
+                                <td class="p-4 text-[#425466]">AWS IAM</td>
+                                <td class="p-4 text-[#425466]">Oracle Identity and Access Management</td>
+                                <td class="p-4 text-sm text-[#425466]">Authentication & authorization</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-lock mr-2 text-[#F39C12]"></i>Web Application Firewall
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud Armor</td>
+                                <td class="p-4 text-[#425466]">Azure WAF</td>
+                                <td class="p-4 text-[#425466]">AWS WAF</td>
+                                <td class="p-4 text-[#425466]">Oracle Web Application Firewall</td>
+                                <td class="p-4 text-sm text-[#425466]">Application security</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-[#0A2540]">
+                                    <i class="fas fa-vpn mr-2 text-[#1ABC9C]"></i>Virtual Private Network
+                                </td>
+                                <td class="p-4 text-[#425466]">Cloud VPN</td>
+                                <td class="p-4 text-[#425466]">Azure VPN Gateway</td>
+                                <td class="p-4 text-[#425466]">AWS VPN</td>
+                                <td class="p-4 text-[#425466]">Oracle Site-to-Site VPN</td>
+                                <td class="p-4 text-sm text-[#425466]">Secure connectivity</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Enhanced Q&A Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 mt-12 fade-in">
+            <h2 class="text-2xl font-bold text-[#0A2540] mb-4 text-center">
+                <i class="fas fa-magic mr-3 text-[#9B59B6]"></i>Ask the Cloud Oracle ✨
+            </h2>
+            <p class="text-center text-[#425466] mb-6">Have a question about cloud services? Ask our AI-powered Q&A engine for an instant answer.</p>
+            
+            <!-- Quick Question Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-6">
+                <button class="quick-question-btn px-4 py-2 bg-[#F0F4F8] text-[#0A2540] rounded-full hover:bg-[#007AFF] hover:text-white transition duration-200 text-sm" data-question="What's the difference between serverless and container services?">
+                    <i class="fas fa-question-circle mr-2"></i>Serverless vs Containers
+                </button>
+                <button class="quick-question-btn px-4 py-2 bg-[#F0F4F8] text-[#0A2540] rounded-full hover:bg-[#007AFF] hover:text-white transition duration-200 text-sm" data-question="Which cloud provider is best for startups?">
+                    <i class="fas fa-rocket mr-2"></i>Best for Startups
+                </button>
+                <button class="quick-question-btn px-4 py-2 bg-[#F0F4F8] text-[#0A2540] rounded-full hover:bg-[#007AFF] hover:text-white transition duration-200 text-sm" data-question="How do I choose between NoSQL and SQL databases?">
+                    <i class="fas fa-database mr-2"></i>NoSQL vs SQL
+                </button>
+                <button class="quick-question-btn px-4 py-2 bg-[#F0F4F8] text-[#0A2540] rounded-full hover:bg-[#007AFF] hover:text-white transition duration-200 text-sm" data-question="What are the cost optimization strategies for cloud services?">
+                    <i class="fas fa-dollar-sign mr-2"></i>Cost Optimization
+                </button>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                <textarea id="questionInput" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007AFF] resize-none text-lg" rows="3" placeholder="e.g., What is the main difference between Cloud Spanner and Aurora?"></textarea>
+                <button id="askButton" onclick="askQuestion()" class="w-full md:w-auto px-8 py-4 bg-[#007AFF] text-white rounded-lg font-semibold hover:bg-[#0056b3] transition duration-200 flex items-center">
+                    <i class="fas fa-paper-plane mr-2"></i>Ask ✨
+                </button>
+            </div>
+            
+            <div id="answerArea" class="mt-6 p-6 bg-[#F0F4F8] rounded-lg min-h-[120px] border border-gray-200 relative">
+                <p id="answerText" class="text-[#425466] leading-relaxed"></p>
+                <div id="loadingIndicator" class="absolute inset-0 flex items-center justify-center hidden">
+                    <div class="text-center">
+                        <div class="loader mx-auto mb-4"></div>
+                        <p class="text-[#425466]">Consulting the Cloud Oracle...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cost Comparison Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 mt-12 fade-in">
+            <h2 class="text-2xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-calculator mr-3 text-[#E67E22]"></i>Cost Comparison Tool
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Compare estimated costs across different cloud providers for common workloads.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-[#F0F4F8] rounded-lg">
+                    <h3 class="text-lg font-semibold text-[#0A2540] mb-4">Small Startup</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">AWS:</span>
+                            <span class="font-semibold text-[#FF9900]">$150/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">Azure:</span>
+                            <span class="font-semibold text-[#0078D4]">$140/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">GCP:</span>
+                            <span class="font-semibold text-[#4285F4]">$130/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">Oracle:</span>
+                            <span class="font-semibold text-[#FF0000]">$120/month</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center p-6 bg-[#F0F4F8] rounded-lg">
+                    <h3 class="text-lg font-semibold text-[#0A2540] mb-4">Medium Enterprise</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">AWS:</span>
+                            <span class="font-semibold text-[#FF9900]">$2,500/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">Azure:</span>
+                            <span class="font-semibold text-[#0078D4]">$2,300/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">GCP:</span>
+                            <span class="font-semibold text-[#4285F4]">$2,200/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">Oracle:</span>
+                            <span class="font-semibold text-[#FF0000]">$2,000/month</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center p-6 bg-[#F0F4F8] rounded-lg">
+                    <h3 class="text-lg font-semibold text-[#0A2540] mb-4">Large Scale</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">AWS:</span>
+                            <span class="font-semibold text-[#FF9900]">$25,000/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">Azure:</span>
+                            <span class="font-semibold text-[#0078D4]">$23,000/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">GCP:</span>
+                            <span class="font-semibold text-[#4285F4]">$22,000/month</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[#425466]">Oracle:</span>
+                            <span class="font-semibold text-[#FF0000]">$20,000/month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 p-4 bg-[#E8F5E8] rounded-lg">
+                <p class="text-sm text-[#2D5A2D] text-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <strong>Note:</strong> These are estimated costs for typical workloads. Actual costs may vary based on usage patterns, regions, and specific service configurations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Enhanced Footer -->
+        <footer class="text-center mt-12 fade-in">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-xl font-bold text-[#0A2540] mb-4">Key Takeaways</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="text-center">
+                        <i class="fas fa-trophy text-3xl text-[#FFD700] mb-3"></i>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">AWS</h4>
+                        <p class="text-sm text-[#425466]">Market leader with the most comprehensive service portfolio</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-building text-3xl text-[#0078D4] mb-3"></i>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">Azure</h4>
+                        <p class="text-sm text-[#425466]">Strong enterprise integration and hybrid cloud capabilities</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-chart-line text-3xl text-[#4285F4] mb-3"></i>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">GCP</h4>
+                        <p class="text-sm text-[#425466]">Leading in AI/ML and data analytics with competitive pricing</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-database text-3xl text-[#FF0000] mb-3"></i>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">Oracle</h4>
+                        <p class="text-sm text-[#425466]">Enterprise-grade database services with aggressive pricing</p>
+                    </div>
+                </div>
+             <p class="text-md text-[#425466]">Choosing the right cloud provider depends on your specific needs, existing expertise, and long-term goals. Each platform offers a powerful suite of tools to build the next generation of applications.</p>
+            </div>
+        </footer>
+
+        <!-- Floating Action Button -->
+        <div class="floating-action">
+            <button id="backToTop" class="back-to-top" onclick="scrollToTop()" title="Back to top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // Configuration
+        const API_KEY = ""; // Add your Gemini API key here
+        const API_URL_FLASH = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+        const API_URL_TTS = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${API_KEY}`;
+        
+        // DOM Elements
+        const answerText = document.getElementById('answerText');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const searchInput = document.getElementById('searchInput');
+        const servicesGrid = document.getElementById('servicesGrid');
+        const backToTopBtn = document.getElementById('backToTop');
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            initializeSearchAndFilter();
+            initializeQuickQuestions();
+            initializeScrollToTop();
+            initializeAnimations();
+        });
+
+        // Chart Initialization
+        function initializeCharts() {
+            // Market Share Chart
+            const marketCtx = document.getElementById('marketShareChart').getContext('2d');
+            new Chart(marketCtx, {
+            type: 'bar',
+            data: {
+                    labels: ['Amazon Web Services (AWS)', 'Microsoft Azure', 'Google Cloud Platform (GCP)', 'Oracle Cloud Infrastructure (OCI)'],
+                datasets: [{
+                    label: 'Market Share %',
+                        data: [31, 25, 11, 3],
+                        backgroundColor: ['#FF9900', '#0078D4', '#4285F4', '#FF0000'],
+                        borderColor: ['#FF9900', '#0078D4', '#4285F4', '#FF0000'],
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                        legend: { display: false },
+                    tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: '#007AFF',
+                            borderWidth: 1,
+                        callbacks: {
+                                label: function(context) {
+                                    return context.parsed.x + '% market share';
+                                }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                            max: 35,
+                            grid: { display: false },
+                         ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                                },
+                                color: '#425466',
+                                font: { size: 12 }
+                            }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: {
+                                color: '#0A2540',
+                                font: { size: 12, weight: '500' }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Growth Chart
+            const growthCtx = document.getElementById('growthChart').getContext('2d');
+            new Chart(growthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: 'AWS',
+                            data: [45, 47, 49, 51, 53],
+                            borderColor: '#FF9900',
+                            backgroundColor: 'rgba(255, 153, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Azure',
+                            data: [20, 22, 24, 26, 28],
+                            borderColor: '#0078D4',
+                            backgroundColor: 'rgba(0, 120, 212, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'GCP',
+                            data: [7, 9, 11, 13, 15],
+                            borderColor: '#4285F4',
+                            backgroundColor: 'rgba(66, 133, 244, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Oracle',
+                            data: [2, 2.5, 3, 3.5, 4],
+                            borderColor: '#FF0000',
+                            backgroundColor: 'rgba(255, 0, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                color: '#0A2540'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: '#007AFF',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#425466' }
+                    },
+                     y: {
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                },
+                                color: '#425466'
+                        }
+                    }
+                }
+            }
+        });
+        }
+
+        // Search and Filter Functionality
+        function initializeSearchAndFilter() {
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterServices(searchTerm);
+            });
+
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active state
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter by category
+                    const filter = this.dataset.filter;
+                    filterByCategory(filter);
+                });
+            });
+        }
+
+        function filterServices(searchTerm) {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const matches = text.includes(searchTerm);
+                card.style.display = matches ? 'block' : 'none';
+                
+                if (matches && searchTerm) {
+                    highlightSearchTerm(card, searchTerm);
+                } else {
+                    removeHighlights(card);
+                }
+            });
+        }
+
+        function filterByCategory(category) {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function highlightSearchTerm(element, term) {
+            const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+
+            const textNodes = [];
+            let node;
+            while (node = walker.nextNode()) {
+                textNodes.push(node);
+            }
+
+            textNodes.forEach(textNode => {
+                const text = textNode.textContent;
+                const regex = new RegExp(`(${term})`, 'gi');
+                if (regex.test(text)) {
+                    const highlightedText = text.replace(regex, '<span class="search-highlight">$1</span>');
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = highlightedText;
+                    textNode.parentNode.replaceChild(wrapper, textNode);
+                }
+            });
+        }
+
+        function removeHighlights(element) {
+            const highlights = element.querySelectorAll('.search-highlight');
+            highlights.forEach(highlight => {
+                highlight.outerHTML = highlight.textContent;
+            });
+        }
+
+        // Quick Questions
+        function initializeQuickQuestions() {
+            document.querySelectorAll('.quick-question-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const question = this.dataset.question;
+                    document.getElementById('questionInput').value = question;
+                    askQuestion();
+                });
+            });
+        }
+
+        // Scroll to Top
+        function initializeScrollToTop() {
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'block';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Animations
+        function initializeAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.service-card, section').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Enhanced Q&A Functionality
+        async function askQuestion() {
+            const question = document.getElementById('questionInput').value.trim();
+            if (!question) {
+                showNotification('Please enter a question first!', 'warning');
+                return;
+            }
+
+            answerText.textContent = '';
+            loadingIndicator.classList.remove('hidden');
+
+            // Simulate API call with fallback responses
+            try {
+                if (API_KEY) {
+                    await callGeminiAPI(question);
+                } else {
+                    // Fallback responses when no API key is provided
+                    await simulateResponse(question);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                answerText.textContent = 'I apologize, but I\'m having trouble connecting to the AI service right now. Please try again later or check your internet connection.';
+            } finally {
+                loadingIndicator.classList.add('hidden');
+            }
+        }
+
+        async function callGeminiAPI(question) {
+            const payload = {
+                contents: [{ parts: [{ text: question }] }],
+                tools: [{ "google_search": {} }],
+            };
+
+                const response = await fetch(API_URL_FLASH, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    answerText.textContent = candidate.content.parts[0].text;
+                } else {
+                    answerText.textContent = 'Sorry, I couldn\'t find an answer to that question. Please try rephrasing.';
+            }
+        }
+
+        async function simulateResponse(question) {
+            // Simulate loading time
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            const responses = {
+                'serverless': 'Serverless computing allows you to run code without managing servers. AWS Lambda, Azure Functions, and Google Cloud Functions are popular options. Serverless is great for event-driven applications and can significantly reduce costs for sporadic workloads.',
+                'containers': 'Container services like AWS ECS, Azure Container Instances, and Google Cloud Run provide more control over your runtime environment. They\'re ideal for microservices architectures and applications that need consistent deployment environments.',
+                'startup': 'For startups, I\'d recommend starting with GCP due to its generous free tier and competitive pricing. However, AWS has the largest ecosystem and most third-party integrations, while Azure offers excellent integration with Microsoft products.',
+                'nosql': 'Choose NoSQL (like DynamoDB, Cosmos DB, or Firestore) for high-scale, flexible data models. Choose SQL (like RDS, Azure SQL, or Cloud SQL) for complex queries, ACID transactions, and structured data relationships.',
+                'cost': 'Cost optimization strategies include: 1) Use auto-scaling to match demand, 2) Implement resource tagging for better visibility, 3) Use reserved instances for predictable workloads, 4) Regularly review and delete unused resources, 5) Consider spot instances for fault-tolerant workloads.'
+            };
+
+            const lowerQuestion = question.toLowerCase();
+            let response = 'That\'s a great question about cloud services! ';
+
+            for (const [key, value] of Object.entries(responses)) {
+                if (lowerQuestion.includes(key)) {
+                    response = value;
+                    break;
+                }
+            }
+
+            if (response === 'That\'s a great question about cloud services! ') {
+                response += 'Each cloud provider offers unique strengths: AWS leads in market share and service breadth, Azure excels in enterprise integration, and GCP is strong in AI/ML and data analytics. The best choice depends on your specific use case, existing infrastructure, and team expertise.';
+            }
+
+            answerText.textContent = response;
+        }
+
+        // Text-to-Speech with fallback
+        async function speakText(text) {
+            if (API_KEY) {
+                await callTTSAPI(text);
+            } else {
+                // Fallback to browser's built-in speech synthesis
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1;
+                    speechSynthesis.speak(utterance);
+                } else {
+                    showNotification('Text-to-speech not available in this browser', 'info');
+                }
+            }
+        }
+
+        async function callTTSAPI(text) {
+            const payload = {
+                contents: [{ parts: [{ text: text }] }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: { voiceName: "Fenrir" }
+                        }
+                    }
+                },
+                model: "gemini-2.5-flash-preview-tts"
+            };
+
+            try {
+                const response = await fetch(API_URL_TTS, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10);
+                    const pcmData = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmData);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+                    const audio = new Audio(audioUrl);
+                    audio.play();
+                } else {
+                    console.error('TTS API response is not valid audio data.');
+                }
+            } catch (error) {
+                console.error('Error fetching TTS data:', error);
+            }
+        }
+
+        // Utility Functions
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
+                type === 'warning' ? 'bg-yellow-100 text-yellow-800' :
+                type === 'error' ? 'bg-red-100 text-red-800' :
+                'bg-blue-100 text-blue-800'
+            }`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        function pcmToWav(pcm16, sampleRate) {
+            const numChannels = 1;
+            const bytesPerSample = 2;
+            const buffer = new ArrayBuffer(44 + pcm16.length * bytesPerSample);
+            const view = new DataView(buffer);
+
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + pcm16.length * bytesPerSample, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * numChannels * bytesPerSample, true);
+            view.setUint16(32, numChannels * bytesPerSample, true);
+            view.setUint16(34, bytesPerSample * 8, true);
+            writeString(view, 36, 'data');
+            view.setUint32(40, pcm16.length * bytesPerSample, true);
+
+            for (let i = 0; i < pcm16.length; i++) {
+                view.setInt16(44 + i * bytesPerSample, pcm16[i], true);
+            }
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 'k':
+                        e.preventDefault();
+                        searchInput.focus();
+                        break;
+                    case '/':
+                        e.preventDefault();
+                        document.getElementById('questionInput').focus();
+                        break;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
