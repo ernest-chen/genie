@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps Mastery: The Complete Guide to Modern Software Delivery</title>
+    <meta name="description" content="Comprehensive DevSecOps methodology, tooling, and practices with interactive guides, modern recommendations, and best practices for AI/ML workflows.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .devops-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .devops-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #3B82F6;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pipeline-step {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .pipeline-step:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .pipeline-step::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #3B82F6;
+        }
+        .pipeline-step:last-child::after {
+            display: none;
+        }
+        .tool-category {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .principle-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 10px 0;
+        }
+        .search-highlight {
+            background-color: #FEF3C7;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .floating-action {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .back-to-top {
+            background: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#F0F4F8]">
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <!-- Navigation -->
+        <nav class="mb-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-[#007AFF] hover:text-[#0056b3] font-semibold flex items-center">
+                    <i class="fas fa-home mr-2"></i>Home
+                </a>
+                <div class="flex space-x-4">
+                    <a href="devops.html" class="text-[#007AFF] font-medium border-b-2 border-[#007AFF]">DevSecOps</a>
+                    <a href="public_clouds.html" class="text-[#425466] hover:text-[#007AFF] font-medium">Public Clouds</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Header -->
+        <header class="text-center mb-12 fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#0A2540] mb-4">DevSecOps Mastery</h1>
+            <p class="text-xl md:text-2xl text-[#425466] mb-6">The Complete Guide to Modern Software Delivery</p>
+            <p class="text-lg text-[#425466] max-w-4xl mx-auto">A comprehensive framework integrating development, operations, and security with modern practices for AI/ML workflows, data engineering, and continuous delivery.</p>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mt-8">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search DevSecOps concepts, tools, or practices..." 
+                           class="w-full p-4 pl-12 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007AFF] text-lg">
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- DevSecOps Overview -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-rocket mr-3 text-[#007AFF]"></i>DevSecOps Overview
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-[#F0F4F8] rounded-lg">
+                    <i class="fas fa-code text-4xl text-[#007AFF] mb-4"></i>
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-2">Development</h3>
+                    <p class="text-[#425466]">Agile practices, continuous integration, and automated testing</p>
+                </div>
+                <div class="text-center p-6 bg-[#F0F4F8] rounded-lg">
+                    <i class="fas fa-shield-alt text-4xl text-[#34C759] mb-4"></i>
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-2">Security</h3>
+                    <p class="text-[#425466]">Shift-left security, automated scanning, and compliance</p>
+                </div>
+                <div class="text-center p-6 bg-[#F0F4F8] rounded-lg">
+                    <i class="fas fa-cogs text-4xl text-[#FF9500] mb-4"></i>
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-2">Operations</h3>
+                    <p class="text-[#425466]">Infrastructure as code, monitoring, and continuous deployment</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Principles -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-lightbulb mr-3 text-[#FF9500]"></i>Core Principles & Culture
+            </h2>
+            <p class="text-center text-[#425466] mb-8">The foundation of successful DevSecOps implementation is a cultural shift. Without these principles, technology and processes are insufficient.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="principle-card">
+                    <i class="fas fa-sync-alt text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Continuous Improvement</h3>
+                    <p class="text-sm">Relentlessly seeking and implementing small, incremental changes to processes and systems. Driven by blameless post-mortems focusing on systemic failures, not individual blame.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <i class="fas fa-users text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Collaboration & Shared Responsibility</h3>
+                    <p class="text-sm">Breaking down traditional silos between development, operations, and security teams. All teams share ownership of the entire product lifecycle.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <i class="fas fa-robot text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Automation First</h3>
+                    <p class="text-sm">Automating every possible task to reduce manual effort, increase speed, and eliminate human error. If a process is repeatable, it should be automated.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <i class="fas fa-lock text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">DevSecOps Integration</h3>
+                    <p class="text-sm">Integrating security practices throughout the entire software development lifecycle. Security as a shared responsibility from the beginning, not an afterthought.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <i class="fas fa-chart-line text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Data-Driven Decisions</h3>
+                    <p class="text-sm">Using metrics and observability to make informed decisions about system performance, security posture, and delivery efficiency.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <i class="fas fa-globe text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Cloud-Native Thinking</h3>
+                    <p class="text-sm">Designing systems for cloud environments with microservices, containers, and serverless architectures for maximum scalability and resilience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodologies & Architectures -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-sitemap mr-3 text-[#9B59B6]"></i>Methodologies & Architectures
+            </h2>
+            <p class="text-center text-[#425466] mb-8">High-level strategies and design patterns that guide the DevSecOps approach.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-sprint mr-3 text-[#34C759]"></i>Agile Development
+                    </h3>
+                    <p class="text-[#425466] mb-4">An iterative and incremental approach emphasizing flexibility, collaboration, and continuous feedback.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Sprint-based development cycles</li>
+                        <li>• Daily standups and retrospectives</li>
+                        <li>• User story-driven development</li>
+                        <li>• Continuous stakeholder feedback</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-arrow-left mr-3 text-[#007AFF]"></i>Shift-Left
+                    </h3>
+                    <p class="text-[#425466] mb-4">Moving quality, testing, and security activities to earlier stages of the development lifecycle.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Early security testing</li>
+                        <li>• Unit and integration tests</li>
+                        <li>• Code quality gates</li>
+                        <li>• Performance testing in CI</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-code mr-3 text-[#9B59B6]"></i>Infrastructure as Code (IaC)
+                    </h3>
+                    <p class="text-[#425466] mb-4">Managing and provisioning infrastructure through code rather than manual processes.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Terraform, CloudFormation</li>
+                        <li>• GitOps workflows</li>
+                        <li>• Version-controlled infrastructure</li>
+                        <li>• Automated provisioning</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-cubes mr-3 text-[#FF9500]"></i>Microservices Architecture
+                    </h3>
+                    <p class="text-[#425466] mb-4">Breaking large applications into small, independent services built around specific business capabilities.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Service independence</li>
+                        <li>• API-first design</li>
+                        <li>• Containerized deployment</li>
+                        <li>• Distributed systems patterns</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-shield-alt mr-3 text-[#EF4444]"></i>Zero Trust
+                    </h3>
+                    <p class="text-[#425466] mb-4">A security model assuming no user or device should be trusted by default.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Never trust, always verify</li>
+                        <li>• Least privilege access</li>
+                        <li>• Continuous authentication</li>
+                        <li>• Network segmentation</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-expand-arrows-alt mr-3 text-[#1ABC9C]"></i>Auto Scaling
+                    </h3>
+                    <p class="text-[#425466] mb-4">Automatically adjusting computing resources based on demand for optimal performance and cost efficiency.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Horizontal pod autoscaling</li>
+                        <li>• Cluster autoscaling</li>
+                        <li>• Predictive scaling</li>
+                        <li>• Cost optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CI/CD Pipeline Visualization -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-project-diagram mr-3 text-[#1ABC9C]"></i>CI/CD Pipeline
+            </h2>
+            <p class="text-center text-[#425466] mb-8">The automated pipeline for building, testing, and deploying code changes with integrated security.</p>
+            
+            <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+                <div class="pipeline-step">
+                    <i class="fas fa-code-branch text-2xl mb-2"></i>
+                    <h4 class="font-semibold">Source Control</h4>
+                    <p class="text-sm opacity-90">Git, GitHub, GitLab</p>
+                </div>
+                
+                <div class="pipeline-step">
+                    <i class="fas fa-sync text-2xl mb-2"></i>
+                    <h4 class="font-semibold">Build</h4>
+                    <p class="text-sm opacity-90">Compile, Package</p>
+                </div>
+                
+                <div class="pipeline-step">
+                    <i class="fas fa-bug text-2xl mb-2"></i>
+                    <h4 class="font-semibold">Test</h4>
+                    <p class="text-sm opacity-90">Unit, Integration, E2E</p>
+                </div>
+                
+                <div class="pipeline-step">
+                    <i class="fas fa-shield-alt text-2xl mb-2"></i>
+                    <h4 class="font-semibold">Security Scan</h4>
+                    <p class="text-sm opacity-90">SAST, DAST, SCA</p>
+                </div>
+                
+                <div class="pipeline-step">
+                    <i class="fas fa-box text-2xl mb-2"></i>
+                    <h4 class="font-semibold">Package</h4>
+                    <p class="text-sm opacity-90">Docker, Artifacts</p>
+                </div>
+                
+                <div class="pipeline-step">
+                    <i class="fas fa-rocket text-2xl mb-2"></i>
+                    <h4 class="font-semibold">Deploy</h4>
+                    <p class="text-sm opacity-90">Staging, Production</p>
+                </div>
+                
+                <div class="pipeline-step">
+                    <i class="fas fa-chart-line text-2xl mb-2"></i>
+                    <h4 class="font-semibold">Monitor</h4>
+                    <p class="text-sm opacity-90">Metrics, Logs, Alerts</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tooling & Platforms -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-tools mr-3 text-[#FF9500]"></i>Tooling & Platforms
+            </h2>
+            <p class="text-center text-[#425466] mb-8">A robust DevSecOps toolchain automates the software delivery pipeline.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-code-branch mr-2"></i>Source Code Management
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Git (GitHub, GitLab, Bitbucket)</li>
+                        <li>• Branch protection rules</li>
+                        <li>• Pull request workflows</li>
+                        <li>• Code review automation</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-sync-alt mr-2"></i>CI/CD Platforms
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Jenkins, GitHub Actions</li>
+                        <li>• GitLab CI, Azure DevOps</li>
+                        <li>• CircleCI, Travis CI</li>
+                        <li>• Tekton, ArgoCD</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-cube mr-2"></i>Containerization
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Docker, Podman</li>
+                        <li>• Container registries</li>
+                        <li>• Image scanning</li>
+                        <li>• Multi-stage builds</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-ship mr-2"></i>Orchestration
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Kubernetes, OpenShift</li>
+                        <li>• Docker Swarm</li>
+                        <li>• Service mesh (Istio)</li>
+                        <li>• Helm charts</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-eye mr-2"></i>Observability
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Prometheus, Grafana</li>
+                        <li>• ELK Stack, Splunk</li>
+                        <li>• Jaeger, Zipkin</li>
+                        <li>• DataDog, New Relic</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>Security Tools
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• SAST: SonarQube, CodeQL</li>
+                        <li>• DAST: OWASP ZAP</li>
+                        <li>• SCA: Snyk, WhiteSource</li>
+                        <li>• Vault, AWS Secrets</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-flag mr-2"></i>Feature Management
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• LaunchDarkly, Split.io</li>
+                        <li>• Feature flags</li>
+                        <li>• A/B testing</li>
+                        <li>• Canary deployments</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-building mr-2"></i>Developer Hubs
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Backstage, Port</li>
+                        <li>• Developer portals</li>
+                        <li>• Service catalogs</li>
+                        <li>• Documentation hubs</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-category">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fas fa-cloud mr-2"></i>Infrastructure
+                    </h3>
+                    <ul class="text-sm space-y-1">
+                        <li>• Terraform, Pulumi</li>
+                        <li>• CloudFormation</li>
+                        <li>• Ansible, Chef</li>
+                        <li>• Crossplane</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- DataOps & Data Engineering -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-database mr-3 text-[#34C759]"></i>DataOps & Data Engineering
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Applying DevSecOps principles to data pipelines for high-quality, reliable data delivery.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-sync mr-3 text-[#34C759]"></i>DataOps Principles
+                    </h3>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• <strong>Collaboration:</strong> Cross-functional data teams</li>
+                        <li>• <strong>Automation:</strong> Automated data pipelines</li>
+                        <li>• <strong>Quality:</strong> Data validation and testing</li>
+                        <li>• <strong>Monitoring:</strong> Data lineage and observability</li>
+                        <li>• <strong>Versioning:</strong> Data and schema versioning</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-cogs mr-3 text-[#34C759]"></i>Modern Data Stack
+                    </h3>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• <strong>Storage:</strong> Data lakes, warehouses, lakehouses</li>
+                        <li>• <strong>Processing:</strong> Spark, DBT, Airflow</li>
+                        <li>• <strong>Orchestration:</strong> Dagster, Prefect</li>
+                        <li>• <strong>Quality:</strong> Great Expectations, Monte Carlo</li>
+                        <li>• <strong>Catalog:</strong> DataHub, Amundsen</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MLOps & AI/ML -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-brain mr-3 text-[#9B59B6]"></i>MLOps & AI/ML Practices
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Applying DevSecOps principles to machine learning lifecycle for reliable, scalable AI systems.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-code-branch mr-3 text-[#9B59B6]"></i>Model Versioning
+                    </h3>
+                    <p class="text-sm text-[#425466] mb-3">Treating ML models as versioned artifacts for reproducibility and rollbacks.</p>
+                    <ul class="text-xs text-[#425466] space-y-1">
+                        <li>• MLflow, DVC, Weights & Biases</li>
+                        <li>• Model registry and metadata</li>
+                        <li>• Experiment tracking</li>
+                        <li>• A/B testing frameworks</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-store mr-3 text-[#9B59B6]"></i>Feature Stores
+                    </h3>
+                    <p class="text-sm text-[#425466] mb-3">Centralized repository for managing and serving ML features consistently.</p>
+                    <ul class="text-xs text-[#425466] space-y-1">
+                        <li>• Feast, Tecton, Hopsworks</li>
+                        <li>• Feature engineering pipelines</li>
+                        <li>• Online/offline feature serving</li>
+                        <li>• Feature monitoring and validation</li>
+                    </ul>
+                </div>
+                
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-eye mr-3 text-[#9B59B6]"></i>Model Monitoring
+                    </h3>
+                    <p class="text-sm text-[#425466] mb-3">Continuous monitoring for performance degradation and data drift.</p>
+                    <ul class="text-xs text-[#425466] space-y-1">
+                        <li>• Evidently AI, Arize, Fiddler</li>
+                        <li>• Data drift detection</li>
+                        <li>• Model performance tracking</li>
+                        <li>• Automated retraining triggers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- DORA Metrics Dashboard -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-chart-bar mr-3 text-[#1ABC9C]"></i>DORA Metrics Dashboard
+            </h2>
+            <p class="text-center text-[#425466] mb-8">The four key metrics for measuring software delivery performance and operational excellence.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="metric-card">
+                    <i class="fas fa-rocket text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Deployment Frequency</h3>
+                    <p class="text-sm opacity-90 mb-4">How often an organization successfully releases to production</p>
+                    <div class="text-2xl font-bold">Daily</div>
+                    <div class="text-xs opacity-75">Elite Performance</div>
+                </div>
+                
+                <div class="metric-card">
+                    <i class="fas fa-clock text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Lead Time for Changes</h3>
+                    <p class="text-sm opacity-90 mb-4">Time from commit to production</p>
+                    <div class="text-2xl font-bold">< 1 hour</div>
+                    <div class="text-xs opacity-75">Elite Performance</div>
+                </div>
+                
+                <div class="metric-card">
+                    <i class="fas fa-tools text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Mean Time to Recovery</h3>
+                    <p class="text-sm opacity-90 mb-4">Time to recover from production failures</p>
+                    <div class="text-2xl font-bold">< 1 hour</div>
+                    <div class="text-xs opacity-75">Elite Performance</div>
+                </div>
+                
+                <div class="metric-card">
+                    <i class="fas fa-exclamation-triangle text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Change Failure Rate</h3>
+                    <p class="text-sm opacity-90 mb-4">Percentage of deployments causing failures</p>
+                    <div class="text-2xl font-bold">0-15%</div>
+                    <div class="text-xs opacity-75">Elite Performance</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 text-[#425466]">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-4">Key Takeaways</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                    <div class="bg-[#F0F4F8] p-4 rounded-lg">
+                        <h4 class="font-semibold text-[#007AFF] mb-2">Culture First</h4>
+                        <p class="text-sm text-[#425466]">DevSecOps success starts with cultural transformation, not just tools.</p>
+                    </div>
+                    <div class="bg-[#F0F4F8] p-4 rounded-lg">
+                        <h4 class="font-semibold text-[#34C759] mb-2">Automation Everywhere</h4>
+                        <p class="text-sm text-[#425466]">Automate everything that can be automated to reduce errors and increase speed.</p>
+                    </div>
+                    <div class="bg-[#F0F4F8] p-4 rounded-lg">
+                        <h4 class="font-semibold text-[#9B59B6] mb-2">Security by Design</h4>
+                        <p class="text-sm text-[#425466]">Integrate security from the beginning, not as an afterthought.</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm text-[#425466]">DevSecOps is not merely a set of tools but a comprehensive framework of culture, methodology, and technology for modern software delivery.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action">
+        <button class="back-to-top" onclick="scrollToTop()" title="Back to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
