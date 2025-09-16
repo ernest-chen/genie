@@ -1,34 +1,45 @@
-# The Cloud Quartet 🌐
+# Tech Genie 🧞‍♂️
 
-A comprehensive, interactive comparison of the four major cloud providers: **AWS**, **Azure**, **GCP**, and **Oracle Cloud Infrastructure**.
+Your Gateway to Cloud & DevOps Mastery - A comprehensive knowledge hub featuring interactive cloud service comparisons and DevSecOps best practices.
+
+## 🌐 Live Demo
+
+**👉 [View Live Site](https://ernest-chen.github.io/genie/)**
+
+Experience the full interactive features including cloud service comparisons, DevSecOps guides, and AI-powered Q&A system.
 
 ![Cloud Services Comparison](https://img.shields.io/badge/Cloud-Comparison-blue) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=white)
 
 ## 🚀 Overview
 
-This project is an interactive documentation infographic that provides a comprehensive comparison of cloud services across the four major cloud providers. It features detailed service mappings, cost comparisons, market analytics, and an AI-powered Q&A system to help users make informed decisions about cloud platform selection.
+Tech Genie is a comprehensive knowledge hub that combines two essential areas of modern software development:
+
+1. **Public Cloud Comparison**: Interactive comparison of AWS, Azure, GCP, and Oracle Cloud services with detailed mappings, cost analysis, and market analytics
+2. **DevSecOps Mastery**: Complete guide to modern software delivery practices, including security integration, automation strategies, and MLOps best practices
+
+The platform features AI-powered Q&A systems, interactive visualizations, and responsive design to help developers, architects, and teams make informed technology decisions.
 
 ## ✨ Features
 
-### 📊 Interactive Analytics
-- **Market Share Visualization**: Real-time charts showing cloud provider market dominance
-- **Growth Trends**: Historical and projected growth data for all providers
-- **Cost Comparison Tool**: Side-by-side pricing estimates for different workload sizes
+### 🌐 Public Cloud Comparison
+- **300+ Services**: Comprehensive mapping across AWS, Azure, GCP, and Oracle Cloud
+- **Interactive Charts**: Market share visualization and growth trend analysis
+- **Cost Comparison**: Side-by-side pricing estimates for different workload sizes
+- **Smart Search**: Real-time search and filtering across all service categories
+- **AI-Powered Q&A**: Instant answers to cloud service questions
 
-### 🔍 Smart Search & Filtering
-- **Real-time Search**: Find any service or feature instantly across all providers
-- **Category Filtering**: Filter by service type (Compute, Storage, AI/ML, Network)
-- **Search Highlighting**: Visual highlighting of search terms
+### 🚀 DevSecOps Mastery
+- **Core Principles**: Cultural transformation and best practices
+- **CI/CD Pipelines**: Complete automation strategies and tooling
+- **Security Integration**: Shift-left security and compliance practices
+- **MLOps & DataOps**: Modern practices for AI/ML and data engineering
+- **Tool Recommendations**: Curated list of modern DevOps tools and platforms
 
-### 🤖 AI-Powered Q&A
-- **Cloud Oracle**: Ask questions about cloud services and get instant answers
-- **Quick Questions**: Pre-built questions for common cloud scenarios
-- **Text-to-Speech**: Audio narration for accessibility
-
-### 📱 Responsive Design
-- **Mobile-First**: Optimized for all device sizes
-- **Accessibility**: Full keyboard navigation and screen reader support
+### 🎯 Universal Features
+- **Responsive Design**: Mobile-first approach with accessibility support
+- **Interactive Navigation**: Seamless experience across all sections
 - **Modern UI**: Clean, professional interface with smooth animations
+- **Keyboard Shortcuts**: Full keyboard navigation support
 
 ## 🏗️ Architecture
 
@@ -39,14 +50,29 @@ This project is an interactive documentation infographic that provides a compreh
 - **Chart.js**: Data visualization and analytics charts
 - **Font Awesome**: Professional iconography
 
+### Project Structure
+```
+docs/
+├── index.html              # Home page with navigation
+├── public_clouds.html      # Cloud services comparison
+└── devops.html            # DevSecOps guide
+```
+
 ### Key Components
 ```
-├── Market Analytics Dashboard
-├── Service Comparison Tables
-├── Interactive Search & Filter System
-├── AI-Powered Q&A Engine
-├── Cost Comparison Tool
-└── Responsive Navigation
+├── Home Page (Navigation Hub)
+├── Public Cloud Comparison
+│   ├── Market Analytics Dashboard
+│   ├── Service Comparison Tables
+│   ├── Interactive Search & Filter System
+│   ├── AI-Powered Q&A Engine
+│   └── Cost Comparison Tool
+└── DevSecOps Mastery
+    ├── Core Principles & Culture
+    ├── CI/CD Pipeline Visualization
+    ├── Tooling & Platforms
+    ├── DataOps & MLOps Practices
+    └── DORA Metrics Dashboard
 ```
 
 ## 📋 Service Categories
@@ -93,18 +119,21 @@ This project is an interactive documentation infographic that provides a compreh
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/cloud-quartet.git
-   cd cloud-quartet
+   git clone https://github.com/ernest-chen/genie.git
+   cd genie
    ```
 
 2. **Open the project**
    ```bash
-   # Simply open the HTML file in your browser
-   open cloud/core_services.html
+   # Navigate to the docs directory
+   cd docs
    
-   # Or serve it locally
+   # Serve locally
    python -m http.server 8000
-   # Then visit http://localhost:8000/cloud/core_services.html
+   # Then visit http://localhost:8000
+   
+   # Or simply open index.html in your browser
+   open index.html
    ```
 
 3. **Optional: Configure AI Features**
@@ -115,10 +144,11 @@ This project is an interactive documentation infographic that provides a compreh
 ## 🎯 Usage
 
 ### Navigation
-- **Search**: Use the search bar to find specific services or features
-- **Filter**: Click category buttons to filter services by type
-- **Charts**: Interactive market share and growth trend visualizations
-- **Q&A**: Ask questions about cloud services using natural language
+- **Home Page**: Central hub with links to both DevSecOps and Public Cloud sections
+- **Public Clouds**: Interactive cloud service comparison with search and filtering
+- **DevSecOps**: Comprehensive guide to modern software delivery practices
+- **Search**: Use search bars to find specific services, tools, or concepts
+- **Q&A**: Ask questions about cloud services or DevSecOps practices using natural language
 
 ### Keyboard Shortcuts
 - `Ctrl/Cmd + K`: Focus search bar
@@ -191,9 +221,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/yourusername/cloud-quartet/issues)
-- **Discussions**: Join community discussions in [GitHub Discussions](https://github.com/yourusername/cloud-quartet/discussions)
-- **Email**: Contact the maintainers at [your-email@example.com]
+- **Live Demo**: [https://ernest-chen.github.io/genie/](https://ernest-chen.github.io/genie/)
+- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/ernest-chen/genie/issues)
+- **Discussions**: Join community discussions in [GitHub Discussions](https://github.com/ernest-chen/genie/discussions)
 
 ## 🔮 Roadmap
 
@@ -209,9 +239,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **v1.0.0**: Initial release with AWS, Azure, GCP comparison
 - **v2.0.0**: Added Oracle Cloud Infrastructure
 - **v2.1.0**: Enhanced AI features and accessibility improvements
+- **v3.0.0**: Complete redesign as Tech Genie with DevSecOps integration
+- **v3.1.0**: Added comprehensive DevSecOps guide and modern color scheme
 
 ---
 
-**Made with ❤️ for the cloud community**
+**Made with ❤️ for the developer community**
 
-*This project aims to democratize cloud knowledge and help organizations make informed decisions about their cloud infrastructure choices.*
+*Tech Genie aims to democratize cloud and DevOps knowledge, helping developers, architects, and teams make informed decisions about their technology choices and modern software delivery practices.*
