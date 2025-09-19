@@ -12,10 +12,13 @@ Experience the full interactive features including cloud service comparisons, De
 
 ## 🚀 Overview
 
-Tech Genie is a comprehensive knowledge hub that combines two essential areas of modern software development:
+Tech Genie is a comprehensive knowledge hub that combines multiple essential areas of modern software development:
 
 1. **Public Cloud Comparison**: Interactive comparison of AWS, Azure, GCP, and Oracle Cloud services with detailed mappings, cost analysis, and market analytics
 2. **DevSecOps Mastery**: Complete guide to modern software delivery practices, including security integration, automation strategies, and MLOps best practices
+3. **API Protocols Comparison**: Comprehensive analysis of REST, gRPC, and JSON-RPC with performance metrics and implementation guides
+4. **AdTech Ecosystem**: Complete overview of digital advertising technology, including DSPs, SSPs, data providers, and market players
+5. **Technology Transformation**: Concrete strategy and execution plans for AI-driven business transformation
 
 The platform features AI-powered Q&A systems, interactive visualizations, and responsive design to help developers, architects, and teams make informed technology decisions.
 
@@ -35,6 +38,27 @@ The platform features AI-powered Q&A systems, interactive visualizations, and re
 - **MLOps & DataOps**: Modern practices for AI/ML and data engineering
 - **GenAI Revolution**: Comprehensive guide to AI-powered development practices
 - **Tool Recommendations**: Curated list of modern DevOps tools and platforms
+
+### 🔌 API Protocols Comparison
+- **Protocol Analysis**: Detailed comparison of REST, gRPC, and JSON-RPC
+- **Performance Metrics**: Benchmarks and use case scenarios
+- **Implementation Guides**: Best practices and framework recommendations
+- **Decision Matrix**: Clear guidance for protocol selection
+- **Tool Integration**: Language-specific frameworks and testing tools
+
+### 📺 AdTech Ecosystem
+- **Stakeholder Mapping**: Complete overview of advertisers, publishers, and intermediaries
+- **Platform Analysis**: DSP, SSP, DMP, and attribution provider comparisons
+- **Protocols & Standards**: RTB, OpenRTB, VAST/VPAID, and privacy compliance
+- **Market Leaders**: Digital-native vs traditional media player analysis
+- **Industry Trends**: Privacy-first approach and omnichannel integration
+
+### 🚀 Technology Transformation
+- **11-Step Framework**: Comprehensive transformation methodology
+- **AI/ML Integration**: AI-driven strategies at every stage
+- **Human-Centered Design**: People-first transformation approach
+- **Change Management**: Organizational and cultural transformation strategies
+- **Success Metrics**: KPIs and measurement frameworks
 
 ### 🎯 Universal Features
 - **Responsive Design**: Mobile-first approach with accessibility support
@@ -58,7 +82,13 @@ The platform features AI-powered Q&A systems, interactive visualizations, and re
 docs/
 ├── index.html              # Home page with navigation
 ├── public_clouds.html      # Cloud services comparison
-└── devops.html            # DevSecOps guide
+├── devops.html            # DevSecOps guide
+├── rest_rpc.html          # API protocols comparison
+├── adtech.html            # AdTech ecosystem overview
+├── transformation.html    # Technology transformation strategy
+├── adtech.md             # AdTech content source
+├── transformation.md     # Transformation content source
+└── http.sh               # Local development server script
 ```
 
 ### Key Components
@@ -70,13 +100,30 @@ docs/
 │   ├── Interactive Search & Filter System
 │   ├── AI-Powered Q&A Engine
 │   └── Cost Comparison Tool
-└── DevSecOps Mastery
-    ├── Core Principles & Culture
-    ├── CI/CD Pipeline Visualization
-    ├── Tooling & Platforms
-    ├── DataOps & MLOps Practices
-    ├── GenAI Revolution in Software Development
-    └── DORA Metrics Dashboard
+├── DevSecOps Mastery
+│   ├── Core Principles & Culture
+│   ├── CI/CD Pipeline Visualization
+│   ├── Tooling & Platforms
+│   ├── DataOps & MLOps Practices
+│   ├── GenAI Revolution in Software Development
+│   └── DORA Metrics Dashboard
+├── API Protocols Comparison
+│   ├── Protocol Analysis & Performance Metrics
+│   ├── Use Case Scenarios & Best Practices
+│   ├── Framework & Tooling Recommendations
+│   └── Decision Matrix for Protocol Selection
+├── AdTech Ecosystem
+│   ├── Core Stakeholders & Parties
+│   ├── Ecosystem Components & Platforms
+│   ├── Protocols, Standards & Regulation
+│   ├── Market Leaders & Current State
+│   └── Industry Trends & Future Outlook
+└── Technology Transformation
+    ├── 11-Step Transformation Framework
+    ├── AI/ML Integration Strategies
+    ├── Human-Centered Design Principles
+    ├── Change Management & Success Metrics
+    └── Business Value Creation Framework
 ```
 
 ## 📋 Service Categories
@@ -166,14 +213,17 @@ docs/
 
 2. **Open the project**
    ```bash
-   # Navigate to the docs directory
-   cd docs
+   # Option 1: Use the provided script (recommended)
+   ./http.sh
+   # Then visit http://localhost:8000
    
-   # Serve locally
+   # Option 2: Manual Python server
+   cd docs
    python -m http.server 8000
    # Then visit http://localhost:8000
    
-   # Or simply open index.html in your browser
+   # Option 3: Direct file opening
+   cd docs
    open index.html
    ```
 
@@ -185,11 +235,14 @@ docs/
 ## 🎯 Usage
 
 ### Navigation
-- **Home Page**: Central hub with links to both DevSecOps and Public Cloud sections
+- **Home Page**: Central hub with links to all sections and featured content
 - **Public Clouds**: Interactive cloud service comparison with search and filtering
 - **DevSecOps**: Comprehensive guide to modern software delivery practices
+- **API Protocols**: REST, gRPC, and JSON-RPC comparison with performance analysis
+- **AdTech Ecosystem**: Complete digital advertising technology overview
+- **Technology Transformation**: AI-driven business transformation strategies
 - **Search**: Use search bars to find specific services, tools, or concepts
-- **Q&A**: Ask questions about cloud services or DevSecOps practices using natural language
+- **Q&A**: Ask questions about any topic using natural language
 
 ### Keyboard Shortcuts
 - `Ctrl/Cmd + K`: Focus search bar
@@ -258,6 +311,9 @@ We welcome contributions to improve this cloud comparison tool!
 - **Documentation**: Enhance guides and explanations
 - **GenAI Integration**: Add new AI-powered development tools and practices
 - **SEO/AEO**: Improve search engine and AI discoverability
+- **AdTech Content**: Expand ecosystem coverage and market analysis
+- **Transformation Strategies**: Add industry-specific transformation frameworks
+- **API Protocols**: Include additional protocols and performance benchmarks
 
 ## 📝 License
 
@@ -284,6 +340,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] **Regional Comparisons**: Geographic availability and pricing
 - [ ] **Compliance Matrix**: Security and compliance feature comparisons
 - [ ] **Performance Benchmarks**: Real-world performance data
+- [ ] **Interactive Protocol Testing**: Live API protocol demonstrations
+- [ ] **AdTech Market Analytics**: Real-time advertising technology trends
+- [ ] **Transformation ROI Calculator**: Business value estimation tools
+- [ ] **Industry-Specific Guides**: Tailored content for different sectors
 
 ### Version History
 - **v1.0.0**: Initial release with AWS, Azure, GCP comparison
@@ -293,9 +353,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **v3.1.0**: Added comprehensive DevSecOps guide and modern color scheme
 - **v3.2.0**: Added GenAI Revolution section covering AI-powered development practices
 - **v3.3.0**: Integrated clickable logo branding and comprehensive SEO/AEO optimization
+- **v3.4.0**: Added API Protocols comparison (REST, gRPC, JSON-RPC)
+- **v3.5.0**: Added comprehensive AdTech ecosystem overview
+- **v3.6.0**: Added technology transformation strategy framework
+- **v3.7.0**: Added local development server script and enhanced documentation
 
 ---
 
 **Made with ❤️ for the developer community**
 
-*Tech Genie aims to democratize cloud and DevOps knowledge, helping developers, architects, and teams make informed decisions about their technology choices and modern software delivery practices.*
+*Tech Genie aims to democratize technology knowledge across cloud computing, DevOps, API protocols, AdTech, and digital transformation, helping developers, architects, and teams make informed decisions about their technology choices and modern software delivery practices.*
