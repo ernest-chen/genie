@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Protocols Comparison: REST vs gRPC vs JSON-RPC - Tech Genie</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="API Protocols Comparison: REST vs gRPC vs JSON-RPC">
+    <meta name="description" content="Comprehensive comparison of REST, gRPC, and JSON-RPC protocols with performance metrics, use cases, and implementation guides for modern API development.">
+    <meta name="keywords" content="REST API, gRPC, JSON-RPC, API comparison, microservices, web services, protocol buffers, HTTP/2, API design, performance comparison">
+    <meta name="author" content="Ernest Chen">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ernest-chen.github.io/genie/rest_rpc.html">
+    <meta property="og:title" content="API Protocols Comparison: REST vs gRPC vs JSON-RPC">
+    <meta property="og:description" content="Comprehensive comparison of REST, gRPC, and JSON-RPC protocols with performance metrics, use cases, and implementation guides.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    <meta property="og:site_name" content="Tech Genie">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ernest-chen.github.io/genie/rest_rpc.html">
+    <meta property="twitter:title" content="API Protocols Comparison: REST vs gRPC vs JSON-RPC">
+    <meta property="twitter:description" content="Comprehensive comparison of REST, gRPC, and JSON-RPC protocols with performance metrics, use cases, and implementation guides.">
+    <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    
+    <!-- AEO Meta Tags -->
+    <meta name="ai:content-type" content="technical-comparison">
+    <meta name="ai:topic" content="API protocols, web services, microservices architecture">
+    <meta name="ai:audience" content="developers, architects, engineers, technical leads">
+    <meta name="ai:complexity" content="intermediate-to-advanced">
+    <meta name="ai:update-timestamp" content="2025-01-16T00:00:00Z">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ernest-chen.github.io/genie/rest_rpc.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/29280406?s=32&v=4">
+    <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/29280406?s=180&v=4">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "API Protocols Comparison: REST vs gRPC vs JSON-RPC",
+        "description": "Comprehensive comparison of REST, gRPC, and JSON-RPC protocols with performance metrics, use cases, and implementation guides for modern API development.",
+        "image": "https://avatars.githubusercontent.com/u/29280406?s=200&v=4",
+        "author": {
+            "@type": "Person",
+            "name": "Ernest Chen",
+            "url": "https://github.com/ernest-chen"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Tech Genie",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://avatars.githubusercontent.com/u/29280406?s=200&v=4"
+            }
+        },
+        "datePublished": "2025-01-16",
+        "dateModified": "2025-01-16",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ernest-chen.github.io/genie/rest_rpc.html"
+        },
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "REST API",
+                "description": "Representational State Transfer architectural style"
+            },
+            {
+                "@type": "Thing", 
+                "name": "gRPC",
+                "description": "Google Remote Procedure Call framework"
+            },
+            {
+                "@type": "Thing",
+                "name": "JSON-RPC",
+                "description": "JSON Remote Procedure Call protocol"
+            }
+        ],
+        "educationalLevel": "intermediate-to-advanced",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "developers, architects, engineers, technical leads"
+        },
+        "learningResourceType": "comparison-guide",
+        "teaches": [
+            "API protocol comparison and selection",
+            "Performance analysis and benchmarking",
+            "Microservices communication patterns",
+            "Protocol buffer implementation",
+            "HTTP/2 vs HTTP/1.1 differences",
+            "Real-time streaming with gRPC",
+            "JSON-RPC for blockchain applications",
+            "API testing and debugging strategies"
+        ]
+    }
+    </script>
+</head>
+<body class="bg-[#F0F4F8] text-[#0A2540]">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="https://github.com/ernest-chen/genie" target="_blank" class="mr-4">
+                        <img src="https://avatars.githubusercontent.com/u/29280406?s=48&v=4" alt="Tech Genie Logo" class="w-10 h-10 rounded-full">
+                    </a>
+                    <div class="flex space-x-8">
+                        <a href="index.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="public_clouds.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium">Cloud Comparison</a>
+                        <a href="devops.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium">DevSecOps</a>
+                        <a href="rest_rpc.html" class="text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium border-b-2 border-[#007AFF]">API Protocols</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-[#007AFF] via-[#34C759] to-[#9B59B6] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                <i class="fas fa-exchange-alt mr-4"></i>API Protocols Comparison
+            </h1>
+            <p class="text-xl md:text-2xl mb-8">REST vs gRPC vs JSON-RPC: A Comprehensive Guide</p>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Core Concepts Overview -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-lightbulb mr-3 text-[#FF9500]"></i>Core Concepts at a Glance
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Three distinct approaches for building APIs that allow different software systems to communicate, each with unique philosophies and use cases.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- REST -->
+                <div class="protocol-card rest-card bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#3B82F6] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-globe text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">REST</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">An architectural style that leverages standard HTTP methods to act on "resources" identified by URLs. Communication is stateless and commonly uses JSON.</p>
+                    <div class="bg-[#F0F4F8] p-3 rounded-lg mb-4">
+                        <code class="text-sm text-[#0A2540]">GET /users/123</code>
+                    </div>
+                    <div class="text-sm text-[#007AFF] font-semibold">Think: Interacting with nouns (resources)</div>
+                </div>
+
+                <!-- gRPC -->
+                <div class="protocol-card grpc-card bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#10B981] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-bolt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">gRPC</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">A modern, high-performance RPC framework using Protocol Buffers over HTTP/2, enabling bidirectional streaming and multiplexing.</p>
+                    <div class="bg-[#F0F4F8] p-3 rounded-lg mb-4">
+                        <code class="text-sm text-[#0A2540]">UserService.GetUser({user_id: 123})</code>
+                    </div>
+                    <div class="text-sm text-[#34C759] font-semibold">Think: Executing verbs (functions)</div>
+                </div>
+
+                <!-- JSON-RPC -->
+                <div class="protocol-card jsonrpc-card bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#F59E0B] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">JSON-RPC</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">A lightweight RPC protocol using JSON that's transport-agnostic, running over HTTP, WebSockets, or other channels.</p>
+                    <div class="bg-[#F0F4F8] p-3 rounded-lg mb-4">
+                        <code class="text-sm text-[#0A2540]">{"jsonrpc": "2.0", "method": "getUser", "params": {"userId": 123}, "id": 1}</code>
+                    </div>
+                    <div class="text-sm text-[#FF9500] font-semibold">Think: Simple method calls</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Detailed Comparison Table -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-table mr-3 text-[#9B59B6]"></i>Detailed Protocol Comparison
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-[#F0F4F8]">
+                            <th class="border border-gray-300 px-4 py-3 text-left font-semibold text-[#0A2540]">Feature</th>
+                            <th class="border border-gray-300 px-4 py-3 text-center font-semibold text-[#3B82F6]">REST</th>
+                            <th class="border border-gray-300 px-4 py-3 text-center font-semibold text-[#10B981]">gRPC</th>
+                            <th class="border border-gray-300 px-4 py-3 text-center font-semibold text-[#F59E0B]">JSON-RPC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Data Format</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">JSON (text), XML</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Protocol Buffers (binary)</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">JSON (text)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Transport</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">HTTP/1.1</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">HTTP/2</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">HTTP, WebSocket, TCP</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Model</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Resource/verb mapping</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">RPC, method calls</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">RPC, method calls</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Streaming Support</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-red-500">❌ No</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-green-500">✅ Full duplex</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-yellow-500">⚠️ Via WebSocket</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Typing</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Dynamic</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Strongly typed (IDL)</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Dynamic</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Code Generation</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Limited, 3rd party</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Native, multi-language</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">Available but basic</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Readability</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-green-500">✅ Human-readable</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-red-500">❌ Binary</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-green-500">✅ Human-readable</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Browser Support</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-green-500">✅ Mature, native</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-red-500">❌ Limited, via proxies</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-green-500">✅ Mature</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Debugging</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-green-500">✅ Easy (JSON)</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-yellow-500">⚠️ Harder (binary)</span>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <span class="text-green-500">✅ Easy (JSON)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-3 font-medium">Performance</td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <div class="flex items-center justify-center">
+                                    <span class="mr-2">⭐⭐</span>
+                                    <span>Moderate</span>
+                                </div>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <div class="flex items-center justify-center">
+                                    <span class="mr-2">⭐⭐⭐</span>
+                                    <span>High</span>
+                                </div>
+                            </td>
+                            <td class="border border-gray-300 px-4 py-3 text-center">
+                                <div class="flex items-center justify-center">
+                                    <span class="mr-2">⭐⭐</span>
+                                    <span>Moderate to High</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- Use Cases & When to Use -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-target mr-3 text-[#EF4444]"></i>When to Use Each Protocol
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- REST Use Cases -->
+                <div class="bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe text-3xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Use REST For</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Public-facing APIs:</strong> Third-party developer consumption</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Resource-centric services:</strong> CRUD operations on entities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Web & mobile backends:</strong> Quick API development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Browser compatibility:</strong> Native HTTP support</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-white bg-opacity-20 rounded-lg">
+                        <h4 class="font-semibold mb-2">Best Practices:</h4>
+                        <ul class="text-xs space-y-1">
+                            <li>• Use standard HTTP verbs correctly</li>
+                            <li>• Implement proper status codes</li>
+                            <li>• Version your API (/api/v1/)</li>
+                            <li>• Use OpenAPI/Swagger documentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- gRPC Use Cases -->
+                <div class="bg-gradient-to-br from-[#10B981] to-[#047857] text-white rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bolt text-3xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Use gRPC For</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Internal microservices:</strong> High-performance communication</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Real-time streaming:</strong> Bidirectional data flow</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Polyglot environments:</strong> Multi-language services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Network-constrained:</strong> Mobile/IoT applications</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-white bg-opacity-20 rounded-lg">
+                        <h4 class="font-semibold mb-2">Best Practices:</h4>
+                        <ul class="text-xs space-y-1">
+                            <li>• Design .proto contracts carefully</li>
+                            <li>• Use deadlines and cancellation</li>
+                            <li>• Implement health checks</li>
+                            <li>• Use interceptors for cross-cutting concerns</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- JSON-RPC Use Cases -->
+                <div class="bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-white rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-3xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Use JSON-RPC For</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Simple procedure calls:</strong> Lightweight RPC</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Blockchain applications:</strong> Ethereum node interaction</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>WebSocket commands:</strong> Real-time notifications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-2 mt-1 text-green-300"></i>
+                            <span><strong>Transport flexibility:</strong> Multiple protocols</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-white bg-opacity-20 rounded-lg">
+                        <h4 class="font-semibold mb-2">Best Practices:</h4>
+                        <ul class="text-xs space-y-1">
+                            <li>• Follow JSON-RPC 2.0 specification</li>
+                            <li>• Use id field for correlation</li>
+                            <li>• Implement standard error objects</li>
+                            <li>• Leverage batch requests</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frameworks & Tools -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-tools mr-3 text-[#8B5CF6]"></i>Frameworks & Development Tools
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- REST Frameworks -->
+                <div class="bg-[#F0F4F8] rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-[#3B82F6] mb-4">
+                        <i class="fas fa-globe mr-2"></i>REST Frameworks
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Python</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• FastAPI</li>
+                                <li>• Django REST Framework</li>
+                                <li>• Flask</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">JavaScript/Node.js</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• Express.js</li>
+                                <li>• NestJS</li>
+                                <li>• Koa</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Java</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• Spring Boot</li>
+                                <li>• Jakarta EE (JAX-RS)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Go</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• Gin</li>
+                                <li>• Echo</li>
+                                <li>• net/http</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- gRPC Frameworks -->
+                <div class="bg-[#F0F4F8] rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-[#10B981] mb-4">
+                        <i class="fas fa-bolt mr-2"></i>gRPC Frameworks
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Python</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• grpcio</li>
+                                <li>• grpcio-tools</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">JavaScript/Node.js</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• @grpc/grpc-js</li>
+                                <li>• @grpc/proto-loader</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Java</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• grpc-java</li>
+                                <li>• grpc-spring-boot-starter</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Go</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• grpc-go</li>
+                                <li>• protoc-gen-go</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JSON-RPC Frameworks -->
+                <div class="bg-[#F0F4F8] rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-[#F59E0B] mb-4">
+                        <i class="fas fa-code mr-2"></i>JSON-RPC Frameworks
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Python</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• jsonrpcserver</li>
+                                <li>• tinyrpc</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">JavaScript/Node.js</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• json-rpc-2.0</li>
+                                <li>• open-rpc</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Java</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• json-rpc-2.0-base</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#0A2540] mb-2">Go</h4>
+                            <ul class="text-sm text-[#425466] space-y-1">
+                                <li>• net/rpc/jsonrpc (stdlib)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testing Tools -->
+            <div class="bg-gradient-to-r from-[#8B5CF6] to-[#A855F7] text-white rounded-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-bug mr-2"></i>Testing & Debugging Tools
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-2 text-[#3B82F6]">REST Testing</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Postman</li>
+                            <li>• Insomnia</li>
+                            <li>• curl</li>
+                            <li>• OpenAPI/Swagger UI</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2 text-[#10B981]">gRPC Testing</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• BloomRPC</li>
+                            <li>• Kreya</li>
+                            <li>• grpcurl</li>
+                            <li>• Postman (gRPC support)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2 text-[#F59E0B]">JSON-RPC Testing</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Postman</li>
+                            <li>• Insomnia</li>
+                            <li>• curl</li>
+                            <li>• Custom scripts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Performance Analysis -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-tachometer-alt mr-3 text-[#EF4444]"></i>Performance Analysis
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">REST Performance</h3>
+                    <p class="text-sm">Moderate performance, limited by text parsing and HTTP/1.1 overhead. Higher latency at scale.</p>
+                </div>
+                <div class="bg-gradient-to-br from-[#10B981] to-[#047857] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">gRPC Performance</h3>
+                    <p class="text-sm">7-10x faster than REST+JSON. Supports multiplexed connections and streaming.</p>
+                </div>
+                <div class="bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">JSON-RPC Performance</h3>
+                    <p class="text-sm">Slightly faster than REST for batch calls. Lower latency with WebSockets.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-[#425466] bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold text-[#0A2540] mb-4">Key Takeaways</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div class="bg-[#F0F4F8] p-4 rounded-lg">
+                    <h4 class="font-semibold text-[#3B82F6] mb-2">REST: Universal Choice</h4>
+                    <p class="text-sm text-[#425466]">Best for public APIs, browser compatibility, and simple resource operations.</p>
+                </div>
+                <div class="bg-[#F0F4F8] p-4 rounded-lg">
+                    <h4 class="font-semibold text-[#10B981] mb-2">gRPC: Performance King</h4>
+                    <p class="text-sm text-[#425466]">Optimal for internal services, high-throughput, and real-time streaming.</p>
+                </div>
+                <div class="bg-[#F0F4F8] p-4 rounded-lg">
+                    <h4 class="font-semibold text-[#F59E0B] mb-2">JSON-RPC: Simple & Flexible</h4>
+                    <p class="text-sm text-[#425466]">Perfect for lightweight RPC, blockchain apps, and transport-agnostic needs.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
