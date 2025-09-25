@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Software Design Patterns & Best Practices - Tech Genie</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Modern Software Design Patterns & Best Practices">
+    <meta name="description" content="Comprehensive guide to modern software design patterns including SOLID, DRY, DDD, TDD, Hexagonal Architecture, API-First, Event-Driven, and AI integration strategies.">
+    <meta name="keywords" content="software design patterns, SOLID principles, DDD, TDD, hexagonal architecture, API-first, event-driven, microservices, AI patterns, legacy migration">
+    <meta name="author" content="Ernest Chen">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ernest-chen.github.io/genie/design_patterns.html">
+    <meta property="og:title" content="Modern Software Design Patterns & Best Practices">
+    <meta property="og:description" content="Comprehensive guide to modern software design patterns including SOLID, DRY, DDD, TDD, Hexagonal Architecture, API-First, Event-Driven, and AI integration strategies.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    <meta property="og:site_name" content="Tech Genie">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ernest-chen.github.io/genie/design_patterns.html">
+    <meta property="twitter:title" content="Modern Software Design Patterns & Best Practices">
+    <meta property="twitter:description" content="Comprehensive guide to modern software design patterns including SOLID, DRY, DDD, TDD, Hexagonal Architecture, API-First, Event-Driven, and AI integration strategies.">
+    <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    
+    <!-- AEO Meta Tags -->
+    <meta name="ai:content-type" content="technical-guide">
+    <meta name="ai:topic" content="software design patterns, SOLID principles, DDD, TDD, hexagonal architecture, API-first, event-driven, microservices, AI patterns">
+    <meta name="ai:audience" content="software architects, developers, engineering managers, technical leads, system designers">
+    <meta name="ai:complexity" content="intermediate-advanced">
+    <meta name="ai:update-timestamp" content="2025-01-16T00:00:00Z">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ernest-chen.github.io/genie/design_patterns.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/29280406?s=32&v=4">
+    <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/29280406?s=180&v=4">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pattern-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .pattern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .pattern-card.solid:hover { border-left-color: #3B82F6; }
+        .pattern-card.dry:hover { border-left-color: #10B981; }
+        .pattern-card.ddd:hover { border-left-color: #F59E0B; }
+        .pattern-card.tdd:hover { border-left-color: #8B5CF6; }
+        .pattern-card.hexagonal:hover { border-left-color: #EF4444; }
+        .pattern-card.api-first:hover { border-left-color: #06B6D4; }
+        .pattern-card.event-driven:hover { border-left-color: #EC4899; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/29280406?s=48&v=4" alt="Tech Genie" class="h-8 w-8 rounded-full mr-3">
+                        <span class="text-xl font-bold text-[#0A2540]">Tech Genie</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-home mr-2"></i>Home
+                        </a>
+                        <a href="public_clouds.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-cloud mr-2"></i>Clouds
+                        </a>
+                        <a href="devops.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-cogs mr-2"></i>DevOps
+                        </a>
+                        <a href="rest_rpc.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-plug mr-2"></i>APIs
+                        </a>
+                        <a href="adtech.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-bullhorn mr-2"></i>AdTech
+                        </a>
+                        <a href="transformation.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-rocket mr-2"></i>Transformation
+                        </a>
+                        <a href="seo_geo_aeo.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-search mr-2"></i>SEO/GEO/AEO
+                        </a>
+                        <a href="design_patterns.html" class="text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-code mr-2"></i>Design Patterns
+                        </a>
+                        <a href="companies/index.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            <i class="fas fa-building mr-2"></i>Companies
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-[#0A2540] via-[#1E3A8A] to-[#3B82F6] text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="floating mb-8">
+                <i class="fas fa-code text-6xl text-[#F59E0B]"></i>
+            </div>
+            <h1 class="text-5xl font-bold mb-6 fade-in">
+                Modern Software Design Patterns
+            </h1>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto fade-in">
+                Comprehensive guide to building scalable, maintainable, and intelligent software systems using proven design patterns, architectural principles, and modern best practices.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 fade-in">
+                <span class="bg-[#3B82F6] bg-opacity-20 px-4 py-2 rounded-full text-sm">SOLID Principles</span>
+                <span class="bg-[#10B981] bg-opacity-20 px-4 py-2 rounded-full text-sm">Domain-Driven Design</span>
+                <span class="bg-[#F59E0B] bg-opacity-20 px-4 py-2 rounded-full text-sm">Hexagonal Architecture</span>
+                <span class="bg-[#8B5CF6] bg-opacity-20 px-4 py-2 rounded-full text-sm">Event-Driven Systems</span>
+                <span class="bg-[#EF4444] bg-opacity-20 px-4 py-2 rounded-full text-sm">AI Integration</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Executive Summary -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-lightbulb mr-3 text-[#F59E0B]"></i>Executive Summary
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-target mr-2"></i>Modern Software Architecture
+                    </h3>
+                    <p class="text-sm opacity-90 mb-4">
+                        Modern software systems integrate a variety of design patterns, architectural styles, and data strategies to build scalable, maintainable, and high-performing applications. These range from foundational principles like SOLID, DRY, and TDD to advanced architecture models such as Hexagonal, DDD, API-First, and Event-Driven systems.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm opacity-90">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>Scalable and maintainable codebases</span>
+                        </div>
+                        <div class="flex items-center text-sm opacity-90">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>AI-driven intelligent automation</span>
+                        </div>
+                        <div class="flex items-center text-sm opacity-90">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>Legacy system modernization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-[#10B981] to-[#059669] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-rocket mr-2"></i>Key Benefits
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Improved Maintainability</h4>
+                            <p class="text-sm opacity-90">Clean, modular code that's easy to understand, modify, and extend over time.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Enhanced Scalability</h4>
+                            <p class="text-sm opacity-90">Architectures that can handle growing user bases and increasing data volumes.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Better Testability</h4>
+                            <p class="text-sm opacity-90">Designs that support comprehensive testing and quality assurance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Design Patterns -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-puzzle-piece mr-3 text-[#3B82F6]"></i>Core Design Patterns & Principles
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Foundational patterns and principles that form the backbone of modern software architecture.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- SOLID Principles -->
+                <div class="pattern-card solid bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#3B82F6] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-cube text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">SOLID Principles</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">Five fundamental principles for object-oriented design that promote maintainable and scalable code.</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#3B82F6] text-xs mr-2"></i>
+                            <span><strong>S</strong>ingle Responsibility</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#3B82F6] text-xs mr-2"></i>
+                            <span><strong>O</strong>pen/Closed</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#3B82F6] text-xs mr-2"></i>
+                            <span><strong>L</strong>iskov Substitution</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#3B82F6] text-xs mr-2"></i>
+                            <span><strong>I</strong>nterface Segregation</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#3B82F6] text-xs mr-2"></i>
+                            <span><strong>D</strong>ependency Inversion</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#F0F4F8] rounded-lg p-3">
+                        <p class="text-xs text-[#425466]">
+                            <strong>Benefits:</strong> Modularity, code reuse, maintainability<br>
+                            <strong>Use Cases:</strong> Object-oriented systems, enterprise applications
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DRY Principle -->
+                <div class="pattern-card dry bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#10B981] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-recycle text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">DRY Principle</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">Don't Repeat Yourself - eliminate redundancy by unifying logic and avoiding duplication.</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-check text-[#10B981] mr-2"></i>
+                            <span>Single source of truth</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-check text-[#10B981] mr-2"></i>
+                            <span>Reduced maintenance overhead</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-check text-[#10B981] mr-2"></i>
+                            <span>Consistent behavior</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#F0F4F8] rounded-lg p-3">
+                        <p class="text-xs text-[#425466]">
+                            <strong>Benefits:</strong> Reduced redundancy, unified logic<br>
+                            <strong>Use Cases:</strong> All software development, code refactoring
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Domain-Driven Design -->
+                <div class="pattern-card ddd bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#F59E0B] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-sitemap text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">Domain-Driven Design</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">Focuses on modeling business domains to align software with business needs using bounded contexts and aggregates.</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#F59E0B] text-xs mr-2"></i>
+                            <span>Bounded Contexts</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#F59E0B] text-xs mr-2"></i>
+                            <span>Aggregates</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-circle text-[#F59E0B] text-xs mr-2"></i>
+                            <span>Ubiquitous Language</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#F0F4F8] rounded-lg p-3">
+                        <p class="text-xs text-[#425466]">
+                            <strong>Benefits:</strong> Business alignment, complex domain modeling<br>
+                            <strong>Use Cases:</strong> Enterprise applications, complex business logic
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Test-Driven Development -->
+                <div class="pattern-card tdd bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#8B5CF6] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-vial text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">Test-Driven Development</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">Development approach where tests are written before code, improving reliability and encouraging refactoring.</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-arrow-right text-[#8B5CF6] mr-2"></i>
+                            <span>Red → Green → Refactor</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-check text-[#8B5CF6] mr-2"></i>
+                            <span>Better code quality</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-check text-[#8B5CF6] mr-2"></i>
+                            <span>Living documentation</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#F0F4F8] rounded-lg p-3">
+                        <p class="text-xs text-[#425466]">
+                            <strong>Benefits:</strong> Reliable code, refactor-friendly<br>
+                            <strong>Use Cases:</strong> All development, quality assurance
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hexagonal Architecture -->
+                <div class="pattern-card hexagonal bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#EF4444] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-hexagon text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">Hexagonal Architecture</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">Ports and Adapters pattern that separates domain logic from external interfaces, simplifying testing and technology swapping.</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-plug text-[#EF4444] mr-2"></i>
+                            <span>Ports (Interfaces)</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-cog text-[#EF4444] mr-2"></i>
+                            <span>Adapters (Implementations)</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-shield-alt text-[#EF4444] mr-2"></i>
+                            <span>Domain Isolation</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#F0F4F8] rounded-lg p-3">
+                        <p class="text-xs text-[#425466]">
+                            <strong>Benefits:</strong> Flexibility, testability<br>
+                            <strong>Use Cases:</strong> Enterprise applications, microservices
+                        </p>
+                    </div>
+                </div>
+
+                <!-- API-First Design -->
+                <div class="pattern-card api-first bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#06B6D4] rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-plug text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#0A2540]">API-First Design</h3>
+                    </div>
+                    <p class="text-[#425466] mb-4">Prioritizes API contracts and design, improving team collaboration and integration capabilities.</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-file-contract text-[#06B6D4] mr-2"></i>
+                            <span>Contract-First Development</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-users text-[#06B6D4] mr-2"></i>
+                            <span>Team Collaboration</span>
+                        </div>
+                        <div class="flex items-center text-sm text-[#425466]">
+                            <i class="fas fa-link text-[#06B6D4] mr-2"></i>
+                            <span>Easy Integration</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#F0F4F8] rounded-lg p-3">
+                        <p class="text-xs text-[#425466]">
+                            <strong>Benefits:</strong> Easy integration, strong contracts<br>
+                            <strong>Use Cases:</strong> Microservices, distributed systems
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event-Driven Architecture -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-bolt mr-3 text-[#EC4899]"></i>Event-Driven Architecture
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Enables real-time, asynchronous, decoupled processing using events between producers and consumers for scalable and responsive architectures.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Event-Driven Benefits -->
+                <div class="bg-gradient-to-br from-[#EC4899] to-[#BE185D] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-rocket mr-2"></i>Key Benefits
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Scalability & Performance</h4>
+                            <p class="text-sm opacity-90">Asynchronous processing enables horizontal scaling and improved system performance under high loads.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Loose Coupling</h4>
+                            <p class="text-sm opacity-90">Services communicate through events, reducing dependencies and enabling independent development and deployment.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Real-Time Responsiveness</h4>
+                            <p class="text-sm opacity-90">Immediate event processing enables real-time updates and notifications across distributed systems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event-Driven Patterns -->
+                <div class="bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-sitemap mr-2"></i>Common Patterns
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Event Sourcing</h4>
+                            <p class="text-sm opacity-90">Store events as the source of truth, enabling complete audit trails and state reconstruction.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">CQRS (Command Query Responsibility Segregation)</h4>
+                            <p class="text-sm opacity-90">Separate read and write models for optimized performance and scalability.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Saga Pattern</h4>
+                            <p class="text-sm opacity-90">Manage distributed transactions across multiple services using event-driven coordination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event-Driven vs API-First -->
+            <div class="bg-gradient-to-r from-[#F0F4F8] to-[#E2E8F0] rounded-lg p-6">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-6 text-center">
+                    <i class="fas fa-balance-scale mr-2"></i>Event-Driven vs API-First: Complementary, Not Competitive
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg p-6">
+                        <h4 class="font-semibold text-[#0A2540] mb-3">
+                            <i class="fas fa-plug mr-2 text-[#06B6D4]"></i>API-First (Synchronous)
+                        </h4>
+                        <ul class="text-sm text-[#425466] space-y-2">
+                            <li>• Request/response patterns</li>
+                            <li>• Immediate feedback</li>
+                            <li>• Strong contracts</li>
+                            <li>• Direct integration</li>
+                            <li>• Error handling</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg p-6">
+                        <h4 class="font-semibold text-[#0A2540] mb-3">
+                            <i class="fas fa-bolt mr-2 text-[#EC4899]"></i>Event-Driven (Asynchronous)
+                        </h4>
+                        <ul class="text-sm text-[#425466] space-y-2">
+                            <li>• Fire-and-forget patterns</li>
+                            <li>• Eventual consistency</li>
+                            <li>• Loose coupling</li>
+                            <li>• Scalable processing</li>
+                            <li>• Real-time updates</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-white rounded-lg border-l-4 border-[#10B981]">
+                    <p class="text-sm text-[#425466]">
+                        <strong>Best Practice:</strong> Use APIs for synchronous operations requiring immediate feedback, and events for asynchronous processing, notifications, and data synchronization. Modern systems often combine both approaches for optimal performance and user experience.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Architecture & Storage -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-database mr-3 text-[#10B981]"></i>Data Architecture & Storage Strategies
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Modern data architecture encompasses diverse storage solutions, processing models, and caching strategies for optimal performance.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <!-- Database Types -->
+                <div class="bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-server mr-2"></i>Database Types
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">SQL Databases</h4>
+                            <p class="text-sm opacity-90 mb-2">Ideal for transactional, structured data requiring ACID compliance.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Use Cases:</strong> Financial systems, e-commerce, CRM
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">NoSQL Databases</h4>
+                            <p class="text-sm opacity-90 mb-2">Schema-less, highly scalable solutions for unstructured/semi-structured data.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Types:</strong> Document, Key-Value, Column, Graph
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Vector Databases</h4>
+                            <p class="text-sm opacity-90 mb-2">Specialized for similarity searches and ML/NLP use cases with high-dimensional vectors.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Use Cases:</strong> AI/ML, recommendation engines, semantic search
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">NewSQL Databases</h4>
+                            <p class="text-sm opacity-90 mb-2">Combine ACID compliance of SQL with horizontal scalability of NoSQL systems.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Use Cases:</strong> High-transaction applications, financial services, real-time analytics
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Graph Databases</h4>
+                            <p class="text-sm opacity-90 mb-2">Optimized for storing and querying relationships between entities using nodes and edges.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Use Cases:</strong> Social networks, fraud detection, knowledge graphs, recommendation systems
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing Models -->
+                <div class="bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-cogs mr-2"></i>Processing Models
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Real-Time Processing</h4>
+                            <p class="text-sm opacity-90 mb-2">Event-streaming with Kafka, immediate data processing and response.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> Low latency, immediate insights
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Batch Processing</h4>
+                            <p class="text-sm opacity-90 mb-2">Large-scale data processing in scheduled intervals for analytics and reporting.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> High throughput, cost-effective
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Microbatching</h4>
+                            <p class="text-sm opacity-90 mb-2">Bridges pure batch and real-time for lower latency with manageable complexity.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> Balanced latency and throughput
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caching Strategies -->
+                <div class="bg-gradient-to-br from-[#10B981] to-[#059669] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-memory mr-2"></i>Caching Strategies
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Read-Aside (Lazy Load)</h4>
+                            <p class="text-sm opacity-90 mb-2">Load from cache if present, else query DB and update cache.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> Improved scalability and performance
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Write-Through</h4>
+                            <p class="text-sm opacity-90 mb-2">Updates cache and database simultaneously for high consistency.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> Data consistency, cache coherency
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Write-Behind</h4>
+                            <p class="text-sm opacity-90 mb-2">Updates cache immediately, writes to database asynchronously.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> High performance, eventual consistency
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Integration & Modern Patterns -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-robot mr-3 text-[#8B5CF6]"></i>AI Integration & Modern Patterns
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Leveraging AI and machine learning to create intelligent, adaptive, and self-healing software systems.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- AI-Assisted Architecture -->
+                <div class="bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-brain mr-2"></i>AI-Assisted Architecture
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Intelligent Code Generation</h4>
+                            <p class="text-sm opacity-90">AI-powered tools for automated code generation, documentation, and refactoring assistance.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Adaptive Resource Management</h4>
+                            <p class="text-sm opacity-90">ML algorithms optimize resource allocation, scaling, and performance based on workload patterns.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Predictive Analytics</h4>
+                            <p class="text-sm opacity-90">AI models predict system behavior, identify potential issues, and recommend optimizations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autonomic & Self-Healing Systems -->
+                <div class="bg-gradient-to-br from-[#EF4444] to-[#DC2626] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-heartbeat mr-2"></i>Autonomic & Self-Healing Systems
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Self-Configuration</h4>
+                            <p class="text-sm opacity-90">Systems automatically configure themselves based on environmental conditions and requirements.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Self-Monitoring</h4>
+                            <p class="text-sm opacity-90">Continuous monitoring and analysis of system health, performance, and behavior patterns.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Self-Recovery</h4>
+                            <p class="text-sm opacity-90">Automatic detection and recovery from failures with minimal human intervention.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Integration Strategies -->
+            <div class="bg-gradient-to-r from-[#F0F4F8] to-[#E2E8F0] rounded-lg p-6">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-6 text-center">
+                    <i class="fas fa-cogs mr-2"></i>AI Integration Strategies
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg p-6">
+                        <h4 class="font-semibold text-[#0A2540] mb-3">
+                            <i class="fas fa-layer-group mr-2 text-[#8B5CF6]"></i>Hybrid Architectures
+                        </h4>
+                        <ul class="text-sm text-[#425466] space-y-2">
+                            <li>• Combine traditional and AI components</li>
+                            <li>• Gradual AI adoption and integration</li>
+                            <li>• Fallback mechanisms for AI failures</li>
+                            <li>• Human-in-the-loop validation</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg p-6">
+                        <h4 class="font-semibold text-[#0A2540] mb-3">
+                            <i class="fas fa-shield-alt mr-2 text-[#EF4444]"></i>AI Safety & Governance
+                        </h4>
+                        <ul class="text-sm text-[#425466] space-y-2">
+                            <li>• Explainable AI and transparency</li>
+                            <li>• Bias detection and mitigation</li>
+                            <li>• Ethical AI guidelines</li>
+                            <li>• Regulatory compliance</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg p-6">
+                        <h4 class="font-semibold text-[#0A2540] mb-3">
+                            <i class="fas fa-chart-line mr-2 text-[#10B981]"></i>Performance Optimization
+                        </h4>
+                        <ul class="text-sm text-[#425466] space-y-2">
+                            <li>• Model optimization and compression</li>
+                            <li>• Edge computing for AI inference</li>
+                            <li>• Real-time model updates</li>
+                            <li>• Cost-effective AI deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legacy System Migration -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-tools mr-3 text-[#F59E0B]"></i>Legacy System Migration Strategies
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Comprehensive approaches to modernizing legacy systems while minimizing risk and maintaining business continuity.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Migration Approaches -->
+                <div class="bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-route mr-2"></i>Migration Approaches
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Strangler Fig Pattern</h4>
+                            <p class="text-sm opacity-90 mb-2">Gradually replace legacy functionality with new services while maintaining the old system.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> Low risk, gradual transition, continuous operation
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Anti-Corruption Layer</h4>
+                            <p class="text-sm opacity-90 mb-2">Create an abstraction layer to isolate legacy systems from new architecture.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> Clean boundaries, gradual modernization, reduced coupling
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Database Migration</h4>
+                            <p class="text-sm opacity-90 mb-2">Modernize data layer with new database technologies and patterns.</p>
+                            <div class="text-xs opacity-80">
+                                <strong>Benefits:</strong> Improved performance, scalability, and maintainability
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modernization Techniques -->
+                <div class="bg-gradient-to-br from-[#10B981] to-[#059669] text-white rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-wrench mr-2"></i>Modernization Techniques
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">API Wrapping</h4>
+                            <p class="text-sm opacity-90 mb-2">Expose legacy functionality through modern APIs and microservices.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Containerization</h4>
+                            <p class="text-sm opacity-90 mb-2">Package legacy applications in containers for improved portability and deployment.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Event-Driven Integration</h4>
+                            <p class="text-sm opacity-90 mb-2">Connect legacy systems to modern event-driven architectures for real-time capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Migration Phases -->
+            <div class="bg-gradient-to-r from-[#F0F4F8] to-[#E2E8F0] rounded-lg p-6">
+                <h3 class="text-2xl font-bold text-[#0A2540] mb-6 text-center">
+                    <i class="fas fa-list-ol mr-2"></i>Migration Phases & Best Practices
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg p-6 text-center">
+                        <div class="w-12 h-12 bg-[#3B82F6] rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">Assessment</h4>
+                        <p class="text-sm text-[#425466]">Analyze legacy systems, identify dependencies, and create migration roadmap.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center">
+                        <div class="w-12 h-12 bg-[#10B981] rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">Planning</h4>
+                        <p class="text-sm text-[#425466]">Design target architecture, select migration strategy, and plan resource allocation.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center">
+                        <div class="w-12 h-12 bg-[#F59E0B] rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">Implementation</h4>
+                        <p class="text-sm text-[#425466]">Execute migration in phases, implement new patterns, and ensure data integrity.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center">
+                        <div class="w-12 h-12 bg-[#8B5CF6] rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <h4 class="font-semibold text-[#0A2540] mb-2">Optimization</h4>
+                        <p class="text-sm text-[#425466]">Monitor performance, optimize systems, and continuously improve architecture.</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-white rounded-lg border-l-4 border-[#F59E0B]">
+                    <p class="text-sm text-[#425466]">
+                        <strong>Key Success Factors:</strong> Start with low-risk components, maintain comprehensive testing, ensure team training, and plan for rollback scenarios. Modern design patterns should be introduced gradually to minimize disruption and maximize adoption success.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A2540] text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img src="https://avatars.githubusercontent.com/u/29280406?s=48&v=4" alt="Tech Genie" class="h-8 w-8 rounded-full mr-3">
+                        <span class="text-xl font-bold">Tech Genie</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Your gateway to technology and industry learning. Comprehensive guides, insights, and best practices for modern software development and architecture.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/ernest-chen/genie" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="public_clouds.html" class="text-gray-400 hover:text-white transition-colors">Cloud Comparison</a></li>
+                        <li><a href="devops.html" class="text-gray-400 hover:text-white transition-colors">DevSecOps Guide</a></li>
+                        <li><a href="rest_rpc.html" class="text-gray-400 hover:text-white transition-colors">API Protocols</a></li>
+                        <li><a href="adtech.html" class="text-gray-400 hover:text-white transition-colors">AdTech Ecosystem</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">More</h3>
+                    <ul class="space-y-2">
+                        <li><a href="transformation.html" class="text-gray-400 hover:text-white transition-colors">Transformation</a></li>
+                        <li><a href="seo_geo_aeo.html" class="text-gray-400 hover:text-white transition-colors">SEO/GEO/AEO</a></li>
+                        <li><a href="design_patterns.html" class="text-gray-400 hover:text-white transition-colors">Design Patterns</a></li>
+                        <li><a href="companies/index.html" class="text-gray-400 hover:text-white transition-colors">Companies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Tech Genie. All rights reserved. Built with modern design patterns and best practices.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="index.html" class="bg-[#007AFF] text-white p-4 rounded-full shadow-lg hover:bg-[#0056CC] transition-colors duration-200 floating">
+            <i class="fas fa-home text-xl"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript for animations -->
+    <script>
+        // Add fade-in animation to elements as they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add hover effects to pattern cards
+        document.querySelectorAll('.pattern-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
