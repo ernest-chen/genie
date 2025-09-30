@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Data Platform Architecture Comparison 2025 | Databricks vs Snowflake vs Open Source</title>
+    <meta name="title" content="Data Platform Architecture Comparison 2025 | Databricks vs Snowflake vs Open Source">
+    <meta name="description" content="Comprehensive data platform comparison: Databricks, Snowflake, and open source solutions. Reference architectures, best practices, data governance, analytics, real-time processing, and AI/ML workflows.">
+    <meta name="keywords" content="data platform, data architecture, Databricks, Snowflake, data governance, data modeling, analytics, real-time processing, AI/ML, data quality, monitoring">
+    <meta name="author" content="Ernest Chen">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ernest-chen.github.io/genie/data_platform.html">
+    <meta property="og:title" content="Data Platform Architecture Comparison: Databricks vs Snowflake vs Open Source">
+    <meta property="og:description" content="Comprehensive data platform comparison with reference architectures, best practices, and implementation strategies for modern data platforms.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    <meta property="og:site_name" content="Tech Genie">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Ernest Chen">
+    <meta property="article:published_time" content="2025-01-16">
+    <meta property="article:section" content="Data Architecture">
+    <meta property="article:tag" content="Data Platform, Databricks, Snowflake, Data Architecture, Analytics">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ernest-chen.github.io/genie/data_platform.html">
+    <meta property="twitter:title" content="Data Platform Architecture Comparison: Databricks vs Snowflake vs Open Source">
+    <meta property="twitter:description" content="Comprehensive data platform comparison with reference architectures, best practices, and implementation strategies for modern data platforms.">
+    <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    
+    <!-- AEO (AI Engine Optimization) -->
+    <meta name="ai-content-type" content="comparison-tool">
+    <meta name="ai-topic" content="data-platform, data-architecture, analytics, data-governance, ai-ml">
+    <meta name="ai-audience" content="data-engineers, data-architects, data-scientists, developers, decision-makers">
+    <meta name="ai-complexity" content="intermediate-to-advanced">
+    <meta name="ai-updated" content="2025-01-16">
+    <meta name="ai-sections" content="reference-architectures, data-governance, analytics, real-time, ai-ml">
+    <meta name="ai-providers" content="databricks, snowflake, open-source">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ernest-chen.github.io/genie/data_platform.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/29280406?s=32&v=4">
+    <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/29280406?s=180&v=4">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Data Platform Architecture Comparison: Commercial vs Open Source",
+        "description": "Comprehensive data platform comparison with reference architectures, best practices, and implementation strategies for modern data platforms.",
+        "image": "https://avatars.githubusercontent.com/u/29280406?s=200&v=4",
+        "author": {
+            "@type": "Person",
+            "name": "Ernest Chen",
+            "url": "https://github.com/ernest-chen"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Tech Genie",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://avatars.githubusercontent.com/u/29280406?s=200&v=4"
+            }
+        },
+        "datePublished": "2025-01-16",
+        "dateModified": "2025-01-16",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ernest-chen.github.io/genie/data_platform.html"
+        },
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "Databricks",
+                "description": "Unified analytics platform for big data and machine learning"
+            },
+            {
+                "@type": "Thing",
+                "name": "Snowflake",
+                "description": "Cloud data platform for data warehousing and analytics"
+            },
+            {
+                "@type": "Thing",
+                "name": "Data Architecture",
+                "description": "Design and structure of data systems"
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .comparison-table {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .architecture-diagram {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="top-navigation">
+        <!-- Navigation will be injected here by navigation.js -->
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-16">
+        <!-- Executive Summary -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
+                <i class="fas fa-chart-line mr-4 text-blue-600"></i>Data Platform Architecture Comparison
+            </h2>
+            <p class="text-xl text-gray-600 text-center leading-relaxed mb-8">
+                Comprehensive comparison of modern data platform architectures, covering commercial solutions (Databricks, Snowflake, etc) 
+                and open-source alternatives. Explore reference implementations, best practices, and implementation strategies for 
+                building scalable, governed, and AI-ready data platforms.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-blue-50 rounded-xl">
+                    <i class="fas fa-building text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Commercial Solutions</h3>
+                    <p class="text-gray-600">Databricks, Snowflake, Starburst, Confluence, and cloud provider platforms</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <i class="fas fa-code-branch text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Open Source</h3>
+                    <p class="text-gray-600">Apache Spark, Kafka, Airflow, Apache Iceberg, Delta Lake, and more</p>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl">
+                    <i class="fas fa-cogs text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Best Practices</h3>
+                    <p class="text-gray-600">Governance, quality, monitoring, AI/ML</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reference Architecture Design -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-cogs mr-3 text-indigo-600"></i>Reference Architecture Design
+            </h2>
+            
+            <!-- Data Ingestion -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-download text-blue-600 mr-3"></i>1. Data Ingestion
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Batch Ingestion -->
+                    <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-archive text-blue-600 mr-3"></i>Batch Ingestion
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Object Storage</h5>
+                                <p class="text-xs text-gray-600">Raw data storage for batch processing</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Scalable</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Durable</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Transfer Services</h5>
+                                <p class="text-xs text-gray-600">High-speed data migration and transfer</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Migration</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">High-speed</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Scheduled Transfer</h5>
+                                <p class="text-xs text-gray-600">Automated data transfer scheduling</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Scheduled</span>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Automated</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stream Ingestion -->
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-stream text-green-600 mr-3"></i>Stream Ingestion
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Message Queues</h5>
+                                <p class="text-xs text-gray-600">Real-time messaging and event streaming</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Real-time</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Messaging</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Stream Processing</h5>
+                                <p class="text-xs text-gray-600">Serverless stream processing</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">Serverless</span>
+                                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">Processing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Storage -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-database text-purple-600 mr-3"></i>2. Data Storage
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Data Lake -->
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-water text-purple-600 mr-3"></i>Data Lake
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Object Storage</h5>
+                                <p class="text-xs text-gray-600">Raw, semi-structured, unstructured data</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Clean Room</h5>
+                                <p class="text-xs text-gray-600">Privacy-preserving data collaboration</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Data Federation</h5>
+                                <p class="text-xs text-gray-600">Unified access to distributed sources</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Data Versioning</h5>
+                                <p class="text-xs text-gray-600">Track data changes and maintain history</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Warehouse -->
+                    <div class="bg-gradient-to-br from-orange-50 to-red-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-warehouse text-orange-600 mr-3"></i>Data Warehouse
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Analytical Database</h5>
+                                <p class="text-xs text-gray-600">Analytical workloads, structured data</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Operational Databases -->
+                    <div class="bg-gradient-to-br from-teal-50 to-cyan-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-server text-teal-600 mr-3"></i>Operational Databases
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Relational Database</h5>
+                                <p class="text-xs text-gray-600">Transactional workloads</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Distributed Database</h5>
+                                <p class="text-xs text-gray-600">Globally distributed, consistent</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Document Database</h5>
+                                <p class="text-xs text-gray-600">NoSQL document databases</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Document Storage</h5>
+                                <p class="text-xs text-gray-600">Structured document management system</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Processing and Transformation -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-cogs text-indigo-600 mr-3"></i>3. Data Processing and Transformation
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Batch Processing -->
+                    <div class="bg-gradient-to-br from-indigo-50 to-blue-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-clock text-indigo-600 mr-3"></i>Batch Processing
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Big Data Processing</h5>
+                                <p class="text-xs text-gray-600">Apache Hadoop and Spark workloads</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded">Hadoop</span>
+                                    <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded">Spark</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Unified Processing</h5>
+                                <p class="text-xs text-gray-600">Unified batch and stream processing</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Unified</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Serverless</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">SQL Processing</h5>
+                                <p class="text-xs text-gray-600">SQL-based transformations</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">SQL</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Analytics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stream Processing -->
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-bolt text-green-600 mr-3"></i>Stream Processing
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Stream Processing Engine</h5>
+                                <p class="text-xs text-gray-600">Serverless stream processing</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Real-time</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Serverless</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Apache Flink</h5>
+                                <p class="text-xs text-gray-600">Distributed stream processing framework</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Streaming</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Batch</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Event Streaming</h5>
+                                <p class="text-xs text-gray-600">Event streaming and messaging</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Events</span>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Messaging</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analytics and Business Intelligence -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-chart-line text-yellow-600 mr-3"></i>4. Data Analytics and Business Intelligence
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Reporting and Dashboards -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-chart-bar text-yellow-600 mr-3"></i>Reporting & Dashboards
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">BI Platform</h5>
+                                <p class="text-xs text-gray-600">Business intelligence platform</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Data Visualization</h5>
+                                <p class="text-xs text-gray-600">Interactive dashboards and visual analytics</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Advanced Visualization</h5>
+                                <p class="text-xs text-gray-600">Real-time charts, graphs, and interactive reports</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ad-hoc Analysis -->
+                    <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-search text-blue-600 mr-3"></i>Ad-hoc Analysis
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Query Engine</h5>
+                                <p class="text-xs text-gray-600">Interactive SQL queries</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Data APIs</h5>
+                                <p class="text-xs text-gray-600">RESTful APIs for data access</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">GraphQL</h5>
+                                <p class="text-xs text-gray-600">Flexible query language for APIs</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Clean Room Analytics</h5>
+                                <p class="text-xs text-gray-600">Privacy-preserving collaborative analytics</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Federated Queries</h5>
+                                <p class="text-xs text-gray-600">Cross-source data analysis</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Search & Discovery</h5>
+                                <p class="text-xs text-gray-600">Full-text search and content discovery</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI/ML & Advanced Analytics -->
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-brain text-purple-600 mr-3"></i>AI/ML & Advanced Analytics
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">ML Platform</h5>
+                                <p class="text-xs text-gray-600">Model development, training, deployment</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">TensorFlow</h5>
+                                <p class="text-xs text-gray-600">Open-source ML framework for deep learning</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">SQL-based ML</h5>
+                                <p class="text-xs text-gray-600">ML models using SQL</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">AutoML</h5>
+                                <p class="text-xs text-gray-600">Automated model selection and hyperparameter tuning</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">MLOps Pipeline</h5>
+                                <p class="text-xs text-gray-600">Model training, validation, deployment, and monitoring</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Feature Store</h5>
+                                <p class="text-xs text-gray-600">Centralized feature engineering and management</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Model Registry</h5>
+                                <p class="text-xs text-gray-600">Version control and governance for ML models</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">A/B Testing</h5>
+                                <p class="text-xs text-gray-600">Experiment management and statistical testing</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">MCP (Model Context Protocol)</h5>
+                                <p class="text-xs text-gray-600">AI model data source integration</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Notebook Services</h5>
+                                <p class="text-xs text-gray-600">Cloud-native Jupyter notebooks for ML development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orchestration and Workflow Management -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-project-diagram text-red-600 mr-3"></i>5. Orchestration and Workflow Management
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Workflow Orchestration -->
+                    <div class="bg-gradient-to-br from-red-50 to-pink-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-sitemap text-red-600 mr-3"></i>Workflow Orchestration
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Workflow Engine</h5>
+                                <p class="text-xs text-gray-600">Managed workflow orchestration</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Serverless Workflows</h5>
+                                <p class="text-xs text-gray-600">Serverless workflow orchestration</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheduling -->
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-calendar-alt text-green-600 mr-3"></i>Scheduling
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Job Scheduler</h5>
+                                <p class="text-xs text-gray-600">Cron-based job scheduling</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Pipeline Management -->
+                    <div class="bg-gradient-to-br from-indigo-50 to-blue-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-route text-indigo-600 mr-3"></i>Pipeline Management
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Visual Pipeline Builder</h5>
+                                <p class="text-xs text-gray-600">Visual pipeline builder</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Serverless Functions</h5>
+                                <p class="text-xs text-gray-600">Event-driven serverless functions</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">API Gateway</h5>
+                                <p class="text-xs text-gray-600">API management and routing</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">GraphQL Gateway</h5>
+                                <p class="text-xs text-gray-600">Unified GraphQL API layer</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">API Integration</h5>
+                                <p class="text-xs text-gray-600">REST APIs, GraphQL, Webhooks, SDKs</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">ML Workflow Orchestration</h5>
+                                <p class="text-xs text-gray-600">Automated ML pipeline management and scheduling</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">AI Model Deployment</h5>
+                                <p class="text-xs text-gray-600">Automated model deployment and scaling</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">MCP Integration</h5>
+                                <p class="text-xs text-gray-600">AI model context and data source orchestration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orchestration Workflow Visual -->
+            <div class="mb-12">
+                <h4 class="text-xl font-bold text-gray-800 mb-6 text-center">Data Pipeline Orchestration Workflow</h4>
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-100 rounded-xl p-8">
+                    <div class="workflow-diagram">
+                        <!-- Workflow Steps -->
+                        <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+                            <!-- Data Sources -->
+                            <div class="workflow-step bg-white rounded-lg p-4 text-center shadow-lg">
+                                <i class="fas fa-database text-2xl text-blue-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">Data Sources</h5>
+                                <p class="text-xs text-gray-600">APIs, Files, Streams</p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                            </div>
+                            
+                            <!-- Ingestion -->
+                            <div class="workflow-step bg-white rounded-lg p-4 text-center shadow-lg">
+                                <i class="fas fa-download text-2xl text-green-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">Ingestion</h5>
+                                <p class="text-xs text-gray-600">Kafka, Airflow, Scheduler</p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                            </div>
+                            
+                            <!-- Processing -->
+                            <div class="workflow-step bg-white rounded-lg p-4 text-center shadow-lg">
+                                <i class="fas fa-cogs text-2xl text-purple-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">Processing</h5>
+                                <p class="text-xs text-gray-600">Spark, Dataflow, Functions</p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                            </div>
+                            
+                            <!-- Storage -->
+                            <div class="workflow-step bg-white rounded-lg p-4 text-center shadow-lg">
+                                <i class="fas fa-warehouse text-2xl text-orange-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">Storage</h5>
+                                <p class="text-xs text-gray-600">Data Lake, Warehouse</p>
+                            </div>
+                        </div>
+                        
+                        <!-- ML Pipeline Branch -->
+                        <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+                            <div class="workflow-step bg-white rounded-lg p-4 text-center shadow-lg">
+                                <i class="fas fa-brain text-2xl text-pink-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">ML Training</h5>
+                                <p class="text-xs text-gray-600">Model Development</p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                            </div>
+                            
+                            <div class="workflow-step bg-white rounded-lg p-4 text-center shadow-lg">
+                                <i class="fas fa-rocket text-2xl text-red-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">ML Deployment</h5>
+                                <p class="text-xs text-gray-600">Model Serving</p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                            </div>
+                            
+                            <div class="workflow-step bg-white rounded-lg p-4 text-center shadow-lg">
+                                <i class="fas fa-chart-line text-2xl text-indigo-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">Analytics</h5>
+                                <p class="text-xs text-gray-600">BI, Dashboards</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Orchestration Tools -->
+                        <div class="bg-white rounded-lg p-6">
+                            <h5 class="font-semibold text-lg mb-4 text-center">Orchestration Tools</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <i class="fas fa-wind text-2xl text-blue-500 mb-2"></i>
+                                    <h6 class="font-semibold text-sm">Apache Airflow</h6>
+                                    <p class="text-xs text-gray-600">Workflow orchestration</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-project-diagram text-2xl text-green-500 mb-2"></i>
+                                    <h6 class="font-semibold text-sm">Step Functions</h6>
+                                    <p class="text-xs text-gray-600">Serverless workflows</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-cloud text-2xl text-purple-500 mb-2"></i>
+                                    <h6 class="font-semibold text-sm">Cloud Composer</h6>
+                                    <p class="text-xs text-gray-600">Managed Airflow</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Governance and Security -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-shield-alt text-gray-600 mr-3"></i>6. Data Governance and Security
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Identity and Access Management -->
+                    <div class="bg-gradient-to-br from-gray-50 to-blue-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-user-shield text-gray-600 mr-3"></i>Identity and Access Management
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Access Control</h5>
+                                <p class="text-xs text-gray-600">Granular access control and permissions</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">RBAC</span>
+                                    <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Permissions</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Service Authentication</h5>
+                                <p class="text-xs text-gray-600">Application-to-application authentication</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Authentication</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Service-to-Service</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Conditional Access</h5>
+                                <p class="text-xs text-gray-600">Context-aware access policies</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Context</span>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Policies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Governance Framework -->
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-balance-scale text-green-600 mr-3"></i>Data Governance Framework
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Lineage</h5>
+                                <p class="text-xs text-gray-600">Track data flow and transformations</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Lineage</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Tracking</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Classification</h5>
+                                <p class="text-xs text-gray-600">Automated data sensitivity tagging</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded">Classification</span>
+                                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded">Tagging</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Metadata Discovery</h5>
+                                <p class="text-xs text-gray-600">Automated metadata extraction and cataloging</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Auto-discovery</span>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Extraction</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Compliance Framework</h5>
+                                <p class="text-xs text-gray-600">GDPR, CCPA, HIPAA, SOX, PCI-DSS compliance controls</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">GDPR</span>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">CCPA</span>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">HIPAA</span>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">SOX</span>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">PCI-DSS</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Role-Based Access Control (RBAC)</h5>
+                                <p class="text-xs text-gray-600">Granular permissions and data access controls</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">RBAC</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">ABAC</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Zero Trust</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Retention</h5>
+                                <p class="text-xs text-gray-600">Automated data lifecycle and retention policies</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">Lifecycle</span>
+                                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">Policies</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Clean Room</h5>
+                                <p class="text-xs text-gray-600">Privacy-preserving data collaboration</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Privacy</span>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Collaboration</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Federation</h5>
+                                <p class="text-xs text-gray-600">Unified access to distributed data sources</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Federation</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Distributed</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Metadata Management</h5>
+                                <p class="text-xs text-gray-600">Comprehensive document metadata and tagging</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs rounded">Metadata</span>
+                                    <span class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs rounded">Tagging</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">MCP Governance</h5>
+                                <p class="text-xs text-gray-600">AI model access control and context management</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">AI Access</span>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Context</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monitoring and Auditing -->
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-eye text-purple-600 mr-3"></i>Monitoring and Auditing
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Audit Logging</h5>
+                                <p class="text-xs text-gray-600">Comprehensive activity monitoring</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Audit</span>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Monitoring</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Catalog</h5>
+                                <p class="text-xs text-gray-600">Data discovery and metadata management</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Discovery</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Metadata</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Metadata Discovery</h5>
+                                <p class="text-xs text-gray-600">Automated metadata extraction and cataloging</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Auto-discovery</span>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Extraction</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Retention</h5>
+                                <p class="text-xs text-gray-600">Automated data lifecycle and retention policies</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">Lifecycle</span>
+                                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">Policies</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Data Loss Prevention</h5>
+                                <p class="text-xs text-gray-600">Sensitive data protection and classification</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">Protection</span>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">DLP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Reference Architectures -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-sitemap mr-3 text-blue-600"></i>Reference Architecture Implementations
+            </h2>
+            
+            <!-- Commercial Data Platforms -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Commercial Data Platforms</h3>
+                
+                <!-- Cloud Provider Data Platforms -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6 text-center">Cloud Provider Data Platforms</h4>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Google Cloud Platform -->
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-cloud text-blue-600 mr-3"></i>Google Cloud Platform (GCP)
+                            </h5>
+                            <div class="space-y-4">
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Ingestion</h6>
+                                    <p class="text-xs text-gray-600">Cloud Storage, Pub/Sub, Dataflow, Transfer Service</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Storage</h6>
+                                    <p class="text-xs text-gray-600">BigQuery, Cloud SQL, Spanner, Firestore, Cloud Storage</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Processing</h6>
+                                    <p class="text-xs text-gray-600">Dataflow, Dataproc, BigQuery, Cloud Functions, Flink</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Analytics & ML</h6>
+                                    <p class="text-xs text-gray-600">Vertex AI, Looker, BigQuery ML, AutoML, TensorFlow, MCP</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Notebook Services</h6>
+                                    <p class="text-xs text-gray-600">AI Platform Notebooks, Vertex AI Workbench, Colab Enterprise</p>
+                                </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Orchestration</h6>
+                                <p class="text-xs text-gray-600">Cloud Composer, Workflows, Scheduler</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">APIs & Integration</h6>
+                                <p class="text-xs text-gray-600">Cloud Endpoints, API Gateway, GraphQL</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Privacy & Federation</h6>
+                                <p class="text-xs text-gray-600">Clean Room, Data Federation, Privacy Sandbox</p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Amazon Web Services -->
+                        <div class="bg-gradient-to-br from-orange-50 to-yellow-100 rounded-xl p-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-amazon text-orange-600 mr-3"></i>Amazon Web Services (AWS)
+                            </h5>
+                            <div class="space-y-4">
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Ingestion</h6>
+                                    <p class="text-xs text-gray-600">S3, Kinesis, DataSync, DMS, Glue</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Storage</h6>
+                                    <p class="text-xs text-gray-600">Redshift, RDS, DynamoDB, S3, Aurora</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Processing</h6>
+                                    <p class="text-xs text-gray-600">EMR, Glue, Lambda, Kinesis Analytics, Flink</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Analytics & ML</h6>
+                                    <p class="text-xs text-gray-600">SageMaker, QuickSight, Athena, Forecast, TensorFlow, MCP</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Notebook Services</h6>
+                                    <p class="text-xs text-gray-600">SageMaker Notebooks, SageMaker Studio, EMR Notebooks</p>
+                                </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Orchestration</h6>
+                                <p class="text-xs text-gray-600">Step Functions, MWAA, EventBridge</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">APIs & Integration</h6>
+                                <p class="text-xs text-gray-600">API Gateway, AppSync GraphQL, Lambda</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Privacy & Federation</h6>
+                                <p class="text-xs text-gray-600">Clean Rooms, Data Federation, Lake Formation</p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Microsoft Azure -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-microsoft text-blue-600 mr-3"></i>Microsoft Azure
+                            </h5>
+                            <div class="space-y-4">
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Ingestion</h6>
+                                    <p class="text-xs text-gray-600">Data Factory, Event Hubs, IoT Hub, Data Share</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Storage</h6>
+                                    <p class="text-xs text-gray-600">Synapse, SQL Database, Cosmos DB, Data Lake</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Processing</h6>
+                                    <p class="text-xs text-gray-600">Databricks, HDInsight, Stream Analytics, Functions, Flink</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Analytics & ML</h6>
+                                    <p class="text-xs text-gray-600">Machine Learning, Power BI, Cognitive Services, TensorFlow, MCP</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Notebook Services</h6>
+                                    <p class="text-xs text-gray-600">Azure ML Notebooks, Azure Databricks Notebooks, Jupyter Hub</p>
+                                </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Orchestration</h6>
+                                <p class="text-xs text-gray-600">Data Factory, Logic Apps, Event Grid</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">APIs & Integration</h6>
+                                <p class="text-xs text-gray-600">API Management, Azure Functions, GraphQL</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Privacy & Federation</h6>
+                                <p class="text-xs text-gray-600">Purview, Data Federation, Privacy Controls</p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Oracle Cloud Infrastructure -->
+                        <div class="bg-gradient-to-br from-red-50 to-pink-100 rounded-xl p-6">
+                            <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-database text-red-600 mr-3"></i>Oracle Cloud Infrastructure (OCI)
+                            </h5>
+                            <div class="space-y-4">
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Ingestion</h6>
+                                    <p class="text-xs text-gray-600">Data Integration, GoldenGate, Object Storage</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Data Storage</h6>
+                                    <p class="text-xs text-gray-600">Autonomous Database, MySQL, NoSQL, Data Warehouse</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Processing</h6>
+                                    <p class="text-xs text-gray-600">Data Flow, Functions, Streaming, Big Data Service, Flink</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Analytics & ML</h6>
+                                    <p class="text-xs text-gray-600">Analytics Cloud, Data Science, ML Services, TensorFlow, MCP</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h6 class="font-semibold text-sm mb-2">Notebook Services</h6>
+                                    <p class="text-xs text-gray-600">Data Science Notebooks, OCI Data Science, Jupyter Lab</p>
+                                </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Orchestration</h6>
+                                <p class="text-xs text-gray-600">Data Integration, Events, Notifications</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">APIs & Integration</h6>
+                                <p class="text-xs text-gray-600">API Gateway, Functions, GraphQL</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h6 class="font-semibold text-sm mb-2">Privacy & Federation</h6>
+                                <p class="text-xs text-gray-600">Data Safe, Federation, Privacy Controls</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Platform Comparison -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6 text-center">Cloud Platform Comparison</h4>
+                    <div class="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <!-- Strengths Comparison -->
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
+                                    <i class="fas fa-trophy text-yellow-600 mr-3"></i>Platform Strengths
+                                </h5>
+                                <div class="space-y-4">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-blue-600">GCP - Analytics & ML</h6>
+                                        <p class="text-xs text-gray-600">BigQuery, Vertex AI, AutoML, strong analytics ecosystem</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-orange-600">AWS - Comprehensive</h6>
+                                        <p class="text-xs text-gray-600">Largest service portfolio, mature ecosystem, broad adoption</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-blue-600">Azure - Enterprise</h6>
+                                        <p class="text-xs text-gray-600">Strong enterprise integration, hybrid cloud, Microsoft stack</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-red-600">OCI - Database</h6>
+                                        <p class="text-xs text-gray-600">Autonomous Database, strong Oracle ecosystem, cost-effective</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Use Cases -->
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
+                                    <i class="fas fa-target text-green-600 mr-3"></i>Best Use Cases
+                                </h5>
+                                <div class="space-y-4">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-blue-600">GCP</h6>
+                                        <p class="text-xs text-gray-600">Data analytics, ML/AI, real-time processing, Google ecosystem</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-orange-600">AWS</h6>
+                                        <p class="text-xs text-gray-600">Startups to enterprise, diverse workloads, global scale</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-blue-600">Azure</h6>
+                                        <p class="text-xs text-gray-600">Enterprise hybrid cloud, Microsoft-centric organizations</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2 text-red-600">OCI</h6>
+                                        <p class="text-xs text-gray-600">Oracle workloads, database-centric applications, cost optimization</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Service Comparison -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6 text-center">Detailed Service Comparison</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full bg-white rounded-xl shadow-lg">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-800">Service Category</th>
+                                    <th class="px-4 py-3 text-center text-sm font-semibold text-blue-600">GCP</th>
+                                    <th class="px-4 py-3 text-center text-sm font-semibold text-orange-600">AWS</th>
+                                    <th class="px-4 py-3 text-center text-sm font-semibold text-blue-600">Azure</th>
+                                    <th class="px-4 py-3 text-center text-sm font-semibold text-red-600">OCI</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">Data Warehouse</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">BigQuery</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Redshift</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Synapse</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Warehouse</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">Stream Processing</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Dataflow, Flink</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Kinesis, Flink</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Stream Analytics, Flink</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Streaming, Flink</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">ML Platform</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Vertex AI, TensorFlow</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">SageMaker, TensorFlow</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">ML Studio, TensorFlow</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Science, TensorFlow</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">Notebook Services</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">AI Platform Notebooks, Vertex AI Workbench</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">SageMaker Notebooks, SageMaker Studio</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Azure ML Notebooks, Databricks</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Science Notebooks, OCI Data Science</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">Orchestration</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Composer</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">MWAA</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Factory</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Integration</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">NoSQL Database</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Firestore</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">DynamoDB</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Cosmos DB</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">NoSQL</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">Data Lake</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Cloud Storage</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">S3</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Lake</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Object Storage</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">API Gateway</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Cloud Endpoints</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">API Gateway</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">API Management</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">API Gateway</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">GraphQL</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Apigee</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">AppSync</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Functions</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Functions</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">Clean Room</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Privacy Sandbox</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Clean Rooms</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Purview</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Safe</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">Data Federation</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">BigQuery</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Lake Formation</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Synapse</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Integration</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Performance & Scalability Metrics -->
+                <div class="mt-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6 text-center">Performance & Scalability Metrics</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- GCP Performance -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6">
+                            <h5 class="font-semibold text-lg mb-4 text-blue-600">Google Cloud Platform</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">BigQuery Performance</h6>
+                                    <p class="text-xs text-gray-600">1M+ rows/sec, <100ms query latency</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Dataflow Scaling</h6>
+                                    <p class="text-xs text-gray-600">Auto-scale to 1000+ workers</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Cost Efficiency</h6>
+                                    <p class="text-xs text-gray-600">$5/TB query, 99.9% SLA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AWS Performance -->
+                        <div class="bg-gradient-to-br from-orange-50 to-yellow-100 rounded-xl p-6">
+                            <h5 class="font-semibold text-lg mb-4 text-orange-600">Amazon Web Services</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Redshift Performance</h6>
+                                    <p class="text-xs text-gray-600">10TB+ data warehouse, <1s queries</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Kinesis Throughput</h6>
+                                    <p class="text-xs text-gray-600">1M+ records/sec per shard</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Cost Efficiency</h6>
+                                    <p class="text-xs text-gray-600">$0.25/hour per DC2 node</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Azure Performance -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6">
+                            <h5 class="font-semibold text-lg mb-4 text-blue-600">Microsoft Azure</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Synapse Performance</h6>
+                                    <p class="text-xs text-gray-600">100+ concurrent queries, <2s response</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Stream Analytics</h6>
+                                    <p class="text-xs text-gray-600">1M+ events/sec processing</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Cost Efficiency</h6>
+                                    <p class="text-xs text-gray-600">$0.50/hour per DWU</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- OCI Performance -->
+                        <div class="bg-gradient-to-br from-red-50 to-pink-100 rounded-xl p-6">
+                            <h5 class="font-semibold text-lg mb-4 text-red-600">Oracle Cloud</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">ADW Performance</h6>
+                                    <p class="text-xs text-gray-600">Auto-scaling, <1s query response</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Streaming</h6>
+                                    <p class="text-xs text-gray-600">100K+ messages/sec throughput</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-3">
+                                    <h6 class="font-semibold text-sm">Cost Efficiency</h6>
+                                    <p class="text-xs text-gray-600">$0.30/hour per OCPU</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scalability Benchmarks -->
+                <div class="mt-8">
+                    <h5 class="text-lg font-bold text-gray-800 mb-6 text-center">Scalability Benchmarks</h5>
+                    <div class="bg-gradient-to-r from-green-50 to-blue-100 rounded-xl p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="bg-white rounded-lg p-4">
+                                    <i class="fas fa-tachometer-alt text-3xl text-green-500 mb-3"></i>
+                                    <h6 class="font-semibold text-lg">Throughput</h6>
+                                    <p class="text-sm text-gray-600">1M+ events/sec</p>
+                                    <p class="text-xs text-gray-500">Real-time processing capacity</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white rounded-lg p-4">
+                                    <i class="fas fa-clock text-3xl text-blue-500 mb-3"></i>
+                                    <h6 class="font-semibold text-lg">Latency</h6>
+                                    <p class="text-sm text-gray-600"><100ms</p>
+                                    <p class="text-xs text-gray-500">Query response time</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white rounded-lg p-4">
+                                    <i class="fas fa-users text-3xl text-purple-500 mb-3"></i>
+                                    <h6 class="font-semibold text-lg">Concurrency</h6>
+                                    <p class="text-sm text-gray-600">1000+ users</p>
+                                    <p class="text-xs text-gray-500">Simultaneous connections</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confluence Data Platform -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-book text-blue-500 mr-3"></i>Confluence Data Platform
+                    </h4>
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <!-- Platform Overview -->
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-info-circle text-blue-600 mr-3"></i>Platform Overview
+                                </h5>
+                                <div class="space-y-4">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Knowledge Management</h6>
+                                        <p class="text-xs text-gray-600">Centralized documentation, wikis, and knowledge base</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Data Governance</h6>
+                                        <p class="text-xs text-gray-600">Data catalog, lineage documentation, metadata management</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Collaboration</h6>
+                                        <p class="text-xs text-gray-600">Team collaboration, version control, approval workflows</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Integration</h6>
+                                        <p class="text-xs text-gray-600">Jira, Bitbucket, third-party tools, APIs</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Key Features -->
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-cogs text-green-600 mr-3"></i>Key Features
+                                </h5>
+                                <div class="space-y-4">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Document Management</h6>
+                                        <p class="text-xs text-gray-600">Rich text editor, templates, macros, attachments</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Search & Discovery</h6>
+                                        <p class="text-xs text-gray-600">Full-text search, content indexing, smart suggestions</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Data Lineage</h6>
+                                        <p class="text-xs text-gray-600">Visual data flow diagrams, documentation tracking</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Compliance</h6>
+                                        <p class="text-xs text-gray-600">Audit trails, access controls, retention policies</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Real-World Use Cases -->
+                        <div class="mt-8">
+                            <h5 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
+                                <i class="fas fa-target text-purple-600 mr-3"></i>Real-World Use Cases & Scenarios
+                            </h5>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- E-commerce Analytics -->
+                                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6">
+                                    <h6 class="font-semibold text-lg mb-3 text-blue-600 flex items-center">
+                                        <i class="fas fa-shopping-cart mr-2"></i>E-commerce Analytics Platform
+                                    </h6>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Scenario</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Global retailer processing 50M+ daily transactions across 15 countries</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Data Flow</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Real-time clickstream → Kafka → Spark → Delta Lake → ML models → BI dashboards</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Key Metrics</h7>
+                                            <p class="text-xs text-gray-600 mt-1">99.9% uptime, <100ms query latency, 10TB/day processing</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Financial Services -->
+                                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                                    <h6 class="font-semibold text-lg mb-3 text-green-600 flex items-center">
+                                        <i class="fas fa-chart-line mr-2"></i>Financial Risk Management
+                                    </h6>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Scenario</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Bank implementing real-time fraud detection across 5M+ accounts</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Compliance</h7>
+                                            <p class="text-xs text-gray-600 mt-1">GDPR, PCI-DSS, SOX compliance with audit trails and data lineage</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Performance</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Sub-second fraud detection, 99.99% accuracy, $2M+ fraud prevented monthly</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Healthcare Analytics -->
+                                <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                                    <h6 class="font-semibold text-lg mb-3 text-purple-600 flex items-center">
+                                        <i class="fas fa-heartbeat mr-2"></i>Healthcare Data Platform
+                                    </h6>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Scenario</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Hospital network analyzing patient outcomes across 2M+ records</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Privacy</h7>
+                                            <p class="text-xs text-gray-600 mt-1">HIPAA compliance, data anonymization, clean room analytics</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">AI/ML</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Predictive models for patient risk, drug discovery, treatment optimization</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Manufacturing IoT -->
+                                <div class="bg-gradient-to-br from-orange-50 to-red-100 rounded-xl p-6">
+                                    <h6 class="font-semibold text-lg mb-3 text-orange-600 flex items-center">
+                                        <i class="fas fa-cogs mr-2"></i>Manufacturing IoT Analytics
+                                    </h6>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Scenario</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Smart factory with 10,000+ sensors generating 1TB/hour of telemetry</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Processing</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Stream processing for real-time alerts, batch analytics for optimization</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Impact</h7>
+                                            <p class="text-xs text-gray-600 mt-1">15% efficiency gain, 30% reduction in downtime, predictive maintenance</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Media and Advertisement -->
+                                <div class="bg-gradient-to-br from-cyan-50 to-blue-100 rounded-xl p-6">
+                                    <h6 class="font-semibold text-lg mb-3 text-cyan-600 flex items-center">
+                                        <i class="fas fa-bullhorn mr-2"></i>Media and Advertisement Platform
+                                    </h6>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Scenario</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Global media company serving 100M+ users with personalized content and ads</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Data Sources</h7>
+                                            <p class="text-xs text-gray-600 mt-1">User behavior, content metadata, ad impressions, click-through rates, demographics</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Analytics</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Real-time recommendation engine, A/B testing, audience segmentation, ROI optimization</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Performance</h7>
+                                            <p class="text-xs text-gray-600 mt-1">50ms recommendation latency, 25% increase in engagement, 40% improvement in ad targeting</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Recruitment and Search -->
+                                <div class="bg-gradient-to-br from-teal-50 to-green-100 rounded-xl p-6">
+                                    <h6 class="font-semibold text-lg mb-3 text-teal-600 flex items-center">
+                                        <i class="fas fa-users mr-2"></i>Recruitment and Search Platform
+                                    </h6>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Scenario</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Job platform processing 50M+ profiles and 1M+ job postings with AI-powered matching</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Data Processing</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Resume parsing, skill extraction, job classification, candidate ranking algorithms</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">ML Models</h7>
+                                            <p class="text-xs text-gray-600 mt-1">Semantic search, recommendation systems, fraud detection, bias mitigation</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3">
+                                            <h7 class="font-semibold text-sm text-gray-800">Impact</h7>
+                                            <p class="text-xs text-gray-600 mt-1">60% faster candidate matching, 35% improvement in job-candidate fit, 90% reduction in manual screening</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Starburst Data Platform -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-star text-indigo-500 mr-3"></i>Starburst Data Platform
+                    </h4>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl p-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <!-- Platform Overview -->
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-info-circle text-indigo-600 mr-3"></i>Platform Overview
+                                </h5>
+                                <div class="space-y-4">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Trino-based Query Engine</h6>
+                                        <p class="text-xs text-gray-600">Enterprise distribution of Trino for distributed SQL queries</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Data Federation</h6>
+                                        <p class="text-xs text-gray-600">Query data across multiple sources without data movement</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Starburst Galaxy</h6>
+                                        <p class="text-xs text-gray-600">Fully managed cloud-native data lake analytics</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Enterprise Features</h6>
+                                        <p class="text-xs text-gray-600">RBAC, cost controls, caching, performance optimization</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Key Features -->
+                            <div>
+                                <h5 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-star text-indigo-600 mr-3"></i>Key Features
+                                </h5>
+                                <div class="space-y-4">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Multi-Source Queries</h6>
+                                        <p class="text-xs text-gray-600">Connect 50+ data sources (S3, Snowflake, BigQuery, PostgreSQL, etc.)</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Massively Parallel Processing</h6>
+                                        <p class="text-xs text-gray-600">MPP architecture for high-performance analytics</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Data Products</h6>
+                                        <p class="text-xs text-gray-600">Create reusable views and curated datasets across sources</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h6 class="font-semibold text-sm mb-2">Performance</h6>
+                                        <p class="text-xs text-gray-600">Query caching, dynamic filtering, cost-based optimizer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Architecture Highlights -->
+                        <div class="mt-8">
+                            <h5 class="text-lg font-bold text-gray-800 mb-6 text-center">Architecture Highlights</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                <div class="text-center">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <i class="fas fa-network-wired text-3xl text-blue-500 mb-3"></i>
+                                        <h6 class="font-semibold text-sm">Federation</h6>
+                                        <p class="text-xs text-gray-600 mt-2">No data movement</p>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <i class="fas fa-tachometer-alt text-3xl text-green-500 mb-3"></i>
+                                        <h6 class="font-semibold text-sm">Performance</h6>
+                                        <p class="text-xs text-gray-600 mt-2">Sub-second queries</p>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <i class="fas fa-shield-alt text-3xl text-purple-500 mb-3"></i>
+                                        <h6 class="font-semibold text-sm">Security</h6>
+                                        <p class="text-xs text-gray-600 mt-2">RBAC & encryption</p>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-white rounded-lg p-4">
+                                        <i class="fas fa-dollar-sign text-3xl text-orange-500 mb-3"></i>
+                                        <h6 class="font-semibold text-sm">Cost Control</h6>
+                                        <p class="text-xs text-gray-600 mt-2">Query limits & monitoring</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Databricks Architecture -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-sparkles text-orange-500 mr-3"></i>Databricks Lakehouse Architecture
+                    </h4>
+                <div class="architecture-diagram">
+                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-cloud text-2xl text-blue-500 mb-2"></i>
+                            <h4 class="font-semibold">Data Sources</h4>
+                            <p class="text-sm text-gray-600">APIs, Files, Streams</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-database text-2xl text-green-500 mb-2"></i>
+                            <h4 class="font-semibold">Delta Lake</h4>
+                            <p class="text-sm text-gray-600">ACID Transactions</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-brain text-2xl text-purple-500 mb-2"></i>
+                            <h4 class="font-semibold">MLflow</h4>
+                            <p class="text-sm text-gray-600">ML Lifecycle</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-chart-bar text-2xl text-red-500 mb-2"></i>
+                            <h4 class="font-semibold">Analytics</h4>
+                            <p class="text-sm text-gray-600">SQL & BI Tools</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-semibold mb-3">Key Features:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Unified Analytics & ML Platform</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Delta Lake for Data Reliability</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Collaborative Notebooks</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Auto-scaling Compute</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Multi-cloud Support</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Enterprise Security</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databricks Medallion Architecture -->
+                <div class="mt-8">
+                    <h5 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-medal text-orange-500 mr-3"></i>Medallion Architecture
+                    </h5>
+                    <div class="bg-gradient-to-r from-orange-50 to-yellow-100 rounded-xl p-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <!-- Bronze Layer -->
+                            <div class="bg-gradient-to-br from-amber-100 to-orange-200 rounded-xl p-6">
+                                <div class="text-center mb-4">
+                                    <i class="fas fa-database text-3xl text-amber-600 mb-3"></i>
+                                    <h6 class="font-bold text-lg text-amber-800">Bronze Layer</h6>
+                                    <p class="text-sm text-amber-700">Raw Data Ingestion</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Raw Data Storage</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Unprocessed data from all sources</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Schema Evolution</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Flexible schema handling</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Data Lineage</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Complete audit trail</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Silver Layer -->
+                            <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6">
+                                <div class="text-center mb-4">
+                                    <i class="fas fa-filter text-3xl text-gray-600 mb-3"></i>
+                                    <h6 class="font-bold text-lg text-gray-800">Silver Layer</h6>
+                                    <p class="text-sm text-gray-700">Cleaned & Validated Data</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Data Quality</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Cleaned, validated, deduplicated</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Standardized Schema</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Consistent data structure</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Business Logic</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Applied transformations</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Gold Layer -->
+                            <div class="bg-gradient-to-br from-yellow-100 to-amber-200 rounded-xl p-6">
+                                <div class="text-center mb-4">
+                                    <i class="fas fa-crown text-3xl text-yellow-600 mb-3"></i>
+                                    <h6 class="font-bold text-lg text-yellow-800">Gold Layer</h6>
+                                    <p class="text-sm text-yellow-700">Business-Ready Analytics</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Aggregated Data</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Business metrics and KPIs</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">Star Schema</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Optimized for analytics</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <h7 class="font-semibold text-sm">ML Features</h7>
+                                        <p class="text-xs text-gray-600 mt-1">Ready for machine learning</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medallion Benefits -->
+                        <div class="mt-8">
+                            <h6 class="font-bold text-lg mb-4 text-center">Medallion Architecture Benefits</h6>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white rounded-lg p-4">
+                                    <h7 class="font-semibold text-sm flex items-center mb-2">
+                                        <i class="fas fa-shield-alt text-green-500 mr-2"></i>Data Quality
+                                    </h7>
+                                    <p class="text-xs text-gray-600">Progressive data refinement ensures high quality</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h7 class="font-semibold text-sm flex items-center mb-2">
+                                        <i class="fas fa-chart-line text-blue-500 mr-2"></i>Performance
+                                    </h7>
+                                    <p class="text-xs text-gray-600">Optimized layers for different use cases</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h7 class="font-semibold text-sm flex items-center mb-2">
+                                        <i class="fas fa-cogs text-purple-500 mr-2"></i>Scalability
+                                    </h7>
+                                    <p class="text-xs text-gray-600">Handles data growth and complexity</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <h7 class="font-semibold text-sm flex items-center mb-2">
+                                        <i class="fas fa-users text-orange-500 mr-2"></i>Collaboration
+                                    </h7>
+                                    <p class="text-xs text-gray-600">Clear data ownership and access patterns</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snowflake Architecture -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-snowflake text-blue-500 mr-3"></i>Snowflake Data Cloud Architecture
+                </h3>
+                <div class="architecture-diagram">
+                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-cloud-upload-alt text-2xl text-blue-500 mb-2"></i>
+                            <h4 class="font-semibold">Data Ingestion</h4>
+                            <p class="text-sm text-gray-600">Snowpipe, Connectors</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-layer-group text-2xl text-green-500 mb-2"></i>
+                            <h4 class="font-semibold">Data Warehouse</h4>
+                            <p class="text-sm text-gray-600">Columnar Storage</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-share-alt text-2xl text-purple-500 mb-2"></i>
+                            <h4 class="font-semibold">Data Sharing</h4>
+                            <p class="text-sm text-gray-600">Secure Sharing</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-chart-line text-2xl text-red-500 mb-2"></i>
+                            <h4 class="font-semibold">Analytics</h4>
+                            <p class="text-sm text-gray-600">SQL & BI</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-semibold mb-3">Key Features:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Elastic Compute Scaling</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Zero-copy Cloning</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Data Marketplace</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Multi-cloud Data Cloud</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Time Travel & Cloning</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Native Python/SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open Source Architecture -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-code-branch text-green-500 mr-3"></i>Open Source Data Platform Architecture
+                </h3>
+                <div class="architecture-diagram">
+                    <div class="grid grid-cols-1 lg:grid-cols-8 gap-4 mb-6">
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-stream text-2xl text-blue-500 mb-2"></i>
+                            <h4 class="font-semibold">Apache Kafka</h4>
+                            <p class="text-sm text-gray-600">Stream Processing</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-fire text-2xl text-orange-500 mb-2"></i>
+                            <h4 class="font-semibold">Apache Spark</h4>
+                            <p class="text-sm text-gray-600">Batch Processing</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-bolt text-2xl text-yellow-500 mb-2"></i>
+                            <h4 class="font-semibold">Apache Flink</h4>
+                            <p class="text-sm text-gray-600">Stream Processing</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-search text-2xl text-indigo-500 mb-2"></i>
+                            <h4 class="font-semibold">Trino</h4>
+                            <p class="text-sm text-gray-600">Query Engine</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-brain text-2xl text-pink-500 mb-2"></i>
+                            <h4 class="font-semibold">TensorFlow</h4>
+                            <p class="text-sm text-gray-600">ML Framework</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-plane text-2xl text-purple-500 mb-2"></i>
+                            <h4 class="font-semibold">Apache Airflow</h4>
+                            <p class="text-sm text-gray-600">Workflow Orchestration</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-database text-2xl text-green-500 mb-2"></i>
+                            <h4 class="font-semibold">Apache Iceberg</h4>
+                            <p class="text-sm text-gray-600">Table Format</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 text-center">
+                            <i class="fas fa-chart-bar text-2xl text-red-500 mb-2"></i>
+                            <h4 class="font-semibold">Superset</h4>
+                            <p class="text-sm text-gray-600">Visualization</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-semibold mb-3">Key Features:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Cost-effective & Flexible</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Community-driven Development</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Vendor Lock-in Free</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Customizable & Extensible</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Multi-cloud Compatible</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Enterprise Support Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Governance & Best Practices -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-shield-alt mr-3 text-green-600"></i>Data Governance & Best Practices
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Data Governance Framework -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-balance-scale text-blue-600 mr-3"></i>Data Governance Framework
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Data Lineage & Cataloging</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Automated lineage tracking</li>
+                                <li>• Data catalog with metadata</li>
+                                <li>• Impact analysis for changes</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Access Control & Security</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Role-based access control (RBAC)</li>
+                                <li>• Column-level security</li>
+                                <li>• Data masking & encryption</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Compliance & Audit</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• GDPR, CCPA, SOX compliance</li>
+                                <li>• Audit trails & logging</li>
+                                <li>• Data retention policies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Quality Management -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-check-circle text-green-600 mr-3"></i>Data Quality Management
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Quality Metrics</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Completeness & accuracy</li>
+                                <li>• Consistency & validity</li>
+                                <li>• Timeliness & freshness</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Automated Testing</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Schema validation</li>
+                                <li>• Data drift detection</li>
+                                <li>• Anomaly detection</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Remediation</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Automated data cleansing</li>
+                                <li>• Data enrichment</li>
+                                <li>• Quality scorecards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Modeling Best Practices -->
+            <div class="mt-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Data Modeling & Storage Best Practices</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-database text-purple-600 mr-3"></i>Storage Formats
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Parquet</h5>
+                                <p class="text-xs text-gray-600">Columnar format for analytics</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Delta Lake</h5>
+                                <p class="text-xs text-gray-600">ACID transactions on data lakes</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Iceberg</h5>
+                                <p class="text-xs text-gray-600">Open table format</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-orange-50 to-red-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-code text-orange-600 mr-3"></i>Programming Languages
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Python</h5>
+                                <p class="text-xs text-gray-600">Data science & ML</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">SQL</h5>
+                                <p class="text-xs text-gray-600">Analytics & reporting</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Scala</h5>
+                                <p class="text-xs text-gray-600">Spark development</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-teal-50 to-cyan-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-project-diagram text-teal-600 mr-3"></i>File Systems
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">HDFS</h5>
+                                <p class="text-xs text-gray-600">Distributed file system</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">S3/GCS</h5>
+                                <p class="text-xs text-gray-600">Object storage</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">ADLS</h5>
+                                <p class="text-xs text-gray-600">Azure data lake</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI/ML & Advanced Analytics -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-brain mr-3 text-purple-600"></i>AI/ML & Advanced Analytics
+            </h2>
+            
+            <!-- A/B Testing & Experimentation -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-flask text-green-600 mr-3"></i>A/B Testing & Experimentation
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-chart-line text-green-600 mr-3"></i>Experiment Management
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Test Design</h5>
+                                <p class="text-xs text-gray-600">Hypothesis formulation and test planning</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Traffic Splitting</h5>
+                                <p class="text-xs text-gray-600">User segmentation and traffic allocation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-calculator text-blue-600 mr-3"></i>Statistical Analysis
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Significance Testing</h5>
+                                <p class="text-xs text-gray-600">Statistical significance and confidence intervals</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Power Analysis</h5>
+                                <p class="text-xs text-gray-600">Sample size calculation and effect size</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-chart-bar text-purple-600 mr-3"></i>Results & Visualization
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Results Dashboard</h5>
+                                <p class="text-xs text-gray-600">Real-time experiment monitoring and results</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Advanced Visualization</h5>
+                                <p class="text-xs text-gray-600">Interactive charts and statistical plots</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- AI/ML Workflow -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-robot text-purple-600 mr-3"></i>AI/ML Workflow
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Data Preparation</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Feature engineering & selection</li>
+                                <li>• Data preprocessing & cleaning</li>
+                                <li>• Train/validation/test splits</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Model Development</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Experiment tracking (MLflow)</li>
+                                <li>• Model versioning & registry</li>
+                                <li>• Hyperparameter optimization</li>
+                                <li>• TensorFlow & PyTorch frameworks</li>
+                                <li>• Cloud notebook services (Jupyter)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Deployment & Monitoring</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Model serving & APIs</li>
+                                <li>• A/B testing frameworks</li>
+                                <li>• Model drift detection</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">MCP Integration</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• AI model context protocols</li>
+                                <li>• Data source connectivity</li>
+                                <li>• Model-to-data orchestration</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Notebook Development</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Cloud-native Jupyter environments</li>
+                                <li>• Collaborative data science workflows</li>
+                                <li>• Integrated ML frameworks & libraries</li>
+                                <li>• GPU/TPU acceleration support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A/B Testing & Experimentation -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-flask text-green-600 mr-3"></i>A/B Testing & Experimentation
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Experiment Design</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Statistical significance testing</li>
+                                <li>• Multi-armed bandit algorithms</li>
+                                <li>• Feature flag management</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Data Collection</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Event tracking & analytics</li>
+                                <li>• User behavior metrics</li>
+                                <li>• Conversion funnel analysis</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Results Analysis</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Statistical analysis & reporting</li>
+                                <li>• Confidence intervals</li>
+                                <li>• Automated decision making</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitoring & Observability -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-chart-pie mr-3 text-orange-600"></i>Monitoring & Observability
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6">
+                    <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-heartbeat text-blue-600 mr-3"></i>System Monitoring
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Prometheus + Grafana</h5>
+                            <p class="text-xs text-gray-600">Metrics collection & visualization</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Appdynamics, ELK Stack, Splunk, Datadog</h5>
+                            <p class="text-xs text-gray-600">Log aggregation & analysis</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Jaeger/Zipkin</h5>
+                            <p class="text-xs text-gray-600">Distributed tracing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6">
+                    <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-database text-green-600 mr-3"></i>Data Quality Monitoring
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Great Expectations</h5>
+                            <p class="text-xs text-gray-600">Data validation framework</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Monte Carlo</h5>
+                            <p class="text-xs text-gray-600">Data observability platform</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Custom Dashboards</h5>
+                            <p class="text-xs text-gray-600">Data quality scorecards</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6">
+                    <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-bell text-purple-600 mr-3"></i>Alerting & Incident Response
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">PagerDuty, ServiceNow</h5>
+                            <p class="text-xs text-gray-600">Incident management</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Slack/Teams</h5>
+                            <p class="text-xs text-gray-600">Notification channels</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <h5 class="font-semibold text-sm">Runbooks</h5>
+                            <p class="text-xs text-gray-600">Automated response procedures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div id="footer-navigation">
+            <!-- Footer will be injected here by navigation.js -->
+        </div>
+    </div>
+    
+    <!-- Navigation Script -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>
