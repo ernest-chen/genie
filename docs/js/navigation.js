@@ -121,7 +121,7 @@ class TechGenieNavigation {
                                 </a>
                             `).join('')}
                         </div>
-                        <p class="text-gray-500 text-sm">© 2024 Tech Genie. Built with ❤️ for the developer community.</p>
+                        <p class="text-gray-500 text-sm">© 2025 Tech Genie. Built with ❤️ for the developer community.</p>
                     </div>
                 </div>
             </footer>
