@@ -5,7 +5,7 @@
 
 class TechGenieNavigation {
     constructor() {
-        this.navigationItems = [
+        this.baseNavigationItems = [
             {
                 href: 'index.html',
                 icon: 'fas fa-home',
@@ -68,6 +68,47 @@ class TechGenieNavigation {
                 text: 'Companies'
             }
         ];
+        
+        // Determine if we're in a subdirectory and adjust paths accordingly
+        this.isSubdirectory = this.detectSubdirectory();
+        this.navigationItems = this.adjustPaths();
+    }
+
+    /**
+     * Detect if we're in a subdirectory
+     * @returns {boolean}
+     */
+    detectSubdirectory() {
+        const currentPath = window.location.pathname;
+        const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+        
+        // Check if we're in a subdirectory (more than just the filename)
+        return pathSegments.length > 1;
+    }
+
+    /**
+     * Adjust navigation paths based on current location
+     * @returns {Array}
+     */
+    adjustPaths() {
+        if (!this.isSubdirectory) {
+            return this.baseNavigationItems;
+        }
+
+        return this.baseNavigationItems.map(item => {
+            const adjustedItem = { ...item };
+            
+            // For subdirectories, add ../ prefix to all paths except the current directory
+            if (item.href.startsWith('companies/')) {
+                // Keep companies path as is if we're in companies directory
+                adjustedItem.href = item.href;
+            } else {
+                // Add ../ prefix for all other paths
+                adjustedItem.href = '../' + item.href;
+            }
+            
+            return adjustedItem;
+        });
     }
 
     /**
@@ -143,7 +184,20 @@ class TechGenieNavigation {
      * @returns {string} Current page path
      */
     getCurrentPagePath() {
-        return window.location.pathname.split('/').pop() || 'index.html';
+        const pathname = window.location.pathname;
+        const pathSegments = pathname.split('/').filter(segment => segment !== '');
+        
+        if (pathSegments.length === 0) {
+            return 'index.html';
+        }
+        
+        // If we're in a subdirectory, return the full relative path
+        if (pathSegments.length > 1) {
+            return pathSegments.join('/');
+        }
+        
+        // If we're in the root directory, return just the filename
+        return pathSegments[0];
     }
 
     /**
@@ -153,9 +207,24 @@ class TechGenieNavigation {
      * @returns {boolean} True if active
      */
     isActivePage(itemHref, currentPath) {
+        // Handle home page
         if (itemHref === 'index.html' && (currentPath === 'index.html' || currentPath === '')) {
             return true;
         }
+        
+        // Handle companies directory
+        if (itemHref === 'companies/index.html' && currentPath.startsWith('companies/')) {
+            return true;
+        }
+        
+        // Handle subdirectory paths
+        if (this.isSubdirectory) {
+            // Remove ../ prefix for comparison
+            const cleanItemHref = itemHref.replace('../', '');
+            return cleanItemHref === currentPath;
+        }
+        
+        // Default comparison
         return itemHref === currentPath;
     }
 
