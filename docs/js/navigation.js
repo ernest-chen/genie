@@ -33,6 +33,16 @@ class TechGenieNavigation {
                 text: 'Design Patterns'
             },
             {
+                href: 'ai_engineering.html',
+                icon: 'fas fa-robot',
+                text: 'AI Engineering'
+            },
+            {
+                href: 'ai_intro.html',
+                icon: 'fas fa-brain',
+                text: 'AI Introduction'
+            },
+            {
                 href: 'rest_rpc.html',
                 icon: 'fas fa-exchange-alt',
                 text: 'API Protocols'

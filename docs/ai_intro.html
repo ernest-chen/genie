@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Introduction for IT Organizations | Tech Genie</title>
+    <meta name="description" content="Comprehensive AI introduction guide for IT organizations covering AI basics, machine learning, deep learning, LLM ecosystem, and practical implementation strategies.">
+    <meta name="keywords" content="AI introduction, machine learning, deep learning, LLM, RAG, prompt engineering, AI tools, IT organizations, productivity">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ernest-chen.github.io/genie/ai_intro.html">
+    <meta property="og:title" content="AI Introduction for IT Organizations | Tech Genie">
+    <meta property="og:description" content="Comprehensive AI introduction guide for IT organizations covering AI basics, machine learning, deep learning, LLM ecosystem, and practical implementation strategies.">
+    <meta property="og:image" content="https://ernest-chen.github.io/genie/docs/ai_intro_preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ernest-chen.github.io/genie/ai_intro.html">
+    <meta property="twitter:title" content="AI Introduction for IT Organizations | Tech Genie">
+    <meta property="twitter:description" content="Comprehensive AI introduction guide for IT organizations covering AI basics, machine learning, deep learning, LLM ecosystem, and practical implementation strategies.">
+    <meta property="twitter:image" content="https://ernest-chen.github.io/genie/docs/ai_intro_preview.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .ai-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .ml-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        .dl-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        .llm-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+        .tools-card {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <div id="top-navigation"></div>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">
+                <i class="fas fa-brain mr-4"></i>AI Introduction for IT Organizations
+            </h1>
+            <p class="text-xl mb-8 max-w-4xl mx-auto">
+                Comprehensive guide to understanding and implementing AI technologies in IT organizations. 
+                Learn AI basics, machine learning, deep learning, LLM ecosystem, and practical applications 
+                for productivity and automation.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <span class="ai-badge">AI Basics</span>
+                <span class="ai-badge">Machine Learning</span>
+                <span class="ai-badge">Deep Learning</span>
+                <span class="ai-badge">LLM Ecosystem</span>
+                <span class="ai-badge">RAG & Prompting</span>
+                <span class="ai-badge">Code Generation</span>
+                <span class="ai-badge">Automation</span>
+                <span class="ai-badge">Best Practices</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Executive Summary</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    This guide provides IT organizations with a comprehensive introduction to AI technologies, 
+                    practical implementation strategies, and best practices for integrating AI into existing 
+                    workflows and systems.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-blue-50 rounded-xl">
+                    <i class="fas fa-lightbulb text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">AI Fundamentals</h3>
+                    <p class="text-gray-600">Understand AI basics, machine learning, and deep learning concepts</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <i class="fas fa-cogs text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Practical Applications</h3>
+                    <p class="text-gray-600">Learn to apply AI for productivity, automation, and business value</p>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl">
+                    <i class="fas fa-tools text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Implementation</h3>
+                    <p class="text-gray-600">Get hands-on with tools, frameworks, and best practices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Fundamentals -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">AI Fundamentals</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Understanding the core concepts and differences between AI, machine learning, and deep learning
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- AI Basics -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-brain text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Artificial Intelligence</h3>
+                        <p class="text-gray-600">The broad field of creating intelligent machines</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Definition</h4>
+                            <p class="text-sm text-gray-600">AI is the simulation of human intelligence in machines that are programmed to think and learn like humans.</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Key Characteristics</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Problem-solving capabilities</li>
+                                <li>• Learning from experience</li>
+                                <li>• Adapting to new situations</li>
+                                <li>• Reasoning and decision making</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Types of AI</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Narrow AI (ANI)</li>
+                                <li>• General AI (AGI)</li>
+                                <li>• Super AI (ASI)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="ml-card rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-chart-line text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Machine Learning</h3>
+                        <p class="opacity-90">AI subset that learns from data</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Definition</h4>
+                            <p class="text-sm opacity-90">ML is a subset of AI that enables machines to learn and improve from experience without being explicitly programmed.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Learning Types</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Supervised Learning</li>
+                                <li>• Unsupervised Learning</li>
+                                <li>• Reinforcement Learning</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Common Algorithms</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Linear Regression</li>
+                                <li>• Decision Trees</li>
+                                <li>• Random Forest</li>
+                                <li>• Support Vector Machines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Learning -->
+                <div class="dl-card rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-network-wired text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Deep Learning</h3>
+                        <p class="opacity-90">ML subset using neural networks</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Definition</h4>
+                            <p class="text-sm opacity-90">Deep learning uses artificial neural networks with multiple layers to model and understand complex patterns.</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Neural Networks</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Feedforward Networks</li>
+                                <li>• Convolutional Networks (CNN)</li>
+                                <li>• Recurrent Networks (RNN)</li>
+                                <li>• Transformer Networks</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Applications</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Computer Vision</li>
+                                <li>• Natural Language Processing</li>
+                                <li>• Speech Recognition</li>
+                                <li>• Autonomous Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LLM Ecosystem -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">LLM Ecosystem & Advanced Concepts</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Understanding Large Language Models, RAG, prompt engineering, and modern AI development practices
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- LLM Overview -->
+                <div class="llm-card rounded-2xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-comments text-3xl mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">Large Language Models</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Popular Models</h4>
+                            <p class="text-xs opacity-90">GPT-4, Claude, Gemini, LLaMA, Mistral</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Capabilities</h4>
+                            <p class="text-xs opacity-90">Text generation, translation, summarization, coding</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Use Cases</h4>
+                            <p class="text-xs opacity-90">Chatbots, content creation, code assistance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RAG -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-search text-3xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">RAG (Retrieval-Augmented Generation)</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Definition</h4>
+                            <p class="text-xs text-blue-600">Combines retrieval of relevant information with generation of responses</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Components</h4>
+                            <p class="text-xs text-blue-600">Vector database, embedding models, retrieval system</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Benefits</h4>
+                            <p class="text-xs text-blue-600">Accurate, up-to-date information, reduced hallucinations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt Engineering -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-edit text-3xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Prompt Engineering</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Techniques</h4>
+                            <p class="text-xs text-green-600">Few-shot learning, chain-of-thought, role-based prompting</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Best Practices</h4>
+                            <p class="text-xs text-green-600">Clear instructions, examples, context setting</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Tools</h4>
+                            <p class="text-xs text-green-600">LangChain, PromptLayer, Weights & Biases</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Model Fine-tuning -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-cogs text-3xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Model Fine-tuning</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Approaches</h4>
+                            <p class="text-xs text-purple-600">Full fine-tuning, LoRA, QLoRA, PEFT</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Use Cases</h4>
+                            <p class="text-xs text-purple-600">Domain-specific tasks, company data, specialized applications</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Tools</h4>
+                            <p class="text-xs text-purple-600">Hugging Face, OpenAI API, Azure OpenAI</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCP (Model Context Protocol) -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-plug text-3xl text-orange-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">MCP (Model Context Protocol)</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Definition</h4>
+                            <p class="text-xs text-orange-600">Standardized protocol for AI model communication and integration</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Benefits</h4>
+                            <p class="text-xs text-orange-600">Interoperability, standardized interfaces, easier integration</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Applications</h4>
+                            <p class="text-xs text-orange-600">Multi-model systems, AI orchestration, enterprise integration</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inference -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bolt text-3xl text-red-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Inference</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Definition</h4>
+                            <p class="text-xs text-red-600">Process of making predictions using trained models</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Optimization</h4>
+                            <p class="text-xs text-red-600">Model quantization, pruning, batch processing</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Deployment</h4>
+                            <p class="text-xs text-red-600">Edge computing, cloud services, real-time systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Applications & Use Cases -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Practical Applications & Use Cases</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real-world AI applications for IT organizations to improve productivity and automation
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Image Processing -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-image text-3xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Image Processing</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Computer Vision</h4>
+                            <p class="text-xs text-blue-600">Object detection, classification, segmentation</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">OCR & Document Processing</h4>
+                            <p class="text-xs text-blue-600">Text extraction, document analysis, form processing</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Quality Control</h4>
+                            <p class="text-xs text-blue-600">Defect detection, quality assurance, automated inspection</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Generation -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-paint-brush text-3xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Image Generation</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Generative AI</h4>
+                            <p class="text-xs text-purple-600">DALL-E, Midjourney, Stable Diffusion</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Applications</h4>
+                            <p class="text-xs text-purple-600">Marketing materials, design prototypes, content creation</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Tools</h4>
+                            <p class="text-xs text-purple-600">OpenAI DALL-E, Adobe Firefly, Canva AI</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Processing -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-video text-3xl text-red-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Video Processing</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Video Analysis</h4>
+                            <p class="text-xs text-red-600">Motion detection, object tracking, scene understanding</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Video Generation</h4>
+                            <p class="text-xs text-red-600">Sora, Runway ML, Pika Labs</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Applications</h4>
+                            <p class="text-xs text-red-600">Security monitoring, content creation, video editing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing & Debugging -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bug text-3xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Testing & Debugging</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Automated Testing</h4>
+                            <p class="text-xs text-green-600">Test case generation, test automation, coverage analysis</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Debugging Assistance</h4>
+                            <p class="text-xs text-green-600">Error analysis, code review, performance optimization</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Tools</h4>
+                            <p class="text-xs text-green-600">GitHub Copilot, ChatGPT, Claude, Cursor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monitoring & Anomaly Detection -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-orange-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Monitoring & Anomaly Detection</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">System Monitoring</h4>
+                            <p class="text-xs text-orange-600">Performance metrics, resource utilization, health checks</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Anomaly Detection</h4>
+                            <p class="text-xs text-orange-600">Unusual patterns, security threats, performance issues</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Tools</h4>
+                            <p class="text-xs text-orange-600">DataDog, New Relic, Splunk, Prometheus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CI/CD Automation -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-sync-alt text-3xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">CI/CD Automation</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-indigo-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-indigo-800">Pipeline Optimization</h4>
+                            <p class="text-xs text-indigo-600">Build optimization, test selection, deployment strategies</p>
+                        </div>
+                        <div class="bg-indigo-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-indigo-800">Code Quality</h4>
+                            <p class="text-xs text-indigo-600">Automated code review, quality gates, security scanning</p>
+                        </div>
+                        <div class="bg-indigo-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-indigo-800">Tools</h4>
+                            <p class="text-xs text-indigo-600">GitHub Actions, GitLab CI, Jenkins, Azure DevOps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Generation & Development Tools -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Code Generation & Development Tools</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    AI-powered development tools and frameworks for modern software development
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Code Generation -->
+                <div class="tools-card rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Code Generation</h3>
+                        <p class="opacity-90">AI-powered code generation and assistance</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Popular Tools</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• GitHub Copilot</li>
+                                <li>• Amazon CodeWhisperer</li>
+                                <li>• Tabnine</li>
+                                <li>• Cursor AI</li>
+                                <li>• Replit Ghostwriter</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Capabilities</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Code completion and suggestions</li>
+                                <li>• Function and class generation</li>
+                                <li>• Documentation generation</li>
+                                <li>• Test case creation</li>
+                                <li>• Code refactoring assistance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AutoGen & LangChain -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-robot text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">AutoGen & LangChain</h3>
+                        <p class="text-gray-600">AI agent frameworks and orchestration tools</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">AutoGen</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Multi-agent conversation framework</li>
+                                <li>• Agent orchestration and coordination</li>
+                                <li>• Task automation and delegation</li>
+                                <li>• Collaborative AI systems</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">LangChain</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• LLM application framework</li>
+                                <li>• Chain composition and orchestration</li>
+                                <li>• Memory and state management</li>
+                                <li>• Tool integration and calling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices & Testing -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Best Practices & Testing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Essential best practices for AI development, testing, and implementation
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testing Best Practices -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-vial text-3xl text-green-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Testing Best Practices</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Test-Driven Development (TDD)</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Write tests before implementation</li>
+                                <li>• Red-Green-Refactor cycle</li>
+                                <li>• Unit testing for AI components</li>
+                                <li>• Integration testing for AI pipelines</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">AI-Specific Testing</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Model validation and testing</li>
+                                <li>• Data quality testing</li>
+                                <li>• Performance benchmarking</li>
+                                <li>• Bias and fairness testing</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Testing Tools</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• pytest, unittest (Python)</li>
+                                <li>• JUnit, TestNG (Java)</li>
+                                <li>• Jest, Mocha (JavaScript)</li>
+                                <li>• MLflow, Weights & Biases</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture Frameworks -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-sitemap text-3xl text-purple-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Architecture Frameworks</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">AI Architecture Patterns</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Microservices for AI components</li>
+                                <li>• Event-driven architecture</li>
+                                <li>• API-first design</li>
+                                <li>• Containerization and orchestration</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">MLOps Architecture</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Model versioning and registry</li>
+                                <li>• Feature stores and pipelines</li>
+                                <li>• Monitoring and observability</li>
+                                <li>• A/B testing and experimentation</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Scalability Patterns</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Horizontal scaling</li>
+                                <li>• Load balancing</li>
+                                <li>• Caching strategies</li>
+                                <li>• Edge computing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programming Languages & Libraries -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Programming Languages & Libraries</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Essential programming languages and libraries for AI development across different platforms
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Python -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-python text-4xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Python</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">ML Libraries</h4>
+                            <p class="text-xs text-blue-600">TensorFlow, PyTorch, Scikit-learn, Keras</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Data Processing</h4>
+                            <p class="text-xs text-blue-600">Pandas, NumPy, Apache Spark, Dask</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">NLP & LLM</h4>
+                            <p class="text-xs text-blue-600">Transformers, LangChain, OpenAI, Anthropic</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-java text-4xl text-orange-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Java</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">ML Libraries</h4>
+                            <p class="text-xs text-orange-600">Weka, Deeplearning4j, DL4J, Tribuo</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Frameworks</h4>
+                            <p class="text-xs text-orange-600">Spring Boot, Apache Kafka, Apache Spark</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Tools</h4>
+                            <p class="text-xs text-orange-600">Maven, Gradle, JUnit, Mockito</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Go -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-golang text-4xl text-cyan-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Go</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-cyan-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-cyan-800">ML Libraries</h4>
+                            <p class="text-xs text-cyan-600">GoLearn, Gorgonia, GoNum, TensorFlow Go</p>
+                        </div>
+                        <div class="bg-cyan-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-cyan-800">Web Frameworks</h4>
+                            <p class="text-xs text-cyan-600">Gin, Echo, Fiber, Gorilla Mux</p>
+                        </div>
+                        <div class="bg-cyan-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-cyan-800">Tools</h4>
+                            <p class="text-xs text-cyan-600">Docker, Kubernetes, Prometheus, Grafana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- .NET -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-microsoft text-4xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">.NET</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">ML Libraries</h4>
+                            <p class="text-xs text-blue-600">ML.NET, TensorFlow.NET, ONNX Runtime</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Frameworks</h4>
+                            <p class="text-xs text-blue-600">ASP.NET Core, Entity Framework, SignalR</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Tools</h4>
+                            <p class="text-xs text-blue-600">Visual Studio, Azure DevOps, NuGet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Node.js -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-node-js text-4xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Node.js</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">ML Libraries</h4>
+                            <p class="text-xs text-green-600">TensorFlow.js, Brain.js, ML5.js, Natural</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Frameworks</h4>
+                            <p class="text-xs text-green-600">Express.js, Fastify, NestJS, Socket.io</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Tools</h4>
+                            <p class="text-xs text-green-600">npm, yarn, Jest, ESLint, Webpack</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common Tools -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-tools text-4xl text-gray-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Common Tools</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-gray-800">Configuration</h4>
+                            <p class="text-xs text-gray-600">Docker, Kubernetes, Terraform, Ansible</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-gray-800">Command Line</h4>
+                            <p class="text-xs text-gray-600">CLI tools, shell scripting, automation</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-gray-800">Platforms</h4>
+                            <p class="text-xs text-gray-600">Backstage, GitHub, GitLab, Azure DevOps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-navigation"></div>
+
+    <!-- Navigation Script -->
+    <script src="js/navigation.js"></script>
+    
+    <!-- Intersection Observer for animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section, .card-hover').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

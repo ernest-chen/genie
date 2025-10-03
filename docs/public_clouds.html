@@ -310,41 +310,7 @@
 </head>
 <body class="bg-[#F0F4F8]">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a href="https://github.com/ernest-chen/genie" target="_blank" rel="noopener noreferrer" class="mr-4 hover:scale-110 transition-transform duration-300">
-                        <img src="https://avatars.githubusercontent.com/u/29280406?s=48&v=4" alt="Tech Genie Logo" class="w-10 h-10 rounded-full border-2 border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300">
-                    </a>
-                    <h1 class="text-xl font-bold text-gray-800">Tech Genie</h1>
-                </div>
-                <div class="flex space-x-8">
-                    <a href="index.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-home mr-2"></i>Home
-                    </a>
-                    <a href="public_clouds.html" class="text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium border-b-2 border-[#007AFF]">
-                        <i class="fas fa-cloud mr-2"></i>Cloud Comparison
-                    </a>
-                    <a href="devops.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-cogs mr-2"></i>DevSecOps
-                    </a>
-                    <a href="rest_rpc.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-exchange-alt mr-2"></i>API Protocols
-                    </a>
-                    <a href="adtech.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-bullhorn mr-2"></i>AdTech
-                    </a>
-                        <a href="transformation.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                            <i class="fas fa-rocket mr-2"></i>Transformation
-                        </a>
-                        <a href="companies/index.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                            <i class="fas fa-building mr-2"></i>Companies
-                        </a>
-                    </div>
-            </div>
-        </div>
-    </nav>
+    <div id="top-navigation"></div>
 
     <div class="container mx-auto p-4 md:p-8">
 
@@ -940,34 +906,7 @@
         </section>
 
         <!-- Enhanced Footer -->
-        <footer class="text-center mt-12 fade-in">
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <h3 class="text-xl font-bold text-[#0A2540] mb-4">Key Takeaways</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                    <div class="text-center">
-                        <i class="fas fa-trophy text-3xl text-[#FFD700] mb-3"></i>
-                        <h4 class="font-semibold text-[#0A2540] mb-2">AWS</h4>
-                        <p class="text-sm text-[#425466]">Market leader with the most comprehensive service portfolio</p>
-                    </div>
-                    <div class="text-center">
-                        <i class="fas fa-building text-3xl text-[#0078D4] mb-3"></i>
-                        <h4 class="font-semibold text-[#0A2540] mb-2">Azure</h4>
-                        <p class="text-sm text-[#425466]">Strong enterprise integration and hybrid cloud capabilities</p>
-                    </div>
-                    <div class="text-center">
-                        <i class="fas fa-chart-line text-3xl text-[#4285F4] mb-3"></i>
-                        <h4 class="font-semibold text-[#0A2540] mb-2">GCP</h4>
-                        <p class="text-sm text-[#425466]">Leading in AI/ML and data analytics with competitive pricing</p>
-                    </div>
-                    <div class="text-center">
-                        <i class="fas fa-database text-3xl text-[#FF0000] mb-3"></i>
-                        <h4 class="font-semibold text-[#0A2540] mb-2">Oracle</h4>
-                        <p class="text-sm text-[#425466]">Enterprise-grade database services with aggressive pricing</p>
-                    </div>
-                </div>
-             <p class="text-md text-[#425466]">Choosing the right cloud provider depends on your specific needs, existing expertise, and long-term goals. Each platform offers a powerful suite of tools to build the next generation of applications.</p>
-            </div>
-        </footer>
+        <div id="footer-navigation"></div>
 
         <!-- Floating Action Button -->
         <div class="floating-action">
@@ -1484,5 +1423,8 @@
         });
 
     </script>
+    
+    <!-- Navigation Script -->
+    <script src="js/navigation.js"></script>
 </body>
 </html>

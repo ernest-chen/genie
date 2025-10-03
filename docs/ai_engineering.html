@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Engineering - Modern AI-Driven Economy Guide | Tech Genie</title>
+    <meta name="description" content="Comprehensive guide for software engineers, data engineers, and infrastructure engineers to navigate the modern AI-driven economy. Learn essential skills, tools, and practices for AI engineering.">
+    <meta name="keywords" content="AI engineering, machine learning, data engineering, software engineering, infrastructure engineering, AI-driven economy, MLOps, AI/ML platforms">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ernest-chen.github.io/genie/ai_engineering.html">
+    <meta property="og:title" content="AI Engineering - Modern AI-Driven Economy Guide | Tech Genie">
+    <meta property="og:description" content="Comprehensive guide for software engineers, data engineers, and infrastructure engineers to navigate the modern AI-driven economy.">
+    <meta property="og:image" content="https://ernest-chen.github.io/genie/docs/ai_engineering_preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ernest-chen.github.io/genie/ai_engineering.html">
+    <meta property="twitter:title" content="AI Engineering - Modern AI-Driven Economy Guide | Tech Genie">
+    <meta property="twitter:description" content="Comprehensive guide for software engineers, data engineers, and infrastructure engineers to navigate the modern AI-driven economy.">
+    <meta property="twitter:image" content="https://ernest-chen.github.io/genie/docs/ai_engineering_preview.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .skill-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .role-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        .tool-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        .platform-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <div id="top-navigation"></div>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">
+                <i class="fas fa-robot mr-4"></i>AI Engineering
+            </h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Comprehensive guide for software engineers, data engineers, and infrastructure engineers 
+                to navigate the modern AI-driven economy
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <span class="skill-badge">Machine Learning</span>
+                <span class="skill-badge">MLOps</span>
+                <span class="skill-badge">AI/ML Platforms</span>
+                <span class="skill-badge">Data Engineering</span>
+                <span class="skill-badge">Infrastructure</span>
+                <span class="skill-badge">DevOps</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Executive Summary</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    The modern AI-driven economy requires engineers to adapt and evolve their skills. This guide provides 
+                    comprehensive reference material for three key engineering roles to successfully navigate and contribute 
+                    to AI-powered organizations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-blue-50 rounded-xl">
+                    <i class="fas fa-code text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Software Engineers</h3>
+                    <p class="text-gray-600">Learn AI integration, model deployment, and modern development practices</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <i class="fas fa-database text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Data Engineers</h3>
+                    <p class="text-gray-600">Master data pipelines, feature engineering, and ML infrastructure</p>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl">
+                    <i class="fas fa-server text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Infrastructure Engineers</h3>
+                    <p class="text-gray-600">Build scalable AI infrastructure, monitoring, and deployment systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Roles Overview -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Engineering Roles in AI-Driven Economy</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Understanding the evolving responsibilities and skill requirements for each engineering role
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Software Engineer -->
+                <div class="role-card rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Software Engineer</h3>
+                        <p class="opacity-90">AI-Integrated Application Development</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Core Responsibilities</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• AI model integration and deployment</li>
+                                <li>• API development for ML services</li>
+                                <li>• Real-time inference systems</li>
+                                <li>• AI-powered application features</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Key Skills</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Python, JavaScript, Go</li>
+                                <li>• ML frameworks (TensorFlow, PyTorch)</li>
+                                <li>• API design and microservices</li>
+                                <li>• Cloud platforms (AWS, GCP, Azure)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Engineer -->
+                <div class="role-card rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-database text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Data Engineer</h3>
+                        <p class="opacity-90">ML Data Pipeline & Infrastructure</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Core Responsibilities</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Data pipeline development</li>
+                                <li>• Feature store management</li>
+                                <li>• Data quality and governance</li>
+                                <li>• ML data infrastructure</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Key Skills</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Python, SQL, Scala</li>
+                                <li>• Apache Spark, Kafka</li>
+                                <li>• Data warehouses and lakes</li>
+                                <li>• MLOps and data versioning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Engineer -->
+                <div class="role-card rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-server text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Infrastructure Engineer</h3>
+                        <p class="opacity-90">AI Infrastructure & Operations</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Core Responsibilities</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• AI infrastructure provisioning</li>
+                                <li>• Model serving infrastructure</li>
+                                <li>• Monitoring and observability</li>
+                                <li>• Security and compliance</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">Key Skills</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Kubernetes, Docker</li>
+                                <li>• Infrastructure as Code</li>
+                                <li>• Monitoring tools (Prometheus, Grafana)</li>
+                                <li>• Cloud platforms and services</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Skills & Learning Paths -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Essential Skills & Learning Paths</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive skill development roadmap for each engineering role in the AI-driven economy
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Software Engineer Skills -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-3xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Software Engineer</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">Programming Languages</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Go</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Rust</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">ML Frameworks</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">PyTorch</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Scikit-learn</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Hugging Face</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">Development Practices</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• API design and microservices</li>
+                                <li>• Model serving and inference</li>
+                                <li>• A/B testing for ML models</li>
+                                <li>• CI/CD for ML applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Engineer Skills -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-database text-3xl text-green-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Data Engineer</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">Data Technologies</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Apache Spark</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Apache Kafka</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Apache Airflow</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">dbt</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">Data Storage</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">BigQuery</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Snowflake</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Databricks</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">S3</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">ML Data Practices</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Feature engineering and stores</li>
+                                <li>• Data quality and validation</li>
+                                <li>• Data versioning and lineage</li>
+                                <li>• Real-time data processing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Engineer Skills -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-server text-3xl text-purple-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Infrastructure Engineer</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">Containerization</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Kubernetes</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Helm</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Istio</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">Infrastructure as Code</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Terraform</span>
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Ansible</span>
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Pulumi</span>
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">CDK</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-3">ML Infrastructure</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Model serving platforms</li>
+                                <li>• GPU orchestration</li>
+                                <li>• Monitoring and observability</li>
+                                <li>• Security and compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI/ML Platforms & Tools -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">AI/ML Platforms & Tools</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Essential platforms and tools for building, deploying, and managing AI/ML systems
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cloud ML Platforms -->
+                <div class="platform-card rounded-2xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-cloud text-3xl mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">Cloud ML Platforms</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Google Cloud</h4>
+                            <p class="text-xs opacity-90">Vertex AI, AutoML, BigQuery ML</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">AWS</h4>
+                            <p class="text-xs opacity-90">SageMaker, Bedrock, Comprehend</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Azure</h4>
+                            <p class="text-xs opacity-90">Azure ML, Cognitive Services</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MLOps Tools -->
+                <div class="tool-card rounded-2xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-cogs text-3xl mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">MLOps Tools</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Model Management</h4>
+                            <p class="text-xs opacity-90">MLflow, Weights & Biases, Neptune</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Model Serving</h4>
+                            <p class="text-xs opacity-90">Seldon, KServe, BentoML</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Monitoring</h4>
+                            <p class="text-xs opacity-90">Evidently, Fiddler, Arize</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Platforms -->
+                <div class="platform-card rounded-2xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-database text-3xl mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">Data Platforms</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Lakehouse</h4>
+                            <p class="text-xs opacity-90">Databricks, Snowflake, Delta Lake</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Feature Stores</h4>
+                            <p class="text-xs opacity-90">Feast, Tecton, Vertex Feature Store</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm">Vector DBs</h4>
+                            <p class="text-xs opacity-90">Pinecone, Weaviate, Chroma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Paths & Career Development -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Learning Paths & Career Development</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Structured learning paths and career progression for engineers in the AI-driven economy
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Beginner Path -->
+                <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-seedling text-3xl text-green-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Beginner (0-2 years)</h3>
+                        <p class="text-gray-600">Foundation building and core concepts</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Core Skills</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Python programming fundamentals</li>
+                                <li>• Basic statistics and mathematics</li>
+                                <li>• Introduction to machine learning</li>
+                                <li>• Version control (Git)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Learning Resources</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Online courses (Coursera, edX)</li>
+                                <li>• Hands-on projects</li>
+                                <li>• Open source contributions</li>
+                                <li>• Community participation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intermediate Path -->
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-chart-line text-3xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Intermediate (2-5 years)</h3>
+                        <p class="text-gray-600">Specialization and practical application</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Advanced Skills</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Deep learning frameworks</li>
+                                <li>• MLOps and model deployment</li>
+                                <li>• Cloud platforms and services</li>
+                                <li>• Data engineering practices</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Career Focus</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Choose specialization track</li>
+                                <li>• Build portfolio projects</li>
+                                <li>• Industry certifications</li>
+                                <li>• Mentoring and leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Path -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-crown text-3xl text-purple-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Advanced (5+ years)</h3>
+                        <p class="text-gray-600">Leadership and strategic thinking</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Leadership Skills</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• AI strategy and architecture</li>
+                                <li>• Team leadership and mentoring</li>
+                                <li>• Business impact measurement</li>
+                                <li>• Innovation and research</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Career Growth</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Principal/Staff Engineer</li>
+                                <li>• AI/ML Engineering Manager</li>
+                                <li>• Technical Director</li>
+                                <li>• AI Strategy Consultant</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Use Cases & Applications -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Industry Use Cases & Applications</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real-world applications and use cases across different industries
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Healthcare -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-heartbeat text-3xl text-red-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Healthcare</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Medical Imaging</h4>
+                            <p class="text-xs text-red-600">Computer vision for diagnosis and treatment</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Drug Discovery</h4>
+                            <p class="text-xs text-red-600">AI-powered pharmaceutical research</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-red-800">Predictive Analytics</h4>
+                            <p class="text-xs text-red-600">Patient outcome prediction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Finance</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Algorithmic Trading</h4>
+                            <p class="text-xs text-green-600">Automated trading strategies</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Risk Management</h4>
+                            <p class="text-xs text-green-600">Fraud detection and credit scoring</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-green-800">Robo-Advisors</h4>
+                            <p class="text-xs text-green-600">Automated investment management</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-commerce -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-shopping-cart text-3xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">E-commerce</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Recommendation Systems</h4>
+                            <p class="text-xs text-blue-600">Personalized product recommendations</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Demand Forecasting</h4>
+                            <p class="text-xs text-blue-600">Inventory and supply chain optimization</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-blue-800">Customer Service</h4>
+                            <p class="text-xs text-blue-600">Chatbots and virtual assistants</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manufacturing -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-industry text-3xl text-orange-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Manufacturing</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Predictive Maintenance</h4>
+                            <p class="text-xs text-orange-600">Equipment failure prediction</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Quality Control</h4>
+                            <p class="text-xs text-orange-600">Automated defect detection</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-orange-800">Supply Chain</h4>
+                            <p class="text-xs text-orange-600">Optimization and logistics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transportation -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-car text-3xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Transportation</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Autonomous Vehicles</h4>
+                            <p class="text-xs text-purple-600">Self-driving car technology</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Route Optimization</h4>
+                            <p class="text-xs text-purple-600">Efficient logistics planning</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-purple-800">Traffic Management</h4>
+                            <p class="text-xs text-purple-600">Smart city infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-microchip text-3xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Technology</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-indigo-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-indigo-800">Natural Language Processing</h4>
+                            <p class="text-xs text-indigo-600">Chatbots and language models</p>
+                        </div>
+                        <div class="bg-indigo-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-indigo-800">Computer Vision</h4>
+                            <p class="text-xs text-indigo-600">Image and video analysis</p>
+                        </div>
+                        <div class="bg-indigo-50 rounded-lg p-3">
+                            <h4 class="font-semibold text-sm text-indigo-800">AI Assistants</h4>
+                            <p class="text-xs text-indigo-600">Intelligent automation tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices & Recommendations -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Best Practices & Recommendations</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Essential best practices for success in AI engineering roles
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Technical Best Practices -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code-branch text-3xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Technical Best Practices</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Code Quality</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Write clean, maintainable code</li>
+                                <li>• Implement comprehensive testing</li>
+                                <li>• Use version control effectively</li>
+                                <li>• Document your work thoroughly</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Model Development</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Start with simple baselines</li>
+                                <li>• Validate on multiple datasets</li>
+                                <li>• Monitor model performance</li>
+                                <li>• Implement proper error handling</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Deployment</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Use containerization (Docker)</li>
+                                <li>• Implement CI/CD pipelines</li>
+                                <li>• Monitor system performance</li>
+                                <li>• Plan for scalability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Development -->
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-user-graduate text-3xl text-green-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Career Development</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Continuous Learning</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Stay updated with latest trends</li>
+                                <li>• Participate in online communities</li>
+                                <li>• Attend conferences and meetups</li>
+                                <li>• Contribute to open source projects</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Networking</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Build professional relationships</li>
+                                <li>• Share knowledge and experiences</li>
+                                <li>• Find mentors and mentees</li>
+                                <li>• Join professional organizations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Portfolio Building</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Showcase your projects</li>
+                                <li>• Write technical blogs</li>
+                                <li>• Create open source contributions</li>
+                                <li>• Demonstrate business impact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-navigation"></div>
+
+    <!-- Navigation Script -->
+    <script src="js/navigation.js"></script>
+    
+    <!-- Intersection Observer for animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section, .card-hover').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

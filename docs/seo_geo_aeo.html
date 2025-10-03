@@ -161,41 +161,7 @@
 </head>
 <body class="bg-gradient-to-br from-[#F8FAFC] to-[#E2E8F0] min-h-screen">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a href="https://github.com/ernest-chen/genie" class="flex items-center space-x-3">
-                        <img src="https://avatars.githubusercontent.com/u/29280406?s=48&v=4" alt="Tech Genie Logo" class="h-8 w-8 rounded-full">
-                        <span class="text-xl font-bold text-[#0A2540]">Tech Genie</span>
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-home mr-2"></i>Home
-                    </a>
-                    <a href="adtech.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-ad mr-2"></i>AdTech
-                    </a>
-                    <a href="transformation.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-rocket mr-2"></i>Transformation
-                    </a>
-                    <a href="companies/index.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-building mr-2"></i>Companies
-                    </a>
-                    <a href="devops.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-cogs mr-2"></i>DevSecOps
-                    </a>
-                    <a href="public_clouds.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-cloud mr-2"></i>Clouds
-                    </a>
-                    <a href="rest_rpc.html" class="text-[#425466] hover:text-[#007AFF] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                        <i class="fas fa-plug mr-2"></i>APIs
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="top-navigation"></div>
 
     <!-- Header -->
     <header class="bg-gradient-to-r from-[#0A2540] via-[#1E40AF] to-[#3B82F6] text-white py-16">
@@ -1304,45 +1270,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#0A2540] text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="https://avatars.githubusercontent.com/u/29280406?s=48&v=4" alt="Tech Genie Logo" class="h-8 w-8 rounded-full">
-                        <span class="text-xl font-bold">Tech Genie</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Your Gateway to technology and industry learning</p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/ernest-chen/genie" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="adtech.html" class="text-gray-400 hover:text-white transition-colors">AdTech</a></li>
-                        <li><a href="transformation.html" class="text-gray-400 hover:text-white transition-colors">Transformation</a></li>
-                        <li><a href="companies/index.html" class="text-gray-400 hover:text-white transition-colors">Companies</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Technology</h3>
-                    <ul class="space-y-2">
-                        <li><a href="devops.html" class="text-gray-400 hover:text-white transition-colors">DevSecOps</a></li>
-                        <li><a href="public_clouds.html" class="text-gray-400 hover:text-white transition-colors">Clouds</a></li>
-                        <li><a href="rest_rpc.html" class="text-gray-400 hover:text-white transition-colors">APIs</a></li>
-                        <li><a href="seo_geo_aeo.html" class="text-gray-400 hover:text-white transition-colors">SEO/GEO/AEO</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Tech Genie. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-navigation"></div>
 
     <!-- Floating Action Button -->
     <div class="fixed bottom-6 right-6 z-50">
@@ -1405,5 +1333,8 @@
             }
         });
     </script>
+    
+    <!-- Navigation Script -->
+    <script src="js/navigation.js"></script>
 </body>
 </html>
