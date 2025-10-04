@@ -166,7 +166,7 @@
                 <div class="text-center p-6 bg-green-50 rounded-xl">
                     <i class="fas fa-code-branch text-4xl text-green-600 mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Open Source</h3>
-                    <p class="text-gray-600">Apache Spark, Kafka, Airflow, Apache Iceberg, Delta Lake, and more</p>
+                    <p class="text-gray-600">Apache Spark, Kafka, Airflow, Apache Iceberg, Delta Lake, Apache Hudi, and more</p>
                 </div>
                 <div class="text-center p-6 bg-purple-50 rounded-xl">
                     <i class="fas fa-cogs text-4xl text-purple-600 mb-4"></i>
@@ -276,6 +276,18 @@
                                 <h5 class="font-semibold text-sm">Data Versioning</h5>
                                 <p class="text-xs text-gray-600">Track data changes and maintain history</p>
                             </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Apache Hudi</h5>
+                                <p class="text-xs text-gray-600">Data lakehouse with ACID transactions and upserts</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">ACID Transactions</h5>
+                                <p class="text-xs text-gray-600">Atomicity, Consistency, Isolation, Durability guarantees</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Schema Evolution</h5>
+                                <p class="text-xs text-gray-600">Backward/forward compatibility, schema migration</p>
+                            </div>
                         </div>
                     </div>
 
@@ -288,6 +300,14 @@
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">Analytical Database</h5>
                                 <p class="text-xs text-gray-600">Analytical workloads, structured data</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">OLAP Optimization</h5>
+                                <p class="text-xs text-gray-600">Optimized for complex analytical queries</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Columnar Storage</h5>
+                                <p class="text-xs text-gray-600">Column-oriented storage for analytics</p>
                             </div>
                         </div>
                     </div>
@@ -313,6 +333,14 @@
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">Document Storage</h5>
                                 <p class="text-xs text-gray-600">Structured document management system</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">OLTP (Online Transaction Processing)</h5>
+                                <p class="text-xs text-gray-600">Real-time transactional workloads, high concurrency</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">OLAP (Online Analytical Processing)</h5>
+                                <p class="text-xs text-gray-600">Complex analytical queries, data warehousing</p>
                             </div>
                         </div>
                     </div>
@@ -355,6 +383,14 @@
                                     <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Analytics</span>
                                 </div>
                             </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-sm mb-2">Incremental Processing</h5>
+                                <p class="text-xs text-gray-600">Process only changed data, delta processing</p>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Delta</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Efficient</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -379,6 +415,56 @@
                                     <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Events</span>
                                     <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Messaging</span>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Data Processing Concepts -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-rocket text-indigo-600 mr-3"></i>Advanced Data Processing Concepts
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Transaction & Consistency -->
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-shield-alt text-indigo-600 mr-3"></i>Transaction & Consistency
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">ACID Properties</h5>
+                                <p class="text-xs text-gray-600">Atomicity, Consistency, Isolation, Durability</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Schema Evolution</h5>
+                                <p class="text-xs text-gray-600">Backward/forward compatibility, safe schema changes</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Data Consistency</h5>
+                                <p class="text-xs text-gray-600">Strong vs eventual consistency models</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Processing Patterns -->
+                    <div class="bg-gradient-to-br from-green-50 to-teal-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-sync text-green-600 mr-3"></i>Processing Patterns
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Incremental Processing</h5>
+                                <p class="text-xs text-gray-600">Delta processing, change data capture</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Zero-copy Analytics</h5>
+                                <p class="text-xs text-gray-600">Direct data access without copying</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Lambda Architecture</h5>
+                                <p class="text-xs text-gray-600">Batch + stream processing patterns</p>
                             </div>
                         </div>
                     </div>
@@ -437,6 +523,10 @@
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">Federated Queries</h5>
                                 <p class="text-xs text-gray-600">Cross-source data analysis</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Zero-copy Analytics</h5>
+                                <p class="text-xs text-gray-600">Query data without copying, direct access</p>
                             </div>
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">Search & Discovery</h5>
@@ -1013,7 +1103,7 @@
                         <div class="space-y-4">
                             <div class="bg-gray-50 rounded-lg p-4">
                                 <h4 class="font-semibold text-sm text-gray-800 mb-2">Components</h4>
-                                <p class="text-sm text-gray-600">Kafka, Spark, Flink, Beam, Trino, TensorFlow, Airflow, Iceberg</p>
+                                <p class="text-sm text-gray-600">Kafka, Spark, Flink, Beam, Trino, TensorFlow, Airflow, Iceberg, Hudi</p>
                             </div>
                             <div class="bg-gray-50 rounded-lg p-4">
                                 <h4 class="font-semibold text-sm text-gray-800 mb-2">Key Features</h4>
@@ -1068,6 +1158,10 @@
                             <p class="text-sm text-gray-600">Vertex AI, BigQuery ML, AutoML, Notebook Services, TensorFlow, MCP</p>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">OLAP & OLTP</h4>
+                            <p class="text-sm text-gray-600">BigQuery (OLAP), Cloud SQL (OLTP), Spanner (HTAP), ACID transactions</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
                             <h4 class="font-semibold text-sm text-gray-800 mb-2">Orchestration</h4>
                             <p class="text-sm text-gray-600">Cloud Composer, Workflows, Scheduler, Cloud Functions</p>
                         </div>
@@ -1107,6 +1201,10 @@
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h4 class="font-semibold text-sm text-gray-800 mb-2">Analytics & ML</h4>
                             <p class="text-sm text-gray-600">SageMaker, QuickSight, Athena, Forecast, TensorFlow, MCP</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">OLAP & OLTP</h4>
+                            <p class="text-sm text-gray-600">Redshift (OLAP), RDS (OLTP), Aurora (HTAP), DynamoDB (NoSQL)</p>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h4 class="font-semibold text-sm text-gray-800 mb-2">Orchestration</h4>
@@ -1289,6 +1387,13 @@
                                     <td class="px-4 py-3 text-center text-xs text-gray-600">Redshift</td>
                                     <td class="px-4 py-3 text-center text-xs text-gray-600">Synapse</td>
                                     <td class="px-4 py-3 text-center text-xs text-gray-600">Data Warehouse</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">OLAP/OLTP</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">BigQuery (OLAP), Cloud SQL (OLTP), Spanner (HTAP)</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Redshift (OLAP), RDS (OLTP), Aurora (HTAP)</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Synapse (OLAP), SQL Database (OLTP), Cosmos DB</td>
+                                    <td class="px-4 py-3 text-center text-xs text-gray-600">Data Warehouse (OLAP), Autonomous DB (OLTP)</td>
                                 </tr>
                                 <tr class="bg-gray-50">
                                     <td class="px-4 py-3 text-sm font-medium text-gray-800">Stream Processing</td>
@@ -1499,7 +1604,7 @@
                         </div>
                         
                         <div class="architecture-diagram">
-                            <div class="grid grid-cols-1 lg:grid-cols-9 gap-4 mb-6">
+                            <div class="grid grid-cols-1 lg:grid-cols-10 gap-4 mb-6">
                                 <div class="bg-white rounded-lg p-4 text-center">
                                     <i class="fas fa-stream text-2xl text-blue-500 mb-2"></i>
                                     <h4 class="font-semibold">Apache Kafka</h4>
@@ -1539,6 +1644,11 @@
                                     <i class="fas fa-database text-2xl text-green-500 mb-2"></i>
                                     <h4 class="font-semibold">Apache Iceberg</h4>
                                     <p class="text-sm text-gray-600">Table Format</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4 text-center">
+                                    <i class="fas fa-layer-group text-2xl text-cyan-500 mb-2"></i>
+                                    <h4 class="font-semibold">Apache Hudi</h4>
+                                    <p class="text-sm text-gray-600">Data Lakehouse</p>
                                 </div>
                                 <div class="bg-white rounded-lg p-4 text-center">
                                     <i class="fas fa-chart-bar text-2xl text-red-500 mb-2"></i>
