@@ -396,6 +396,176 @@
             </div>
         </section>
 
+        <!-- Security & Infrastructure -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
+                <i class="fas fa-shield-alt mr-3 text-[#EF4444]"></i>Security & Infrastructure
+            </h2>
+            <p class="text-center text-[#425466] mb-8">Advanced security concepts and infrastructure patterns for modern DevSecOps practices.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Service Mesh -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-network-wired mr-3 text-[#9B59B6]"></i>Service Mesh
+                    </h3>
+                    <p class="text-[#425466] mb-4">Infrastructure layer for managing service-to-service communication in microservices architectures.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Istio, Linkerd, Consul Connect</li>
+                        <li>• Traffic management & load balancing</li>
+                        <li>• Service discovery & health checks</li>
+                        <li>• mTLS encryption between services</li>
+                        <li>• Circuit breakers & retries</li>
+                        <li>• Distributed tracing & observability</li>
+                    </ul>
+                </div>
+
+                <!-- API Gateway -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-door-open mr-3 text-[#007AFF]"></i>API Gateway
+                    </h3>
+                    <p class="text-[#425466] mb-4">Single entry point for managing, securing, and monitoring API traffic.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Kong, AWS API Gateway, Azure API Management</li>
+                        <li>• Request routing & load balancing</li>
+                        <li>• Authentication & authorization</li>
+                        <li>• Rate limiting & throttling</li>
+                        <li>• API versioning & transformation</li>
+                        <li>• Analytics & monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Rate Limiting -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-tachometer-alt mr-3 text-[#FF9500]"></i>Rate Limiting
+                    </h3>
+                    <p class="text-[#425466] mb-4">Controlling the rate of requests to prevent system overload and ensure fair usage.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Token bucket, sliding window algorithms</li>
+                        <li>• Per-user, per-IP, per-API limits</li>
+                        <li>• Redis-based distributed rate limiting</li>
+                        <li>• Adaptive rate limiting</li>
+                        <li>• Graceful degradation strategies</li>
+                        <li>• Rate limit headers & responses</li>
+                    </ul>
+                </div>
+
+                <!-- Data Encryption -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-lock mr-3 text-[#34C759]"></i>Data Encryption
+                    </h3>
+                    <p class="text-[#425466] mb-4">Protecting data at rest, in transit, and in use through encryption mechanisms.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• AES-256, RSA, ECC encryption</li>
+                        <li>• TLS 1.3 for data in transit</li>
+                        <li>• Database encryption at rest</li>
+                        <li>• Application-level encryption</li>
+                        <li>• Key management & rotation</li>
+                        <li>• Hardware Security Modules (HSM)</li>
+                    </ul>
+                </div>
+
+                <!-- Certificates -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-certificate mr-3 text-[#1ABC9C]"></i>Certificates
+                    </h3>
+                    <p class="text-[#425466] mb-4">Digital certificates for secure communication and identity verification.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• SSL/TLS certificates for HTTPS</li>
+                        <li>• Code signing certificates</li>
+                        <li>• Client certificates for mTLS</li>
+                        <li>• Certificate Authority (CA) management</li>
+                        <li>• Automated certificate renewal</li>
+                        <li>• Certificate transparency monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Authentication -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-user-check mr-3 text-[#E74C3C]"></i>Authentication
+                    </h3>
+                    <p class="text-[#425466] mb-4">Verifying the identity of users, services, and systems accessing resources.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Multi-factor authentication (MFA)</li>
+                        <li>• OAuth 2.0, OpenID Connect</li>
+                        <li>• SAML, LDAP integration</li>
+                        <li>• Biometric authentication</li>
+                        <li>• Single Sign-On (SSO)</li>
+                        <li>• Service-to-service authentication</li>
+                    </ul>
+                </div>
+
+                <!-- Authorization -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-key mr-3 text-[#8E44AD]"></i>Authorization
+                    </h3>
+                    <p class="text-[#425466] mb-4">Controlling access to resources based on authenticated user permissions.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Role-Based Access Control (RBAC)</li>
+                        <li>• Attribute-Based Access Control (ABAC)</li>
+                        <li>• Policy-based authorization</li>
+                        <li>• Resource-level permissions</li>
+                        <li>• Dynamic authorization</li>
+                        <li>• API-level access controls</li>
+                    </ul>
+                </div>
+
+                <!-- Least Privilege Access -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-user-shield mr-3 text-[#F39C12]"></i>Least Privilege Access
+                    </h3>
+                    <p class="text-[#425466] mb-4">Granting minimum necessary permissions for users and services to perform their functions.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Principle of least privilege</li>
+                        <li>• Just-in-time access (JIT)</li>
+                        <li>• Temporary permissions</li>
+                        <li>• Regular access reviews</li>
+                        <li>• Privilege escalation controls</li>
+                        <li>• Service account management</li>
+                    </ul>
+                </div>
+
+                <!-- Zero Trust Architecture -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-shield-virus mr-3 text-[#E67E22]"></i>Zero Trust Architecture
+                    </h3>
+                    <p class="text-[#425466] mb-4">Security model that assumes no implicit trust and verifies every request.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• Never trust, always verify</li>
+                        <li>• Micro-segmentation</li>
+                        <li>• Continuous verification</li>
+                        <li>• Identity-based security</li>
+                        <li>• Device trust verification</li>
+                        <li>• Network access controls</li>
+                    </ul>
+                </div>
+
+                <!-- Web Application Firewall (WAF) -->
+                <div class="devops-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-[#0A2540] mb-4 flex items-center">
+                        <i class="fas fa-fire mr-3 text-[#C0392B]"></i>Web Application Firewall (WAF)
+                    </h3>
+                    <p class="text-[#425466] mb-4">Protecting web applications from common attacks and malicious traffic.</p>
+                    <ul class="text-sm text-[#425466] space-y-2">
+                        <li>• AWS WAF, Cloudflare, Azure WAF</li>
+                        <li>• SQL injection protection</li>
+                        <li>• XSS attack prevention</li>
+                        <li>• DDoS protection</li>
+                        <li>• Bot detection & mitigation</li>
+                        <li>• Custom rule creation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <!-- CI/CD Pipeline Visualization -->
         <section class="bg-white rounded-lg shadow-lg p-8 mb-12 fade-in">
             <h2 class="text-3xl font-bold text-[#0A2540] mb-6 text-center">
@@ -525,6 +695,10 @@
                         <li>• DAST: OWASP ZAP</li>
                         <li>• SCA: Snyk, WhiteSource</li>
                         <li>• Vault, AWS Secrets</li>
+                        <li>• Service Mesh: Istio, Linkerd</li>
+                        <li>• API Gateway: Kong, AWS API Gateway</li>
+                        <li>• WAF: AWS WAF, Cloudflare</li>
+                        <li>• Zero Trust: Zscaler, Cloudflare Access</li>
                     </ul>
                 </div>
                 
