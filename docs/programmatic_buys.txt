@@ -1,0 +1,76 @@
+Absolutely. Here is the comparison of advertising buy models, reformatted into a clear markdown table structure.
+
+The primary models for buying digital ad inventory are defined by **how** the transaction occurs (Direct vs. Programmatic) and **whether** the inventory is reserved (Guaranteed vs. Non-Guaranteed).
+
+---
+
+## Comparison of Advertising Buy Models
+
+| Transaction Model | Definition | Negotiation/Pricing | Inventory Guarantee | Key Benefits for Advertiser |
+| :--- | :--- | :--- | :--- | :--- |
+| **Traditional Direct Buy** (Non-Programmatic) | Manual, one-to-one sale negotiated directly with a publisher's sales team via an Insertion Order (IO). | Manual negotiation of fixed price (e.g., CPM, CPD) and terms. | **Guaranteed.** Inventory is reserved and secured. | Access to **premium, unique inventory**, high customization, and assured placement. |
+| **Programmatic Guaranteed** (Automated Direct) | A direct, one-to-one deal where transaction and ad serving are **automated** through programmatic platforms. | Pre-negotiated fixed price (CPM) and terms. | **Guaranteed.** A fixed volume of inventory is reserved for the buyer. | **Efficiency of automation** combined with the **assurance of premium inventory** and fixed price. |
+| **Preferred Deal** (Programmatic Direct, Non-Guaranteed) | A programmatic deal offering a single advertiser a **"first look"** at a publisher's inventory at a negotiated fixed price before it goes to a wider auction. | Negotiated fixed price (floor price). | **Non-Guaranteed.** No commitment to buy or reserve a volume of impressions. | **Priority access** to quality inventory and data without a volume commitment. |
+| **Private Marketplace (PMP)** (Programmatic, Non-Guaranteed) | An **invite-only, real-time auction** where a select group of advertisers bid on a publisher's designated inventory. | Auction-based, with a minimum **price floor** set by the publisher. | **Non-Guaranteed.** Inventory is not reserved; the highest bidder wins. | **Exclusivity** (less competition than an Open Auction), **greater control** over inventory quality, and better targeting. |
+| **Open Auction (RTB)** (Programmatic, Non-Guaranteed) | A **public, real-time auction** where any advertiser can bid on a wide, expansive pool of publisher inventory. | Auction-based (**Real-Time Bidding** or RTB), where the highest bid wins the impression. | **Non-Guaranteed.** No commitment on impressions or price. | **Maximized reach and scale,** **cost efficiency** (only pay for the winning bid), and high flexibility. |
+
+---
+
+## Other Transaction Models (Pricing)
+
+These models define **what** the advertiser pays for and are often applied within any of the transaction models listed above.
+
+| Pricing Model | Description | Primary Goal |
+| :--- | :--- | :--- |
+| **CPM** (Cost Per Mille) | The cost for one thousand (**M**ille, Latin for thousand) ad impressions (ad views). | **Brand awareness** and maximizing reach. |
+| **CPC** (Cost Per Click) | The advertiser pays only when a user **clicks** on the ad. | Driving immediate **website traffic** and engagement. |
+| **CPA** (Cost Per Action/Acquisition) | The advertiser pays only when a user completes a specific desired action (e.g., a signup, download, or purchase). | Focusing on **performance** and direct return on investment (ROI). |
+| **CPL** (Cost Per Lead) | The advertiser pays for each qualified lead generated (e.g., a form submission with contact information). | **Lead generation**, common in B2B. |
+
+
+
+
+The primary models for buying digital ad inventory are defined by how the transaction occurs (Direct vs. Programmatic) and whether the inventory is reserved (Guaranteed vs. Non-Guaranteed).
+
+Comparison of Advertising Buy Models
+Transaction Model	Definition	Negotiation/Pricing	Inventory Guarantee	Key Benefits for Advertiser
+Traditional Direct Buy (Non-Programmatic)	Manual, one-to-one sale negotiated directly with a publisher's sales team via an Insertion Order (IO).	Manual negotiation of fixed price (e.g., CPM, CPD) and terms.	Guaranteed. Inventory is reserved and secured.	Access to premium, unique inventory, high customization, and assured placement.
+Programmatic Guaranteed (Automated Direct)	A direct, one-to-one deal where transaction and ad serving are automated through programmatic platforms.	Pre-negotiated fixed price (CPM) and terms.	Guaranteed. A fixed volume of inventory is reserved for the buyer.	Efficiency of automation combined with the assurance of premium inventory and fixed price.
+Preferred Deal (Programmatic Direct, Non-Guaranteed)	A programmatic deal offering a single advertiser a "first look" at a publisher's inventory at a negotiated fixed price before it goes to a wider auction.	Negotiated fixed price (floor price).	Non-Guaranteed. No commitment to buy or reserve a volume of impressions.	Priority access to quality inventory and data without a volume commitment.
+Private Marketplace (PMP) (Programmatic, Non-Guaranteed)	An invite-only, real-time auction where a select group of advertisers bid on a publisher's designated inventory.	Auction-based, with a minimum price floor set by the publisher.	Non-Guaranteed. Inventory is not reserved; the highest bidder wins.	Exclusivity (less competition than an Open Auction), greater control over inventory quality, and better targeting.
+Open Auction (RTB) (Programmatic, Non-Guaranteed)	A public, real-time auction where any advertiser can bid on a wide, expansive pool of publisher inventory.	Auction-based (Real-Time Bidding or RTB), where the highest bid wins the impression.	Non-Guaranteed. No commitment on impressions or price.	Maximized reach and scale, cost efficiency (only pay for the winning bid), and high flexibility.
+
+Export to Sheets
+Other Transaction Models (Pricing)
+These models define what the advertiser pays for and are often applied within any of the transaction models listed above.
+
+Pricing Model	Description	Primary Goal
+CPM (Cost Per Mille)	The cost for one thousand (Mille, Latin for thousand) ad impressions (ad views).	Brand awareness and maximizing reach.
+CPC (Cost Per Click)	The advertiser pays only when a user clicks on the ad.	Driving immediate website traffic and engagement.
+CPA (Cost Per Action/Acquisition)	The advertiser pays only when a user completes a specific desired action (e.g., a signup, download, or purchase).	Focusing on performance and direct return on investment (ROI).
+CPL (Cost Per Lead)	The advertiser pays for each qualified lead generated (e.g., a form submission with contact information).	Lead generation, common in B2B.
+
+
+
+
+
+This is a common question, and the answer depends on how strictly you define a Demand-Side Platform (DSP).
+
+In short: **Google Ads is not considered a true, full-fledged DSP, but it contains similar automated buying features for Google's own inventory.**
+
+Google's dedicated, enterprise-level DSP is a separate product called **Display & Video 360 (DV360)**.
+
+Here is a breakdown of the differences:
+
+| Feature | Google Ads (Google Display Network) | Display & Video 360 (DV360) | True DSP Capability |
+| :--- | :--- | :--- | :--- |
+| **Primary Focus** | User-friendly platform for search, display, video, and app ads, focused on Google's ecosystem. | Enterprise-grade platform for sophisticated, large-scale programmatic media buying. | Yes |
+| **Inventory Access** | Primarily limited to Google's own inventory (Google Search, YouTube, Gmail, and the Google Display Network). | Accesses Google inventory **plus** inventory from dozens of other major ad exchanges, ad networks, and Supply-Side Platforms (SSPs). | Full |
+| **Bidding Model** | Automated and manual bidding for various objectives (CPC, CPA, CPM). | Advanced Real-Time Bidding (RTB) on multiple exchanges, Programmatic Guaranteed, and Private Marketplace (PMP) deals. | Full |
+| **Targeting & Control** | Robust but more simplified targeting options (keywords, demographics, interests). | Advanced, granular control over bidding, placement, audience segmentation, and more sophisticated data integration (first, second, and third-party data). | Full |
+| **Best For** | Small to mid-sized businesses, self-service users, and direct-response campaigns. | Large advertisers, agencies, and those requiring multi-channel campaigns with maximum reach and control. | N/A |
+
+### Conclusion
+
+* **Google Ads** offers programmatic buying and automated bidding, but its scope is generally limited to the **Google ecosystem**. It acts as an **ad network** with programmatic features.
+* **DV360** is Google's actual, full-featured **Demand-Side Platform (DSP)**, designed to buy ad inventory from nearly all major exchanges and publishers, including those outside of the Google network.
