@@ -24,10 +24,10 @@ echo ""
 # Check if Python 3 is available
 if command -v python3 &> /dev/null; then
     echo "🐍 Using Python 3..."
-    cd docs && python3 -m http.server 8000
+    python3 -m http.server 8000
 elif command -v python &> /dev/null; then
     echo "🐍 Using Python 2..."
-    cd docs && python -m SimpleHTTPServer 8000
+    cd . && python -m SimpleHTTPServer 8000
 else
     echo "❌ Error: Python is not installed or not in PATH"
     echo "Please install Python to use this script"
