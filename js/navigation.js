@@ -70,20 +70,28 @@ class TechGenieNavigation {
         ];
         
         // Determine if we're in a subdirectory and adjust paths accordingly
-        this.isSubdirectory = this.detectSubdirectory();
+        this.currentSubdirectory = this.detectSubdirectory();
         this.navigationItems = this.adjustPaths();
     }
 
     /**
-     * Detect if we're in a subdirectory
-     * @returns {boolean}
+     * Detect which subdirectory (if any) we're currently in
+     * @returns {string|null} - The subdirectory name or null if at root
      */
     detectSubdirectory() {
         const currentPath = window.location.pathname;
-        const pathSegments = currentPath.split('/').filter(segment => segment !== '');
         
-        // Check if we're in a subdirectory (more than just the filename)
-        return pathSegments.length > 1;
+        // Check for known subdirectories
+        if (currentPath.includes('/companies/')) {
+            return 'companies';
+        }
+        
+        // Add more subdirectories here as they're created
+        // if (currentPath.includes('/other-dir/')) {
+        //     return 'other-dir';
+        // }
+        
+        return null;
     }
 
     /**
@@ -91,19 +99,28 @@ class TechGenieNavigation {
      * @returns {Array}
      */
     adjustPaths() {
-        if (!this.isSubdirectory) {
+        const subdirectory = this.currentSubdirectory;
+        
+        // If we're at root level, return base paths as is
+        if (!subdirectory) {
             return this.baseNavigationItems;
         }
 
         return this.baseNavigationItems.map(item => {
             const adjustedItem = { ...item };
             
-            // For subdirectories, add ../ prefix to all paths except the current directory
+            // Adjust paths based on subdirectory
             if (item.href.startsWith('companies/')) {
-                // Keep companies path as is if we're in companies directory
-                adjustedItem.href = item.href;
+                // If we're in the companies directory
+                if (subdirectory === 'companies') {
+                    // Remove the companies/ prefix (e.g., companies/index.html -> index.html)
+                    adjustedItem.href = item.href.replace('companies/', '');
+                } else {
+                    // If we're in a different subdirectory, add ../ prefix
+                    adjustedItem.href = '../' + item.href;
+                }
             } else {
-                // Add ../ prefix for all other paths
+                // For all other links, add ../ prefix when in a subdirectory
                 adjustedItem.href = '../' + item.href;
             }
             
@@ -191,13 +208,13 @@ class TechGenieNavigation {
             return 'index.html';
         }
         
-        // If we're in a subdirectory, return the full relative path
-        if (pathSegments.length > 1) {
-            return pathSegments.join('/');
+        // Return just the filename if we're at root
+        if (pathSegments.length === 1) {
+            return pathSegments[0];
         }
         
-        // If we're in the root directory, return just the filename
-        return pathSegments[0];
+        // For subdirectories, get the last segment (filename)
+        return pathSegments[pathSegments.length - 1];
     }
 
     /**
@@ -207,25 +224,25 @@ class TechGenieNavigation {
      * @returns {boolean} True if active
      */
     isActivePage(itemHref, currentPath) {
+        const pathname = window.location.pathname;
+        
         // Handle home page
-        if (itemHref === 'index.html' && (currentPath === 'index.html' || currentPath === '')) {
-            return true;
+        if (itemHref.includes('index.html')) {
+            // Check if we're at root index
+            if (itemHref === 'index.html' || itemHref === '../index.html') {
+                return currentPath === 'index.html' || pathname === '/' || pathname.endsWith('/index.html');
+            }
+            // Check if we're at companies index
+            if (itemHref.includes('companies') && pathname.includes('/companies/')) {
+                return pathname.includes('companies/index.html') || pathname.endsWith('companies/');
+            }
         }
         
-        // Handle companies directory
-        if (itemHref === 'companies/index.html' && currentPath.startsWith('companies/')) {
-            return true;
-        }
+        // Extract filename from href (remove any ../ prefixes and directories)
+        const itemFilename = itemHref.split('/').pop();
         
-        // Handle subdirectory paths
-        if (this.isSubdirectory) {
-            // Remove ../ prefix for comparison
-            const cleanItemHref = itemHref.replace('../', '');
-            return cleanItemHref === currentPath;
-        }
-        
-        // Default comparison
-        return itemHref === currentPath;
+        // Compare filenames
+        return itemFilename === currentPath;
     }
 
     /**
