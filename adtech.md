@@ -1,3 +1,5 @@
+```mermaid
+
 graph TD
     %% Demand Side
     Advertiser[Advertiser<br/>Brands & Companies]
