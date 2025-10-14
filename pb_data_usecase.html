@@ -606,9 +606,44 @@
             
             <!-- AI/ML Cost Impact Chart -->
             <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Cost Impact of AI/ML Workloads</h3>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">AI/ML Cost Impact on Base Platform</h3>
+                <p class="text-center text-gray-600 mb-4">Shows base platform cost and the additional cost impact of AI/ML workloads</p>
                 <div class="relative h-96">
                     <canvas id="aiMlCostChart"></canvas>
+                </div>
+                
+                <!-- AI/ML Cost Impact Summary -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">AWS</h4>
+                        <p class="text-sm text-gray-600">Base: $102K</p>
+                        <p class="text-sm text-gray-600">+AI/ML: $163.5K</p>
+                        <p class="text-sm font-bold text-purple-600">+$61.5K (+60%)</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">GCP</h4>
+                        <p class="text-sm text-gray-600">Base: $89K</p>
+                        <p class="text-sm text-gray-600">+AI/ML: $137K</p>
+                        <p class="text-sm font-bold text-purple-600">+$48K (+54%)</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Azure</h4>
+                        <p class="text-sm text-gray-600">Base: $95K</p>
+                        <p class="text-sm text-gray-600">+AI/ML: $137.5K</p>
+                        <p class="text-sm font-bold text-purple-600">+$42.5K (+45%)</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Databricks</h4>
+                        <p class="text-sm text-gray-600">Base: $105K</p>
+                        <p class="text-sm text-gray-600">+AI/ML: $161K</p>
+                        <p class="text-sm font-bold text-purple-600">+$56K (+53%)</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Snowflake</h4>
+                        <p class="text-sm text-gray-600">Base: $103K</p>
+                        <p class="text-sm text-gray-600">+AI/ML: $154.5K</p>
+                        <p class="text-sm font-bold text-purple-600">+$51.5K (+50%)</p>
+                    </div>
                 </div>
             </div>
 
@@ -1589,42 +1624,28 @@
             }
         });
 
-        // AI/ML Cost Impact Chart
+        // AI/ML Cost Impact Chart - Area Chart
         const aiMlCtx = document.getElementById('aiMlCostChart').getContext('2d');
         new Chart(aiMlCtx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: ['Base Platform', 'With AI/ML', 'With Software Licensing'],
+                labels: ['AWS', 'GCP', 'Azure', 'Databricks', 'Snowflake'],
                 datasets: [{
-                    label: 'AWS',
-                    data: [102000, 163500, 260000],
-                    backgroundColor: 'rgba(255, 153, 0, 0.8)',
-                    borderColor: 'rgba(255, 153, 0, 1)',
-                    borderWidth: 2
-                }, {
-                    label: 'GCP',
-                    data: [89000, 137000, 233500],
-                    backgroundColor: 'rgba(66, 133, 244, 0.8)',
-                    borderColor: 'rgba(66, 133, 244, 1)',
-                    borderWidth: 2
-                }, {
-                    label: 'Azure',
-                    data: [95000, 137500, 234000],
-                    backgroundColor: 'rgba(0, 120, 212, 0.8)',
-                    borderColor: 'rgba(0, 120, 212, 1)',
-                    borderWidth: 2
-                }, {
-                    label: 'Databricks',
-                    data: [105000, 161000, 257500],
-                    backgroundColor: 'rgba(255, 107, 53, 0.8)',
-                    borderColor: 'rgba(255, 107, 53, 1)',
-                    borderWidth: 2
-                }, {
-                    label: 'Snowflake',
-                    data: [103000, 154500, 251000],
-                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                    label: 'Base Platform Cost',
+                    data: [102000, 89000, 95000, 105000, 103000],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
                     borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 2
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'With AI/ML Workloads',
+                    data: [163500, 137000, 137500, 161000, 154500],
+                    backgroundColor: 'rgba(147, 51, 234, 0.2)',
+                    borderColor: 'rgba(147, 51, 234, 1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
                 }]
             },
             options: {
@@ -1633,7 +1654,7 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Total Monthly Cost: Base vs AI/ML vs Software Licensing (USD)',
+                        text: 'AI/ML Cost Impact: Base Platform vs With AI/ML Workloads (USD)',
                         font: {
                             size: 16,
                             weight: 'bold'
