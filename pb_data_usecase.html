@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Petabyte-Scale Data Platform Comparison 2025 | AWS vs GCP vs Azure vs Databricks</title>
-    <meta name="title" content="Petabyte-Scale Data Platform Comparison 2025 | AWS vs GCP vs Azure vs Databricks">
-    <meta name="description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs. Compare AWS, GCP, Azure, and Databricks for enterprise data processing, AI/ML, and analytics.">
-    <meta name="keywords" content="petabyte data platform, data lakehouse, AWS, GCP, Azure, Databricks, big data, data architecture, cost comparison, enterprise analytics, software licensing, ETL tools, data quality, BI tools">
+    <title>Petabyte-Scale Data Platform Comparison 2025 | AWS vs GCP vs Azure vs Databricks vs Snowflake</title>
+    <meta name="title" content="Petabyte-Scale Data Platform Comparison 2025 | AWS vs GCP vs Azure vs Databricks vs Snowflake">
+    <meta name="description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs. Compare AWS, GCP, Azure, Databricks, and Snowflake for enterprise data processing, AI/ML, and analytics.">
+    <meta name="keywords" content="petabyte data platform, data lakehouse, AWS, GCP, Azure, Databricks, Snowflake, big data, data architecture, cost comparison, enterprise analytics, software licensing, ETL tools, data quality, BI tools">
     <meta name="author" content="Ernest Chen">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
@@ -17,8 +17,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://ernest-chen.github.io/genie/pb_data_usecase.html">
-    <meta property="og:title" content="Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks">
-    <meta property="og:description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs with detailed cost estimates and implementation strategies.">
+    <meta property="og:title" content="Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks vs Snowflake">
+    <meta property="og:description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs. Compare AWS, GCP, Azure, Databricks, and Snowflake with detailed cost estimates and implementation strategies.">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
     <meta property="og:site_name" content="Tech Genie">
     <meta property="og:locale" content="en_US">
@@ -30,8 +30,8 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ernest-chen.github.io/genie/pb_data_usecase.html">
-    <meta property="twitter:title" content="Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks">
-    <meta property="twitter:description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs with detailed cost estimates and implementation strategies.">
+    <meta property="twitter:title" content="Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks vs Snowflake">
+    <meta property="twitter:description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs. Compare AWS, GCP, Azure, Databricks, and Snowflake with detailed cost estimates and implementation strategies.">
     <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
     
     <!-- AEO (AI Engine Optimization) -->
@@ -47,8 +47,8 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks",
-        "description": "Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs with detailed cost estimates and implementation strategies.",
+        "headline": "Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks vs Snowflake",
+        "description": "Comprehensive cost and architecture comparison for petabyte-scale data platforms including software licensing costs. Compare AWS, GCP, Azure, Databricks, and Snowflake with detailed cost estimates and implementation strategies.",
         "image": "https://avatars.githubusercontent.com/u/29280406?s=200&v=4",
         "author": {
             "@type": "Person",
@@ -233,7 +233,7 @@
                 <i class="fas fa-layer-group mr-4 text-blue-600"></i>Platform Architecture Overview
             </h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-8">
                 <!-- AWS -->
                 <div class="bg-white rounded-2xl shadow-xl p-8 card-hover platform-aws">
                     <div class="text-center mb-6">
@@ -365,6 +365,39 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Snowflake -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover platform-snowflake">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-snowflake text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Snowflake</h3>
+                        <p class="text-gray-600">Cloud-native data warehouse</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Storage</h4>
+                            <p class="text-sm text-gray-600">Cloud Storage + Snowflake</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Processing</h4>
+                            <p class="text-sm text-gray-600">Virtual Warehouses + SQL</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Analytics</h4>
+                            <p class="text-sm text-gray-600">Snowsight + Partner BI</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">AI/ML</h4>
+                            <p class="text-sm text-gray-600">Snowpark + ML Functions</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Governance</h4>
+                            <p class="text-sm text-gray-600">Data Sharing + Marketplace</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -418,6 +451,13 @@
                             </div>
                             <span class="text-sm text-gray-600">Pass-through from cloud provider</span>
                         </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-snowflake text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-semibold">Snowflake</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$58,000</span>
+                        </div>
                     </div>
                 </div>
 
@@ -454,6 +494,13 @@
                                 <span class="font-semibold">Databricks (DBUs + Cloud)</span>
                             </div>
                             <span class="text-xl font-bold cost-highlight">$50K - $100K</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-snowflake text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-semibold">Snowflake (Credits + Storage)</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$45K - $95K</span>
                         </div>
                     </div>
                 </div>
@@ -552,7 +599,7 @@
             <!-- Platform-Specific AI/ML Costs -->
             <div class="bg-white rounded-2xl shadow-xl p-8">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Platform-Specific AI/ML Cost Breakdown</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                     <!-- AWS AI/ML Costs -->
                     <div class="platform-aws bg-orange-50 rounded-lg p-6">
                         <div class="text-center mb-4">
@@ -676,6 +723,38 @@
                                 <div class="flex justify-between font-bold">
                                     <span>Total AI/ML:</span>
                                     <span class="cost-highlight">$30K-82K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Snowflake AI/ML Costs -->
+                    <div class="platform-snowflake bg-blue-50 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-snowflake text-3xl text-blue-500 mb-2"></i>
+                            <h4 class="font-bold text-lg">Snowflake AI/ML</h4>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Snowpark (Python/Scala):</span>
+                                <span class="font-semibold">$12K-30K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>ML Functions:</span>
+                                <span class="font-semibold">$8K-20K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>External Functions:</span>
+                                <span class="font-semibold">$5K-15K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Data Sharing & Marketplace:</span>
+                                <span class="font-semibold">$3K-10K</span>
+                            </div>
+                            <div class="border-t pt-2 mt-2">
+                                <div class="flex justify-between font-bold">
+                                    <span>Total AI/ML:</span>
+                                    <span class="cost-highlight">$28K-75K</span>
                                 </div>
                             </div>
                         </div>
@@ -1334,34 +1413,34 @@
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['AWS', 'GCP', 'Azure', 'Databricks'],
+                labels: ['AWS', 'GCP', 'Azure', 'Databricks', 'Snowflake'],
                 datasets: [{
                     label: 'Storage Cost (3 PB)',
-                    data: [62000, 54000, 55000, 55000],
+                    data: [62000, 54000, 55000, 55000, 58000],
                     backgroundColor: 'rgba(59, 130, 246, 0.8)',
                     borderColor: 'rgba(59, 130, 246, 1)',
                     borderWidth: 2
                 }, {
                     label: 'Compute Cost (Low)',
-                    data: [40000, 35000, 40000, 50000],
+                    data: [40000, 35000, 40000, 50000, 45000],
                     backgroundColor: 'rgba(16, 185, 129, 0.8)',
                     borderColor: 'rgba(16, 185, 129, 1)',
                     borderWidth: 2
                 }, {
                     label: 'Compute Cost (High)',
-                    data: [90000, 80000, 85000, 100000],
+                    data: [90000, 80000, 85000, 100000, 95000],
                     backgroundColor: 'rgba(239, 68, 68, 0.8)',
                     borderColor: 'rgba(239, 68, 68, 1)',
                     borderWidth: 2
                 }, {
                     label: 'AI/ML Cost (Avg)',
-                    data: [61500, 48000, 42500, 56000],
+                    data: [61500, 48000, 42500, 56000, 51500],
                     backgroundColor: 'rgba(147, 51, 234, 0.8)',
                     borderColor: 'rgba(147, 51, 234, 1)',
                     borderWidth: 2
                 }, {
                     label: 'Software Licensing (Avg)',
-                    data: [96500, 96500, 96500, 96500],
+                    data: [96500, 96500, 96500, 96500, 96500],
                     backgroundColor: 'rgba(99, 102, 241, 0.8)',
                     borderColor: 'rgba(99, 102, 241, 1)',
                     borderWidth: 2
@@ -1425,6 +1504,12 @@
                     data: [105000, 161000, 257500],
                     backgroundColor: 'rgba(255, 107, 53, 0.8)',
                     borderColor: 'rgba(255, 107, 53, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Snowflake',
+                    data: [103000, 154500, 251000],
+                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
                     borderWidth: 2
                 }]
             },
