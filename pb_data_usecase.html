@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Petabyte-Scale Data Platform Comparison 2025 | AWS vs GCP vs Azure vs Databricks</title>
+    <meta name="title" content="Petabyte-Scale Data Platform Comparison 2025 | AWS vs GCP vs Azure vs Databricks">
+    <meta name="description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms. Compare AWS, GCP, Azure, and Databricks for enterprise data processing, reporting, and analytics.">
+    <meta name="keywords" content="petabyte data platform, data lakehouse, AWS, GCP, Azure, Databricks, big data, data architecture, cost comparison, enterprise analytics">
+    <meta name="author" content="Ernest Chen">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ernest-chen.github.io/genie/pb_data_usecase.html">
+    <meta property="og:title" content="Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks">
+    <meta property="og:description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms with detailed cost estimates and implementation strategies.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    <meta property="og:site_name" content="Tech Genie">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Ernest Chen">
+    <meta property="article:published_time" content="2025-01-16">
+    <meta property="article:section" content="Data Architecture">
+    <meta property="article:tag" content="Petabyte Data Platform, AWS, GCP, Azure, Databricks, Data Lakehouse, Big Data, Cost Comparison">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ernest-chen.github.io/genie/pb_data_usecase.html">
+    <meta property="twitter:title" content="Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks">
+    <meta property="twitter:description" content="Comprehensive cost and architecture comparison for petabyte-scale data platforms with detailed cost estimates and implementation strategies.">
+    <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/29280406?s=200&v=4">
+    
+    <!-- AEO (AI Engine Optimization) -->
+    <meta name="ai-content-type" content="comparison-tool">
+    <meta name="ai-topic" content="petabyte-data-platform, data-lakehouse, cloud-comparison, cost-analysis, big-data-architecture">
+    <meta name="ai-audience" content="data-architects, cto, enterprise-decision-makers, data-engineers">
+    <meta name="ai-intent" content="compare, evaluate, choose, implement">
+    <meta name="ai-complexity" content="advanced">
+    <meta name="ai-industry" content="technology, data-analytics, cloud-computing">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Petabyte-Scale Data Platform Comparison: AWS vs GCP vs Azure vs Databricks",
+        "description": "Comprehensive cost and architecture comparison for petabyte-scale data platforms with detailed cost estimates and implementation strategies.",
+        "image": "https://avatars.githubusercontent.com/u/29280406?s=200&v=4",
+        "author": {
+            "@type": "Person",
+            "name": "Ernest Chen",
+            "url": "https://github.com/ernest-chen"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Tech Genie",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://avatars.githubusercontent.com/u/29280406?s=200&v=4"
+            }
+        },
+        "datePublished": "2025-01-16",
+        "dateModified": "2025-01-16",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ernest-chen.github.io/genie/pb_data_usecase.html"
+        },
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "AWS",
+                "description": "Amazon Web Services cloud platform"
+            },
+            {
+                "@type": "Thing",
+                "name": "GCP",
+                "description": "Google Cloud Platform"
+            },
+            {
+                "@type": "Thing",
+                "name": "Azure",
+                "description": "Microsoft Azure cloud platform"
+            },
+            {
+                "@type": "Thing",
+                "name": "Databricks",
+                "description": "Unified analytics platform for big data and machine learning"
+            },
+            {
+                "@type": "Thing",
+                "name": "Data Lakehouse",
+                "description": "Modern data architecture combining data lake and data warehouse"
+            },
+            {
+                "@type": "Thing",
+                "name": "Petabyte Scale",
+                "description": "Large-scale data processing at petabyte level"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .cost-highlight {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .platform-aws { border-left: 4px solid #ff9900; }
+        .platform-gcp { border-left: 4px solid #4285f4; }
+        .platform-azure { border-left: 4px solid #0078d4; }
+        .platform-databricks { border-left: 4px solid #ff6b35; }
+        
+        .architecture-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .flow-step {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 120px;
+            flex: 1;
+        }
+        
+        .flow-arrow {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .architecture-flow {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <div id="top-navigation">
+        <!-- Navigation will be injected here by navigation.js -->
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-16">
+        <!-- Executive Summary -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <h1 class="text-5xl font-bold text-center text-gray-800 mb-8">
+                <i class="fas fa-database mr-4 text-blue-600"></i>Petabyte-Scale Data Platform Comparison
+            </h1>
+            <p class="text-xl text-gray-600 text-center leading-relaxed mb-8">
+                Comprehensive cost and architecture analysis for enterprise data platforms processing 
+                <span class="font-bold text-blue-600">1+ Petabyte datasets</span> with 
+                <span class="font-bold text-purple-600">AI/ML workloads</span>, detailed cost estimates, 
+                implementation strategies, and platform recommendations.
+            </p>
+            
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="text-center p-6 bg-blue-50 rounded-xl">
+                    <i class="fas fa-database text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Volume</h3>
+                    <p class="text-gray-600">1-3 Petabytes</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <i class="fas fa-dollar-sign text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Monthly Cost</h3>
+                    <p class="text-gray-600">$137K - $163K+</p>
+                    <p class="text-sm text-gray-500 mt-1">Storage + Compute + AI/ML</p>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl">
+                    <i class="fas fa-cloud text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Platforms</h3>
+                    <p class="text-gray-600">4 Major Platforms</p>
+                </div>
+                <div class="text-center p-6 bg-orange-50 rounded-xl">
+                    <i class="fas fa-chart-line text-4xl text-orange-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Architecture</h3>
+                    <p class="text-gray-600">Data Lakehouse + AI/ML</p>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl">
+                    <i class="fas fa-brain text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">AI/ML Impact</h3>
+                    <p class="text-gray-600">+30-50% Cost Increase</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Overview -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-layer-group mr-4 text-blue-600"></i>Platform Architecture Overview
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+                <!-- AWS -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover platform-aws">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-aws text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Amazon Web Services</h3>
+                        <p class="text-gray-600">Mature ecosystem with maximum flexibility</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Storage</h4>
+                            <p class="text-sm text-gray-600">S3 + Glue Data Catalog + Iceberg</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Processing</h4>
+                            <p class="text-sm text-gray-600">EMR + Glue + Athena</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Analytics</h4>
+                            <p class="text-sm text-gray-600">Redshift + QuickSight</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">AI/ML</h4>
+                            <p class="text-sm text-gray-600">SageMaker + Bedrock + Kendra</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Governance</h4>
+                            <p class="text-sm text-gray-600">Lake Formation + Step Functions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GCP -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover platform-gcp">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-google text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Google Cloud Platform</h3>
+                        <p class="text-gray-600">Serverless-first with AI/ML focus</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Storage</h4>
+                            <p class="text-sm text-gray-600">GCS + BigLake Tables</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Processing</h4>
+                            <p class="text-sm text-gray-600">Dataproc + Dataflow</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Analytics</h4>
+                            <p class="text-sm text-gray-600">BigQuery + Looker</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">AI/ML</h4>
+                            <p class="text-sm text-gray-600">Vertex AI + AutoML + MLOps</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Governance</h4>
+                            <p class="text-sm text-gray-600">Dataplex + Composer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Azure -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover platform-azure">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-microsoft text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Microsoft Azure</h3>
+                        <p class="text-gray-600">Integrated suite with Microsoft ecosystem</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Storage</h4>
+                            <p class="text-sm text-gray-600">ADLS Gen2 + Data Factory</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Processing</h4>
+                            <p class="text-sm text-gray-600">Synapse + Databricks</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Analytics</h4>
+                            <p class="text-sm text-gray-600">Synapse + Power BI</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">AI/ML</h4>
+                            <p class="text-sm text-gray-600">Azure ML + Cognitive Services</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Governance</h4>
+                            <p class="text-sm text-gray-600">Purview + Data Factory</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databricks -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover platform-databricks">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-sparkles text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Databricks</h3>
+                        <p class="text-gray-600">Unified lakehouse platform</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Storage</h4>
+                            <p class="text-sm text-gray-600">Cloud Storage + Delta Lake</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Processing</h4>
+                            <p class="text-sm text-gray-600">Photon Engine + Spark</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Analytics</h4>
+                            <p class="text-sm text-gray-600">Databricks SQL + ML</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">AI/ML</h4>
+                            <p class="text-sm text-gray-600">MLflow + Feature Store + AutoML</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-sm text-gray-800 mb-2">Governance</h4>
+                            <p class="text-sm text-gray-600">Unity Catalog + Workflows</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cost Comparison -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-dollar-sign mr-4 text-green-600"></i>Monthly Cost Breakdown
+            </h2>
+            
+            <!-- Cost Chart -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Total Monthly Cost Comparison (3 PB Dataset)</h3>
+                <div class="relative h-96">
+                    <canvas id="costChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Detailed Cost Breakdown -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Storage Costs -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-hdd text-blue-600 mr-3"></i>Storage Costs (3 PB)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-orange-50 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-aws text-2xl text-orange-600 mr-3"></i>
+                                <span class="font-semibold">AWS S3</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$62,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-google text-2xl text-blue-600 mr-3"></i>
+                                <span class="font-semibold">GCP GCS</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$54,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-100 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-microsoft text-2xl text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Azure ADLS</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$55,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-orange-100 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-sparkles text-2xl text-orange-600 mr-3"></i>
+                                <span class="font-semibold">Databricks</span>
+                            </div>
+                            <span class="text-sm text-gray-600">Pass-through from cloud provider</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compute Costs -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-microchip text-purple-600 mr-3"></i>Compute Costs (Variable)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-orange-50 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-aws text-2xl text-orange-600 mr-3"></i>
+                                <span class="font-semibold">AWS (EMR + Redshift)</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$40K - $90K+</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-google text-2xl text-blue-600 mr-3"></i>
+                                <span class="font-semibold">GCP (Dataproc + BigQuery)</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$35K - $80K</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-100 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-microsoft text-2xl text-blue-700 mr-3"></i>
+                                <span class="font-semibold">Azure (Synapse)</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$40K - $85K</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-orange-100 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-sparkles text-2xl text-orange-600 mr-3"></i>
+                                <span class="font-semibold">Databricks (DBUs + Cloud)</span>
+                            </div>
+                            <span class="text-xl font-bold cost-highlight">$50K - $100K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Network Costs -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mt-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-network-wired text-green-600 mr-3"></i>Network Costs (50 TB Egress/Month)
+                </h3>
+                <div class="text-center">
+                    <div class="inline-block bg-red-50 rounded-lg p-6">
+                        <i class="fas fa-exclamation-triangle text-3xl text-red-600 mb-4"></i>
+                        <h4 class="text-2xl font-bold text-red-600 mb-2">$4,000 - $5,000/month</h4>
+                        <p class="text-gray-600">Critical cost to monitor - data egress charges</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI/ML Impact Analysis -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-brain mr-4 text-purple-600"></i>AI/ML Impact on Infrastructure & Cost
+            </h2>
+            
+            <!-- AI/ML Cost Impact Chart -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Cost Impact of AI/ML Workloads</h3>
+                <div class="relative h-96">
+                    <canvas id="aiMlCostChart"></canvas>
+                </div>
+            </div>
+
+            <!-- AI/ML Infrastructure Requirements -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Additional Infrastructure -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-server text-purple-600 mr-3"></i>Additional Infrastructure Requirements
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">GPU Compute Instances</h4>
+                            <p class="text-sm text-gray-600">High-performance GPU clusters for model training and inference</p>
+                            <p class="text-sm font-semibold text-purple-600 mt-2">Cost Impact: +$15K - $40K/month</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">ML Feature Stores</h4>
+                            <p class="text-sm text-gray-600">Dedicated storage and serving for ML features</p>
+                            <p class="text-sm font-semibold text-purple-600 mt-2">Cost Impact: +$5K - $15K/month</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Model Registry & MLOps</h4>
+                            <p class="text-sm text-gray-600">Model versioning, deployment, and monitoring infrastructure</p>
+                            <p class="text-sm font-semibold text-purple-600 mt-2">Cost Impact: +$3K - $10K/month</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Vector Databases</h4>
+                            <p class="text-sm text-gray-600">Specialized storage for embeddings and similarity search</p>
+                            <p class="text-sm font-semibold text-purple-600 mt-2">Cost Impact: +$2K - $8K/month</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI/ML Workload Types -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-cogs text-purple-600 mr-3"></i>AI/ML Workload Types & Costs
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Model Training</h4>
+                            <p class="text-sm text-gray-600">Large-scale distributed training on petabyte datasets</p>
+                            <p class="text-sm font-semibold text-blue-600 mt-2">$20K - $60K/month (episodic)</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Model Inference</h4>
+                            <p class="text-sm text-gray-600">Real-time and batch inference serving</p>
+                            <p class="text-sm font-semibold text-green-600 mt-2">$10K - $30K/month (continuous)</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Data Preparation</h4>
+                            <p class="text-sm text-gray-600">Feature engineering and data preprocessing</p>
+                            <p class="text-sm font-semibold text-orange-600 mt-2">$5K - $15K/month</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Experiment Tracking</h4>
+                            <p class="text-sm text-gray-600">ML experiment management and monitoring</p>
+                            <p class="text-sm font-semibold text-red-600 mt-2">$2K - $8K/month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform-Specific AI/ML Costs -->
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Platform-Specific AI/ML Cost Breakdown</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- AWS AI/ML Costs -->
+                    <div class="platform-aws bg-orange-50 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <i class="fab fa-aws text-3xl text-orange-600 mb-2"></i>
+                            <h4 class="font-bold text-lg">AWS AI/ML</h4>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>SageMaker Training:</span>
+                                <span class="font-semibold">$15K-40K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>SageMaker Inference:</span>
+                                <span class="font-semibold">$8K-25K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Bedrock (LLMs):</span>
+                                <span class="font-semibold">$5K-20K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Kendra (Search):</span>
+                                <span class="font-semibold">$2K-8K</span>
+                            </div>
+                            <div class="border-t pt-2 mt-2">
+                                <div class="flex justify-between font-bold">
+                                    <span>Total AI/ML:</span>
+                                    <span class="cost-highlight">$30K-93K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GCP AI/ML Costs -->
+                    <div class="platform-gcp bg-blue-50 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <i class="fab fa-google text-3xl text-blue-600 mb-2"></i>
+                            <h4 class="font-bold text-lg">GCP AI/ML</h4>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Vertex AI Training:</span>
+                                <span class="font-semibold">$12K-35K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Vertex AI Inference:</span>
+                                <span class="font-semibold">$6K-20K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>AutoML:</span>
+                                <span class="font-semibold">$3K-12K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>MLOps Pipeline:</span>
+                                <span class="font-semibold">$2K-6K</span>
+                            </div>
+                            <div class="border-t pt-2 mt-2">
+                                <div class="flex justify-between font-bold">
+                                    <span>Total AI/ML:</span>
+                                    <span class="cost-highlight">$23K-73K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Azure AI/ML Costs -->
+                    <div class="platform-azure bg-blue-100 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <i class="fab fa-microsoft text-3xl text-blue-700 mb-2"></i>
+                            <h4 class="font-bold text-lg">Azure AI/ML</h4>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Azure ML Training:</span>
+                                <span class="font-semibold">$10K-30K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Azure ML Inference:</span>
+                                <span class="font-semibold">$5K-18K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Cognitive Services:</span>
+                                <span class="font-semibold">$3K-10K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>MLOps & Monitoring:</span>
+                                <span class="font-semibold">$2K-7K</span>
+                            </div>
+                            <div class="border-t pt-2 mt-2">
+                                <div class="flex justify-between font-bold">
+                                    <span>Total AI/ML:</span>
+                                    <span class="cost-highlight">$20K-65K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Databricks AI/ML Costs -->
+                    <div class="platform-databricks bg-orange-50 rounded-lg p-6">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-sparkles text-3xl text-orange-600 mb-2"></i>
+                            <h4 class="font-bold text-lg">Databricks AI/ML</h4>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>ML Runtime (GPU):</span>
+                                <span class="font-semibold">$18K-45K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Feature Store:</span>
+                                <span class="font-semibold">$5K-15K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>MLflow + MLOps:</span>
+                                <span class="font-semibold">$3K-10K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>AutoML & Model Serving:</span>
+                                <span class="font-semibold">$4K-12K</span>
+                            </div>
+                            <div class="border-t pt-2 mt-2">
+                                <div class="flex justify-between font-bold">
+                                    <span>Total AI/ML:</span>
+                                    <span class="cost-highlight">$30K-82K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Flow -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-sitemap mr-4 text-blue-600"></i>Data Lakehouse Architecture Flow
+            </h2>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="architecture-flow">
+                    <div class="flow-step">
+                        <i class="fas fa-download text-3xl text-green-500 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-2">Ingestion</h4>
+                        <p class="text-sm text-gray-600">Streaming & Batch data ingestion from multiple sources</p>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fas fa-database text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-2">Storage</h4>
+                        <p class="text-sm text-gray-600">Object storage with Parquet/Delta/Iceberg formats</p>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fas fa-cogs text-3xl text-purple-500 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-2">Processing</h4>
+                        <p class="text-sm text-gray-600">Spark-based ETL with serverless or managed clusters</p>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fas fa-chart-line text-3xl text-orange-500 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-2">Serving</h4>
+                        <p class="text-sm text-gray-600">BI, Analytics, ML, and Ad-hoc queries</p>
+                    </div>
+                    <i class="fas fa-arrow-right flow-arrow"></i>
+                    <div class="flow-step">
+                        <i class="fas fa-brain text-3xl text-purple-500 mb-3"></i>
+                        <h4 class="font-bold text-lg mb-2">AI/ML</h4>
+                        <p class="text-sm text-gray-600">Model training, inference, and MLOps</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Strengths -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-trophy mr-4 text-yellow-600"></i>Platform Strengths & Use Cases
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- AWS Strengths -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 platform-aws">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fab fa-aws text-2xl text-orange-600 mr-3"></i>AWS Strengths
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Maximum Flexibility</h4>
+                            <p class="text-sm text-gray-600">Vast ecosystem of services with extensive customization options</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Mature Platform</h4>
+                            <p class="text-sm text-gray-600">Most mature cloud platform with proven enterprise adoption</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Best for</h4>
+                            <p class="text-sm text-gray-600">Organizations wanting maximum control and customization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GCP Strengths -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 platform-gcp">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fab fa-google text-2xl text-blue-600 mr-3"></i>GCP Strengths
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Serverless-First</h4>
+                            <p class="text-sm text-gray-600">Highly integrated, serverless approach with BigQuery at the center</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">AI/ML Focus</h4>
+                            <p class="text-sm text-gray-600">Strong AI and machine learning capabilities with Vertex AI</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Best for</h4>
+                            <p class="text-sm text-gray-600">SQL-heavy analytics and AI/ML workloads</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Azure Strengths -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 platform-azure">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fab fa-microsoft text-2xl text-blue-700 mr-3"></i>Azure Strengths
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Microsoft Integration</h4>
+                            <p class="text-sm text-gray-600">Seamless integration with Microsoft ecosystem and tools</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Unified Analytics</h4>
+                            <p class="text-sm text-gray-600">Azure Synapse provides compelling unified analytics workspace</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Best for</h4>
+                            <p class="text-sm text-gray-600">Enterprises heavily invested in Microsoft ecosystem</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databricks Strengths -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 platform-databricks">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-sparkles text-2xl text-orange-600 mr-3"></i>Databricks Strengths
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Unified Platform</h4>
+                            <p class="text-sm text-gray-600">Best-in-class unified lakehouse platform with open standards</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Performance</h4>
+                            <p class="text-sm text-gray-600">Photon engine delivers superior performance and lower TCO</p>
+                        </div>
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Best for</h4>
+                            <p class="text-sm text-gray-600">Organizations wanting unified, high-performance lakehouse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cost Optimization Strategies -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-chart-line mr-4 text-green-600"></i>Cost Optimization Strategies
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Storage Optimization -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-hdd text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Storage Optimization</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Use compressed Parquet/Delta/Iceberg formats (80% reduction)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Implement automated tiering (S3 Intelligent-Tiering, GCS Autoclass)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Archive old data to cheaper storage tiers</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Compute Optimization -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-microchip text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Compute Optimization</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Embrace serverless options (pay only for execution time)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Use Spot/Preemptible VMs (70-90% cost reduction)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Optimize queries and partition data effectively</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Network Optimization -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-network-wired text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Network Optimization</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Minimize data egress (highest cost component)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Use private endpoints to avoid public internet charges</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Keep processing and analytics within same cloud region</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- AI/ML Optimization -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-brain text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">AI/ML Optimization</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Use spot instances for training (70-90% savings)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Implement model quantization and pruning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Use serverless inference for variable workloads</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Optimize feature store with caching strategies</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-lightbulb mr-4 text-yellow-600"></i>Platform Recommendations
+            </h2>
+            
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Choose AWS if:</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need maximum flexibility and customization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You have existing AWS expertise and investments</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You require extensive third-party integrations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need comprehensive AI/ML services (SageMaker, Bedrock)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Choose GCP if:</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You prefer serverless-first architecture</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You have heavy SQL-based analytics workloads</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need strong AI/ML capabilities (Vertex AI, AutoML)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You want cost-effective AI/ML with integrated MLOps</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Choose Azure if:</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You're heavily invested in Microsoft ecosystem</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need hybrid cloud capabilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You want integrated analytics workspace</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need enterprise AI/ML with Cognitive Services</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Choose Databricks if:</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You want unified lakehouse platform</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need best-in-class performance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You want to avoid vendor lock-in</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need advanced MLOps with MLflow and Feature Store</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                <i class="fas fa-rocket mr-4 text-purple-600"></i>Next Steps
+            </h2>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="text-center mb-8">
+                    <i class="fas fa-clipboard-check text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Implementation Roadmap</h3>
+                    <p class="text-gray-600">Follow these steps to implement your petabyte-scale data platform</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-blue-600">1</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Proof of Concept</h4>
+                        <p class="text-gray-600">Run POC on 1-2 platforms with representative dataset to validate performance and costs</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-green-600">2</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Architecture Design</h4>
+                        <p class="text-gray-600">Design lakehouse architecture with proper data governance and security</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">3</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Production Deployment</h4>
+                        <p class="text-gray-600">Deploy production platform with monitoring, alerting, and cost controls</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 mb-4">
+                This analysis is based on current pricing as of January 2025. AI/ML costs can add 30-50% to total platform costs. 
+                Actual costs may vary based on usage patterns, data types, model complexity, and specific requirements. 
+                Always run a proof-of-concept with your actual data and AI/ML workloads for accurate cost estimation.
+            </p>
+            <p class="text-gray-500 text-sm">
+                © 2025 Tech Genie. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chart.js Configuration -->
+    <script>
+        // Cost Comparison Chart
+        const ctx = document.getElementById('costChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['AWS', 'GCP', 'Azure', 'Databricks'],
+                datasets: [{
+                    label: 'Storage Cost (3 PB)',
+                    data: [62000, 54000, 55000, 55000],
+                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Compute Cost (Low)',
+                    data: [40000, 35000, 40000, 50000],
+                    backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                    borderColor: 'rgba(16, 185, 129, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Compute Cost (High)',
+                    data: [90000, 80000, 85000, 100000],
+                    backgroundColor: 'rgba(239, 68, 68, 0.8)',
+                    borderColor: 'rgba(239, 68, 68, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'AI/ML Cost (Avg)',
+                    data: [61500, 48000, 42500, 56000],
+                    backgroundColor: 'rgba(147, 51, 234, 0.8)',
+                    borderColor: 'rgba(147, 51, 234, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Monthly Cost Breakdown by Platform (USD)',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // AI/ML Cost Impact Chart
+        const aiMlCtx = document.getElementById('aiMlCostChart').getContext('2d');
+        new Chart(aiMlCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Base Platform', 'With AI/ML'],
+                datasets: [{
+                    label: 'AWS',
+                    data: [102000, 163500],
+                    backgroundColor: 'rgba(255, 153, 0, 0.8)',
+                    borderColor: 'rgba(255, 153, 0, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'GCP',
+                    data: [89000, 137000],
+                    backgroundColor: 'rgba(66, 133, 244, 0.8)',
+                    borderColor: 'rgba(66, 133, 244, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Azure',
+                    data: [95000, 137500],
+                    backgroundColor: 'rgba(0, 120, 212, 0.8)',
+                    borderColor: 'rgba(0, 120, 212, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Databricks',
+                    data: [105000, 161000],
+                    backgroundColor: 'rgba(255, 107, 53, 0.8)',
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Total Monthly Cost: Base vs With AI/ML (USD)',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Navigation Script -->
+    <script>
+        // Simple navigation injection
+        document.getElementById('top-navigation').innerHTML = `
+            <nav class="bg-white shadow-lg">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center py-4">
+                        <div class="flex items-center">
+                            <a href="index.html" class="text-2xl font-bold text-gray-800">Tech Genie</a>
+                        </div>
+                        <div class="hidden md:flex space-x-8">
+                            <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                            <a href="data_platform.html" class="text-gray-600 hover:text-blue-600">Data Platforms</a>
+                            <a href="pb_data_usecase.html" class="text-blue-600 font-semibold">Petabyte Scale</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        `;
+    </script>
+</body>
+</html>
