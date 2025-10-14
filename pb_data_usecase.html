@@ -197,7 +197,7 @@
             </p>
             
             <!-- Key Metrics -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-8">
                 <div class="text-center p-6 bg-blue-50 rounded-xl">
                     <i class="fas fa-database text-4xl text-blue-600 mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Volume</h3>
@@ -212,7 +212,7 @@
                 <div class="text-center p-6 bg-purple-50 rounded-xl">
                     <i class="fas fa-cloud text-4xl text-purple-600 mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Platforms</h3>
-                    <p class="text-gray-600">4 Major Platforms</p>
+                    <p class="text-gray-600">5 Major Platforms</p>
                 </div>
                 <div class="text-center p-6 bg-orange-50 rounded-xl">
                     <i class="fas fa-chart-line text-4xl text-orange-600 mb-4"></i>
@@ -223,6 +223,12 @@
                     <i class="fas fa-brain text-4xl text-purple-600 mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">AI/ML Impact</h3>
                     <p class="text-gray-600">+30-50% Cost Increase</p>
+                </div>
+                <div class="text-center p-6 bg-indigo-50 rounded-xl">
+                    <i class="fas fa-key text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Licensing Cost</h3>
+                    <p class="text-gray-600">$48K - $145K</p>
+                    <p class="text-sm text-gray-500 mt-1">25-35% of Total</p>
                 </div>
             </div>
         </section>
@@ -409,9 +415,80 @@
             
             <!-- Cost Chart -->
             <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Total Monthly Cost Comparison (3 PB Dataset)</h3>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Total Monthly Cost Range Comparison (3 PB Dataset)</h3>
+                <p class="text-center text-gray-600 mb-4">Shows minimum (low watermark) and maximum (high watermark) costs including all components</p>
                 <div class="relative h-96">
                     <canvas id="costChart"></canvas>
+                </div>
+                
+                <!-- Cost Breakdown Table -->
+                <div class="mt-8 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-3 text-left font-semibold">Platform</th>
+                                <th class="px-4 py-3 text-right font-semibold">Storage</th>
+                                <th class="px-4 py-3 text-right font-semibold">Compute (Min)</th>
+                                <th class="px-4 py-3 text-right font-semibold">Compute (Max)</th>
+                                <th class="px-4 py-3 text-right font-semibold">AI/ML (Avg)</th>
+                                <th class="px-4 py-3 text-right font-semibold">Software</th>
+                                <th class="px-4 py-3 text-right font-semibold">Total (Min)</th>
+                                <th class="px-4 py-3 text-right font-semibold">Total (Max)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-4 py-3 font-medium text-orange-600">AWS</td>
+                                <td class="px-4 py-3 text-right">$62,000</td>
+                                <td class="px-4 py-3 text-right">$40,000</td>
+                                <td class="px-4 py-3 text-right">$90,000</td>
+                                <td class="px-4 py-3 text-right">$61,500</td>
+                                <td class="px-4 py-3 text-right">$96,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">$198,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">$248,500</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-4 py-3 font-medium text-blue-600">GCP</td>
+                                <td class="px-4 py-3 text-right">$54,000</td>
+                                <td class="px-4 py-3 text-right">$35,000</td>
+                                <td class="px-4 py-3 text-right">$80,000</td>
+                                <td class="px-4 py-3 text-right">$48,000</td>
+                                <td class="px-4 py-3 text-right">$96,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">$187,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">$227,500</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium text-blue-700">Azure</td>
+                                <td class="px-4 py-3 text-right">$55,000</td>
+                                <td class="px-4 py-3 text-right">$40,000</td>
+                                <td class="px-4 py-3 text-right">$85,000</td>
+                                <td class="px-4 py-3 text-right">$42,500</td>
+                                <td class="px-4 py-3 text-right">$96,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">$192,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">$232,500</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-4 py-3 font-medium text-orange-600">Databricks</td>
+                                <td class="px-4 py-3 text-right">$55,000</td>
+                                <td class="px-4 py-3 text-right">$50,000</td>
+                                <td class="px-4 py-3 text-right">$100,000</td>
+                                <td class="px-4 py-3 text-right">$56,000</td>
+                                <td class="px-4 py-3 text-right">$96,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">$206,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">$256,500</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium text-blue-500">Snowflake</td>
+                                <td class="px-4 py-3 text-right">$58,000</td>
+                                <td class="px-4 py-3 text-right">$45,000</td>
+                                <td class="px-4 py-3 text-right">$95,000</td>
+                                <td class="px-4 py-3 text-right">$51,500</td>
+                                <td class="px-4 py-3 text-right">$96,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">$201,500</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">$251,500</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -1068,7 +1145,7 @@
                 <i class="fas fa-trophy mr-4 text-yellow-600"></i>Platform Strengths & Use Cases
             </h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 <!-- AWS Strengths -->
                 <div class="bg-white rounded-2xl shadow-xl p-8 platform-aws">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
@@ -1149,6 +1226,27 @@
                         <div class="bg-orange-50 rounded-lg p-4">
                             <h4 class="font-semibold text-lg mb-2">Best for</h4>
                             <p class="text-sm text-gray-600">Organizations wanting unified, high-performance lakehouse</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snowflake Strengths -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 platform-snowflake">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-snowflake text-2xl text-blue-500 mr-3"></i>Snowflake Strengths
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Cloud-Native Architecture</h4>
+                            <p class="text-sm text-gray-600">Built from the ground up for cloud with elastic scaling</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Data Sharing</h4>
+                            <p class="text-sm text-gray-600">Revolutionary data sharing and marketplace capabilities</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-lg mb-2">Best for</h4>
+                            <p class="text-sm text-gray-600">Organizations needing data sharing and SQL-first analytics</p>
                         </div>
                     </div>
                 </div>
@@ -1263,7 +1361,7 @@
             </h2>
             
             <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Choose AWS if:</h3>
                         <ul class="space-y-3 text-gray-600">
@@ -1348,6 +1446,27 @@
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Choose Snowflake if:</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need cloud-native data warehouse</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You want data sharing and marketplace capabilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You prefer SQL-first analytics approach</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-blue-600 mr-2 mt-1"></i>
+                                <span>You need elastic scaling with pay-per-use model</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1408,42 +1527,37 @@
 
     <!-- Chart.js Configuration -->
     <script>
-        // Cost Comparison Chart
+        // Cost Comparison Chart - Range Bar Chart with Min/Max
         const ctx = document.getElementById('costChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['AWS', 'GCP', 'Azure', 'Databricks', 'Snowflake'],
                 datasets: [{
-                    label: 'Storage Cost (3 PB)',
-                    data: [62000, 54000, 55000, 55000, 58000],
-                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
-                    borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 2
-                }, {
-                    label: 'Compute Cost (Low)',
-                    data: [40000, 35000, 40000, 50000, 45000],
+                    label: 'Minimum Cost (Low Watermark)',
+                    data: [198500, 187500, 192500, 206500, 201500],
                     backgroundColor: 'rgba(16, 185, 129, 0.8)',
                     borderColor: 'rgba(16, 185, 129, 1)',
-                    borderWidth: 2
+                    borderWidth: 2,
+                    barThickness: 25
                 }, {
-                    label: 'Compute Cost (High)',
-                    data: [90000, 80000, 85000, 100000, 95000],
+                    label: 'Maximum Cost (High Watermark)',
+                    data: [248500, 227500, 232500, 256500, 251500],
                     backgroundColor: 'rgba(239, 68, 68, 0.8)',
                     borderColor: 'rgba(239, 68, 68, 1)',
-                    borderWidth: 2
+                    borderWidth: 2,
+                    barThickness: 25
                 }, {
-                    label: 'AI/ML Cost (Avg)',
-                    data: [61500, 48000, 42500, 56000, 51500],
-                    backgroundColor: 'rgba(147, 51, 234, 0.8)',
-                    borderColor: 'rgba(147, 51, 234, 1)',
-                    borderWidth: 2
-                }, {
-                    label: 'Software Licensing (Avg)',
-                    data: [96500, 96500, 96500, 96500, 96500],
+                    label: 'Average Cost',
+                    data: [223500, 207500, 212500, 231500, 226500],
                     backgroundColor: 'rgba(99, 102, 241, 0.8)',
                     borderColor: 'rgba(99, 102, 241, 1)',
-                    borderWidth: 2
+                    borderWidth: 2,
+                    barThickness: 15,
+                    type: 'line',
+                    fill: false,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
                 }]
             },
             options: {
@@ -1452,7 +1566,7 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Monthly Cost Breakdown by Platform (USD)',
+                        text: 'Total Monthly Cost Range by Platform (USD) - Min/Max Watermarks',
                         font: {
                             size: 16,
                             weight: 'bold'
