@@ -7,8 +7,8 @@
     <!-- Primary Meta Tags -->
     <title>Data Platform Architecture Comparison 2025 | Databricks vs Snowflake vs Palantir vs Alteryx vs Cloudera vs Open Source</title>
     <meta name="title" content="Data Platform Architecture Comparison 2025 | Databricks vs Snowflake vs Palantir vs Alteryx vs Cloudera vs Open Source">
-    <meta name="description" content="Comprehensive data platform comparison: Databricks, Snowflake, Palantir, Alteryx, Cloudera, and open source solutions. Reference architectures, best practices, data governance, analytics, real-time processing, and AI/ML workflows.">
-    <meta name="keywords" content="data platform, data architecture, Databricks, Snowflake, Palantir, Alteryx, Cloudera, dbt, data mesh, data governance, data modeling, analytics, real-time processing, AI/ML, data quality, monitoring">
+    <meta name="description" content="Comprehensive data platform comparison: Databricks, Snowflake, Sigma, ClickHouse, Palantir, Alteryx, Cloudera, and open source solutions. Reference architectures, best practices, data governance, analytics, real-time processing, and AI/ML workflows.">
+    <meta name="keywords" content="data platform, data architecture, Databricks, Snowflake, Sigma, ClickHouse, Palantir, Alteryx, Cloudera, dbt, data mesh, data governance, data modeling, analytics, real-time processing, AI/ML, LLM, OpenAI, Anthropic, Vertex AI, Bedrock, Azure OpenAI, data quality, monitoring">
     <meta name="author" content="Ernest Chen">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
@@ -41,7 +41,7 @@
     <meta name="ai-complexity" content="intermediate-to-advanced">
     <meta name="ai-updated" content="2025-01-16">
     <meta name="ai-sections" content="reference-architectures, data-governance, analytics, real-time, ai-ml">
-    <meta name="ai-providers" content="databricks, snowflake, open-source">
+    <meta name="ai-providers" content="databricks, snowflake, sigma, clickhouse, open-source">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ernest-chen.github.io/genie/data_platform.html">
@@ -111,6 +111,21 @@
             },
             {
                 "@type": "Thing",
+                "name": "Sigma",
+                "description": "Cloud-native BI and analytics platform with spreadsheet-like interface for self-service analytics"
+            },
+            {
+                "@type": "Thing",
+                "name": "ClickHouse",
+                "description": "Open-source columnar OLAP database for real-time analytics and high-performance queries"
+            },
+            {
+                "@type": "Thing",
+                "name": "LLM Platforms",
+                "description": "Large language model APIs and providers: OpenAI, Anthropic, Google Vertex AI, AWS Bedrock, Azure OpenAI"
+            },
+            {
+                "@type": "Thing",
                 "name": "Data Architecture",
                 "description": "Design and structure of data systems"
             }
@@ -168,7 +183,7 @@
                 <i class="fas fa-chart-line mr-4 text-blue-600"></i>Data Platform Architecture Comparison
             </h2>
             <p class="text-xl text-gray-600 text-center leading-relaxed mb-8">
-                Comprehensive comparison of modern data platform architectures, covering commercial solutions (Databricks, Snowflake, Palantir, Alteryx, Cloudera, etc) 
+                Comprehensive comparison of modern data platform architectures, covering commercial solutions (Databricks, Snowflake, Sigma, Palantir, Alteryx, Cloudera, etc) and open-source analytics (ClickHouse, Spark, Trino, etc) 
                 and open-source alternatives. Explore reference implementations, best practices, and implementation strategies for 
                 building scalable, governed, and AI-ready data platforms.
             </p>
@@ -176,12 +191,12 @@
                 <div class="text-center p-6 bg-blue-50 rounded-xl">
                     <i class="fas fa-building text-4xl text-blue-600 mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Commercial Solutions</h3>
-                    <p class="text-gray-600">Databricks, Snowflake, Starburst, Palantir, Alteryx, Cloudera, Confluence, and cloud provider platforms</p>
+                    <p class="text-gray-600">Databricks, Snowflake, Sigma, Starburst, Palantir, Alteryx, Cloudera, Confluence, and cloud provider platforms</p>
                 </div>
                 <div class="text-center p-6 bg-green-50 rounded-xl">
                     <i class="fas fa-code-branch text-4xl text-green-600 mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Open Source</h3>
-                    <p class="text-gray-600">Apache Spark, Kafka, Airflow, dbt, Apache Iceberg, Delta Lake, Apache Hudi, and more</p>
+                    <p class="text-gray-600">Apache Spark, Kafka, Airflow, dbt, ClickHouse, Apache Iceberg, Delta Lake, Apache Hudi, and more</p>
                 </div>
                 <div class="text-center p-6 bg-purple-50 rounded-xl">
                     <i class="fas fa-cogs text-4xl text-purple-600 mb-4"></i>
@@ -323,6 +338,10 @@
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">Columnar Storage</h5>
                                 <p class="text-xs text-gray-600">Column-oriented storage for analytics</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">ClickHouse</h5>
+                                <p class="text-xs text-gray-600">Open-source columnar OLAP for real-time analytics and high-throughput queries</p>
                             </div>
                         </div>
                     </div>
@@ -524,6 +543,7 @@
                             <ul class="text-xs text-gray-600 space-y-1">
                                 <li>• Snowflake, BigQuery, Redshift</li>
                                 <li>• Databricks, Spark</li>
+                                <li>• ClickHouse (via dbt-clickhouse)</li>
                                 <li>• PostgreSQL, SQL Server</li>
                                 <li>• Trino, Starburst</li>
                                 <li>• Palantir Foundry</li>
@@ -611,6 +631,10 @@
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">BI Platform</h5>
                                 <p class="text-xs text-gray-600">Business intelligence platform</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">Sigma</h5>
+                                <p class="text-xs text-gray-600">Cloud-native BI with spreadsheet-like interface; connects to Snowflake, BigQuery, Redshift, Databricks</p>
                             </div>
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">Data Visualization</h5>
@@ -709,6 +733,10 @@
                             <div class="bg-white rounded-lg p-3">
                                 <h5 class="font-semibold text-sm">Vector Search</h5>
                                 <p class="text-xs text-gray-600">Vector database search for semantic similarity and AI-powered retrieval</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3">
+                                <h5 class="font-semibold text-sm">LLM Platforms</h5>
+                                <p class="text-xs text-gray-600">OpenAI, Anthropic, Google Vertex AI, AWS Bedrock, Azure OpenAI, open-source (Llama, Mistral)</p>
                             </div>
                         </div>
                     </div>
@@ -1323,6 +1351,56 @@
                         </div>
                     </div>
 
+                    <!-- Sigma -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-table-cells text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Sigma Computing</h3>
+                            <p class="text-gray-600">Cloud-native BI and analytics with spreadsheet-like self-service</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-sm text-gray-800 mb-2">Architecture</h4>
+                                <p class="text-sm text-gray-600">SaaS BI layer on top of cloud data warehouses; no data copy, live queries</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-sm text-gray-800 mb-2">Key Features</h4>
+                                <p class="text-sm text-gray-600">Workbooks, dashboards, embedded analytics; connects to Snowflake, BigQuery, Redshift, Databricks</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-sm text-gray-800 mb-2">Use Cases</h4>
+                                <p class="text-sm text-gray-600">Self-service analytics, operational reporting, embedded BI, data apps</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ClickHouse -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-bolt text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">ClickHouse</h3>
+                            <p class="text-gray-600">Open-source columnar OLAP database for real-time analytics</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-sm text-gray-800 mb-2">Architecture</h4>
+                                <p class="text-sm text-gray-600">Columnar storage, vectorized execution, shared-nothing distributed queries</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-sm text-gray-800 mb-2">Key Features</h4>
+                                <p class="text-sm text-gray-600">SQL, real-time ingestion, materialized views, ClickHouse Cloud (managed)</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-sm text-gray-800 mb-2">Use Cases</h4>
+                                <p class="text-sm text-gray-600">Log analytics, metrics, product analytics, real-time dashboards, ad-tech</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Open Source -->
                     <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
                         <div class="text-center mb-6">
@@ -1335,7 +1413,7 @@
                         <div class="space-y-4">
                             <div class="bg-gray-50 rounded-lg p-4">
                                 <h4 class="font-semibold text-sm text-gray-800 mb-2">Components</h4>
-                                <p class="text-sm text-gray-600">Kafka, Spark, Flink, Beam, Trino, TensorFlow, Airflow, Iceberg, Hudi</p>
+                                <p class="text-sm text-gray-600">Kafka, Spark, Flink, Beam, Trino, ClickHouse, TensorFlow, Airflow, Iceberg, Hudi</p>
                             </div>
                             <div class="bg-gray-50 rounded-lg p-4">
                                 <h4 class="font-semibold text-sm text-gray-800 mb-2">Vector Databases</h4>
@@ -3242,6 +3320,100 @@
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
                 <i class="fas fa-brain mr-3 text-purple-600"></i>AI/ML & Advanced Analytics
             </h2>
+
+            <!-- LLM Platforms by Provider -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-robot mr-3 text-indigo-600"></i>LLM Platforms by Provider
+                </h3>
+                <p class="text-gray-600 mb-8 max-w-3xl">Foundation models and LLM APIs from major providers for chat, completion, embeddings, and agentic workflows. Compare managed APIs and self-hosted options.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- OpenAI -->
+                    <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comment-dots text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">OpenAI</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">GPT-4, GPT-4o, o1; ChatGPT; API for chat, completion, embeddings, and function calling.</p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <p><span class="font-semibold text-gray-700">Models:</span> GPT-4o, o1, embedding models</p>
+                            <p><span class="font-semibold text-gray-700">Use cases:</span> Apps, agents, RAG, assistants</p>
+                        </div>
+                    </div>
+                    <!-- Anthropic -->
+                    <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-brain text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">Anthropic</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Claude family; API and Console for long-context, reasoning, and tool use.</p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <p><span class="font-semibold text-gray-700">Models:</span> Claude 3.5, Claude 3 Opus/Sonnet/Haiku</p>
+                            <p><span class="font-semibold text-gray-700">Use cases:</span> Long docs, coding, agents, safety-focused apps</p>
+                        </div>
+                    </div>
+                    <!-- Google (Vertex AI / Gemini) -->
+                    <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-google text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">Google (Vertex AI / Gemini)</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Gemini on Vertex AI; integrated with BigQuery, Dataform, and GCP data services.</p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <p><span class="font-semibold text-gray-700">Models:</span> Gemini Pro, Gemini Ultra, embeddings</p>
+                            <p><span class="font-semibold text-gray-700">Use cases:</span> Data pipelines, BI, RAG, MCP, enterprise</p>
+                        </div>
+                    </div>
+                    <!-- AWS Bedrock -->
+                    <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-aws text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">AWS Bedrock</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Managed LLM API; multiple third-party and Amazon models in one service.</p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <p><span class="font-semibold text-gray-700">Models:</span> Claude, Llama, Titan, Mistral, Cohere, etc.</p>
+                            <p><span class="font-semibold text-gray-700">Use cases:</span> Enterprise AWS workloads, agents, RAG, Knowledge Bases</p>
+                        </div>
+                    </div>
+                    <!-- Azure OpenAI -->
+                    <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-microsoft text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">Azure OpenAI</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">OpenAI models on Azure with enterprise compliance, private networking, and RBAC.</p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <p><span class="font-semibold text-gray-700">Models:</span> GPT-4, GPT-3.5, embeddings, DALL·E</p>
+                            <p><span class="font-semibold text-gray-700">Use cases:</span> Enterprise, regulated industries, Azure-native apps</p>
+                        </div>
+                    </div>
+                    <!-- Open source / self-hosted -->
+                    <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-code-branch text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-800">Open Source / Self-Hosted</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Llama, Mistral, Qwen, etc.; run on your infra or via managed endpoints.</p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <p><span class="font-semibold text-gray-700">Models:</span> Llama 3, Mistral, Qwen, Phi, Gemma</p>
+                            <p><span class="font-semibold text-gray-700">Use cases:</span> Data sovereignty, cost control, customization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- A/B Testing & Experimentation -->
             <div class="mb-12">
