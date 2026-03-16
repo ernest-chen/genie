@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demand Side Platform Comparison - Tech Genie</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Demand Side Platform Comparison: DV360, Trade Desk, Amazon, Roku, Samsung Ads, MNTN, StackAdapt">
+    <meta name="description" content="Side-by-side comparison of major DSPs including DV360, The Trade Desk, Amazon DSP, Roku OneView, Samsung Ads, MNTN, and StackAdapt across methodology, audience, capabilities, tech stack, revenue model, and more.">
+    <meta name="keywords" content="DSP comparison, DV360, Trade Desk, Amazon DSP, Roku OneView, Samsung Ads, MNTN, StackAdapt, programmatic advertising, CTV DSP">
+    <meta name="author" content="Ernest Chen">
+    <meta name="robots" content="index, follow">
+
+    <!-- AEO Meta Tags -->
+    <meta name="ai:content-type" content="technical-overview">
+    <meta name="ai:topic" content="demand side platforms, programmatic advertising, DSP comparison, ad buying technology">
+    <meta name="ai:audience" content="marketers, advertisers, agencies, media buyers, AdTech professionals">
+    <meta name="ai:complexity" content="intermediate-to-advanced">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ernest-chen.github.io/genie/dsp.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/29280406?s=32&v=4">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-[#F0F4F8] text-[#0A2540] font-sans">
+    <!-- Navigation -->
+    <div id="top-navigation"></div>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-[#3B82F6] via-[#6366F1] to-[#EC4899] text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center">
+                    <a href="adtech.html" class="mr-4 inline-flex items-center text-sm font-semibold text-white/90 hover:text-white transition">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Back to AdTech Overview
+                    </a>
+                </div>
+                <a href="https://github.com/ernest-chen/genie" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform duration-300">
+                    <img src="https://avatars.githubusercontent.com/u/29280406?s=48&v=4" alt="Tech Genie Logo" class="w-12 h-12 rounded-full border-2 border-white shadow-lg">
+                </a>
+            </div>
+            <div class="text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-3">
+                    <i class="fas fa-table mr-3"></i>Demand Side Platform Comparison
+                </h1>
+                <p class="text-base md:text-lg text-white/90 max-w-3xl mx-auto">
+                    Side-by-side view of leading DSPs across methodology, audiences, capabilities, technology stack, revenue model, AI use cases, and compliance posture.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Legend / Dimensions -->
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-10">
+            <h2 class="text-2xl font-bold mb-4 flex items-center justify-between">
+                <span>
+                    <i class="fas fa-layer-group mr-2 text-[#3B82F6]"></i>Comparison Dimensions
+                </span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-[#425466]">
+                <div>
+                    <p><span class="font-semibold">Methodology</span>: How the platform approaches bidding, optimization, and measurement.</p>
+                    <p><span class="font-semibold">Audience</span>: Core audience strengths (e.g., search, CTV, B2B, commerce).</p>
+                    <p><span class="font-semibold">Capability</span>: Channels, formats, and targeting depth.</p>
+                </div>
+                <div>
+                    <p><span class="font-semibold">Technical Overview</span>: High‑level architecture and ecosystem integration.</p>
+                    <p><span class="font-semibold">Tech Stack</span>: Data, identity, and partner integrations at a conceptual level.</p>
+                    <p><span class="font-semibold">Revenue Model</span>: How the DSP makes money and typical fee structure.</p>
+                </div>
+                <div>
+                    <p><span class="font-semibold">Strategic Outlook</span>: Target customers, revenue trends, and multi‑year focus.</p>
+                    <p><span class="font-semibold">Risk Profile</span>: Key challenges, regulatory and competitive pressure.</p>
+                    <p><span class="font-semibold">AI & Compliance</span>: AI usage, privacy, and compliance positioning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="bg-white rounded-xl shadow-lg p-4 md:p-6 overflow-x-auto">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <i class="fas fa-chart-bar mr-2 text-[#10B981]"></i>
+                DSP Comparison Matrix
+            </h2>
+            <table class="min-w-full text-xs md:text-sm border-separate border-spacing-y-2">
+                <thead>
+                    <tr>
+                        <th class="bg-[#F9FAFB] sticky left-0 z-10 px-3 py-2 text-left text-xs font-semibold text-[#6B7280] uppercase tracking-wider rounded-l-lg border border-gray-200">
+                            Dimension
+                        </th>
+                        <th class="bg-[#EFF6FF] px-3 py-2 text-left text-xs font-semibold text-[#1D4ED8] uppercase tracking-wider border border-gray-200">
+                            Google DV360
+                        </th>
+                        <th class="bg-[#F0FDFA] px-3 py-2 text-left text-xs font-semibold text-[#047857] uppercase tracking-wider border border-gray-200">
+                            The Trade Desk
+                        </th>
+                        <th class="bg-[#FEF9C3] px-3 py-2 text-left text-xs font-semibold text-[#92400E] uppercase tracking-wider border border-gray-200">
+                            Amazon DSP
+                        </th>
+                        <th class="bg-[#EEF2FF] px-3 py-2 text-left text-xs font-semibold text-[#4338CA] uppercase tracking-wider border border-gray-200">
+                            Roku OneView
+                        </th>
+                        <th class="bg-[#ECFEFF] px-3 py-2 text-left text-xs font-semibold text-[#0369A1] uppercase tracking-wider border border-gray-200">
+                            Samsung Ads
+                        </th>
+                        <th class="bg-[#FFF7ED] px-3 py-2 text-left text-xs font-semibold text-[#9A3412] uppercase tracking-wider border border-gray-200">
+                            MNTN
+                        </th>
+                        <th class="bg-[#FDF2FF] px-3 py-2 text-left text-xs font-semibold text-[#86198F] uppercase tracking-wider border border-gray-200 rounded-r-lg">
+                            StackAdapt
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="align-top">
+                    <!-- Methodology -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200 rounded-l-lg">
+                            Methodology
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Google‑native, goal‑based bidding tightly integrated with Google signals; strong use of conversion modeling and automated campaign types for full‑funnel performance and reach.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Independent, data‑driven, log‑level optimization; emphasis on transparent bidding algorithms, UID‑based identity, and custom bidding / curated inventory strategies.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Commerce‑driven methodology using retail media, purchase history, and on‑site behavior to optimize for sales, ROAS, and incrementality across Amazon and third‑party inventory.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            TV‑first approach using ACR data, reach/frequency optimization, and household‑level planning across Roku OS and partner inventory.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Screen‑level optimization based on Samsung Smart TV ACR data; focus on reach, incrementality, and cross‑publisher CTV performance.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Performance‑CTV methodology with outcome‑based buying and always‑on optimization toward site visits, conversions, and ROAS for mid‑market brands.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200 rounded-r-lg">
+                            Multi‑channel performance methodology with emphasis on data‑driven prospecting, retargeting, and experimentation across display, video, native, and CTV.
+                        </td>
+                    </tr>
+
+                    <!-- Core Audience Strength -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Core Audience Strength
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Logged‑in Google users, search intent, YouTube viewers, and Chrome ecosystem audiences for broad, global reach.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Omnichannel buyers, agencies, and enterprise advertisers needing cross‑publisher audience reach with independent control.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Shoppers and Prime members; strong in retail, CPG, marketplace sellers, and brands focused on lower‑funnel sales.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Roku device households and CTV‑heavy audiences; premium streaming viewers across Roku Channel and partner apps.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Samsung Smart TV households globally; strong reach in CTV‑first homes and premium streaming audiences.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Growth‑oriented DTC and mid‑market brands seeking measurable CTV performance vs. pure upper‑funnel GRPs.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Full‑funnel performance advertisers, B2B and mid‑market brands looking for flexible targeting across open web and CTV.
+                        </td>
+                    </tr>
+
+                    <!-- Channels & Capabilities -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Channels & Capabilities
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Display, video, YouTube, CTV, audio, native, and some DOOH; deep integration with Google Ads, GA4, and GMP stack.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Display, video, CTV/OTT, audio, native, DOOH; strong curated marketplaces, UID‑based cross‑device, and advanced forecasting.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            On‑Amazon inventory, Twitch, Fire TV, third‑party CTV, display, and video; strong audience/ASIN‑level reporting and attribution.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            CTV and video‑first with some display extensions; native tools for reach/frequency and incremental reach vs. linear.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            CTV, video, and some cross‑device extensions; strong household‑level targeting and incremental reach measurement.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            CTV‑first with creative, landing page, and performance tooling built around TV‑to‑web behavior.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Display, video, native, CTV, audio; strong in multi‑channel performance, prospecting, and retargeting scenarios.
+                        </td>
+                    </tr>
+
+                    <!-- Technical Overview -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Technical Overview
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Part of Google Marketing Platform; deeply integrated with Google Ads, GA4, and GMP data pipes; uses Google identity and privacy sandbox primitives.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Independent cloud‑native stack; UID‑based identity graph, log‑level data export, and rich APIs for custom bidding, reporting, and data science.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Built on Amazon retail and ad infrastructure; close coupling with Amazon Marketing Cloud and clean room‑style measurement.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Roku OS‑native stack with ACR data, device graph, and integrations to major SSPs and measurement partners for CTV campaigns.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Samsung TV OS data and device graph power planning, targeting, and measurement; connects to SSPs and measurement/attribution partners.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            SaaS‑like platform sitting on top of CTV supply partners; optimized for ease of onboarding, creative, and performance reporting.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Cloud‑native performance DSP with flexible integrations to DMPs, CDPs, and analytics tools via APIs and partner marketplace.
+                        </td>
+                    </tr>
+
+                    <!-- Tech Stack & Integrations -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Tech Stack & Integrations
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Native links into Google Ads, GA4, CM360, SA360; strong support for third‑party measurement and brand safety vendors via tags and APIs.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Broad integrations with SSPs, clean rooms, DMPs, CDPs, MMPs, and measurement partners; rich ecosystem around UID2 and OpenPath.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Tight integration with Amazon Advertising APIs, AMC, seller/retail media tools, and measurement partners focusing on sales attribution.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Integrated with major SSPs, CTV publishers, and third‑party verification; leverages Roku’s data graph for identity and frequency control.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Integrates Samsung ACR, device data, and partner SSPs; supports third‑party verification and measurement via major AdTech vendors.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Integrations with analytics, web tracking, and CRM; leans on partner SSPs and measurement vendors for inventory and verification.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Broad SSP, data, and measurement integrations; strong marketplace of vertical and contextual data partners.
+                        </td>
+                    </tr>
+
+                    <!-- Revenue Model & Target Customers -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Revenue & Target Customers
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Percent‑of‑media fees; primarily enterprise advertisers and large agencies, often as part of a broader Google Marketing Platform contract.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Percent‑of‑media and platform fees; global agencies, holding companies, and sophisticated in‑house teams needing independence from walled gardens.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Media margin and platform fees; brands with meaningful Amazon sales or marketplace presence, plus agencies running retail media budgets.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Media and platform fees tied to Roku and partner inventory; TV‑centric advertisers, studios, and large brands focused on CTV.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Media and data fees; CTV‑heavy advertisers, OEM partners, and agencies buying premium CTV at scale.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            SaaS‑like contracts plus media; mid‑market and DTC brands seeking outcome‑based CTV without heavy AdOps overhead.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Percent‑of‑media and platform fees; performance‑oriented brands and agencies across many verticals, including B2B.
+                        </td>
+                    </tr>
+
+                    <!-- Revenue Trends & Multi‑Year Focus -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Revenue Trends & Multi‑Year Plan
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Stable to growing, driven by CTV, YouTube, and large‑scale programmatic budgets; roadmap emphasizes Privacy Sandbox, AI automation, and tighter GMP integration.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Strong growth as the leading independent DSP; multi‑year strategy around identity (UID2), clean rooms, and omnichannel CTV leadership.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Rapid retail‑media and CTV growth; roadmap centers on deeper commerce measurement, AMC expansion, and off‑Amazon media influence.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            CTV ad growth aligned with Roku device penetration; focus on full‑funnel TV, shoppable formats, and tighter measurement.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Growing with the shift to CTV and OEM‑owned media; focus on expanding inventory, data products, and global reach.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Benefiting from demand for performance‑CTV; plan centers on making TV behave like a performance channel for mid‑market advertisers.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Solid growth in performance‑oriented budgets; emphasis on experimentation tooling, vertical solutions, and CTV expansion.
+                        </td>
+                    </tr>
+
+                    <!-- Acquisitions & Ecosystem Moves (High‑Level) -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Ecosystem Moves & Acquisitions (Conceptual)
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Integrated acquisitions across analytics, measurement, and cloud tooling over the years; strategy is tighter bundling of GMP and cloud capabilities.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Pursues acquisitions and partnerships around data, CTV, and identity; ecosystem‑centric approach (e.g., UID‑based identity collaborations).
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Retail‑media and streaming‑focused expansions, plus ongoing investment in measurement and clean room‑style solutions.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Content and tech acquisitions around streaming channels, ad‑supported content, and TV OS capabilities.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Focus on data, content, and OEM ecosystem partnerships versus large stand‑alone ad acquisitions.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Partnerships and selective acquisitions around creative automation, measurement, and CTV inventory sources.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Builds via integrations and targeted acquisitions in data, contextual intelligence, and vertical solutions.
+                        </td>
+                    </tr>
+
+                    <!-- Strengths -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Key Strengths
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Massive reach, strong brand safety, deep integration with Google stack, and excellent measurement for Google‑centric advertisers.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Independence, transparency, omnichannel reach, and sophisticated tools for advanced buyers and data‑science teams.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Direct link to commerce and sales; closed‑loop attribution and retail‑media capabilities that tie media to purchases.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Device‑level TV data, strong CTV reach, and household‑level planning/measurement for TV‑centric campaigns.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            OEM‑level TV data and global footprint; strong for incremental reach and CTV audience insights.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Easy onboarding, performance‑centric CTV positioning, and creative/performance tooling suited for resource‑constrained teams.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Flexible performance focus, good usability, and strong support for multi‑channel experimentation, including CTV.
+                        </td>
+                    </tr>
+
+                    <!-- Challenges -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Key Challenges
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Perceived as part of a walled garden; limited transparency into some Google‑owned inventory and reliance on Google identity primitives.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Complexity for smaller teams; dependence on SSPs for some inventory access and ongoing identity/regulatory uncertainty.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Most valuable for brands with significant Amazon sales; can be seen as another walled garden with limited off‑platform transparency.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            TV‑weighted inventory mix; less breadth in non‑TV channels compared with full omnichannel DSPs.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            OEM‑centric inventory view; competitive landscape includes other CTV OEMs and independent CTV‑first DSPs.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Narrower channel focus (CTV) vs. omnichannel DSPs; mid‑market orientation may limit appeal for very large global brands.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Competes against larger DSPs; differentiation depends on execution quality in performance and vertical solutions.
+                        </td>
+                    </tr>
+
+                    <!-- Partners -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            Partner Ecosystem (High‑Level)
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Broad ecosystem of publishers, SSPs, measurement, and brand‑safety vendors certified within Google Marketing Platform.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Extensive network of SSPs, publishers, data providers, clean rooms, and measurement vendors across web, CTV, and audio.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Retail, CPG, and marketplace partners; measurement and analytics vendors focused on commerce outcomes.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            CTV publishers, measurement providers, and data partners built around TV and streaming ecosystems.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            OEM, CTV publisher, and data/measurement partners focused on screen‑based reach and incrementality.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Creative, analytics, and CTV inventory partners that simplify activation and measurement for performance‑CTV buyers.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            SSPs, data providers, contextual vendors, and analytics tools supporting performance and brand campaigns.
+                        </td>
+                    </tr>
+
+                    <!-- AI Use Cases -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200">
+                            AI Use Cases
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Goal‑based bidding, conversion modeling, creative optimization, and forecasting powered by Google AI across GMP.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Custom bidding models, advanced forecasting, identity modeling, and cross‑channel budget optimization leveraging log‑level data.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Predictive audiences, product‑level recommendations, and incrementality modeling rooted in commerce and purchase behavior.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Reach/frequency optimization, household‑level planning, and CTV attribution models using device and ACR data.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Household‑level audience modeling, frequency management, and CTV performance optimization based on large‑scale TV datasets.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Automated CTV optimization toward site visits and conversions; creative testing and performance recommendations.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Lookalike modeling, predictive bidding, dynamic creative optimization, and experimentation insights across channels.
+                        </td>
+                    </tr>
+
+                    <!-- Compliance & Privacy -->
+                    <tr>
+                        <td class="sticky left-0 z-10 bg-white px-3 py-3 text-xs font-semibold text-[#111827] border border-gray-200 rounded-bl-lg">
+                            Compliance & Privacy Posture
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Strong compliance posture aligned with Google’s global privacy frameworks, Privacy Sandbox, and support for IAB TCF/US state signals.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Invests heavily in privacy‑first identity (UID2), clean rooms, and support for global privacy frameworks and IAB standards.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Operates under stringent first‑party retail and shopper privacy controls; strong focus on compliant use of commerce data and clean rooms.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            TV‑centric privacy practices with support for consent, IAB frameworks, and platform‑specific privacy controls.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            OEM‑level data governance with strong controls around ACR and household data usage and support for regional privacy regimes.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200">
+                            Focus on compliant use of CTV and web data, leveraging partner standards and IAB frameworks for consent and transparency.
+                        </td>
+                        <td class="px-3 py-3 border border-gray-200 rounded-br-lg">
+                            Adheres to major privacy regulations and industry standards, with emphasis on contextual and first‑party‑data‑friendly strategies.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="mt-4 text-xs text-[#6B7280]">
+                All descriptions are directional and high‑level, intended for comparative education rather than definitive financial or legal guidance.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-navigation"></div>
+
+    <!-- Navigation Script -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>
+
